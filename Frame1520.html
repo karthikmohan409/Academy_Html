@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>New Invoice Creation - Efficient Billing System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Generate new invoices effortlessly with our user-friendly billing system. Invoice ID 1002, dated Jan 10, 2024, is ready to be emailed or scheduled for later."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- invoice creation section -->
+    <div class="w-full">
+      <div class="rounded-lg border border-solid border-black-900_1c bg-white-A700 py-[26px] sm:py-5">
+        <div class="mb-[5px] flex flex-col items-center gap-[42px]">
+          <!-- invoice header section -->
+          <header class="flex w-[94%] items-center justify-between gap-5 md:w-full md:p-5">
+            <h3 class="size-6xl heading ui !text-blue_gray-900_01">New invoice</h3>
+            <a href="#">
+              <button class="circle fill size-xl black_900_1c_01 button ui w-[36px] !rounded-[18px]">
+                <img src="public/images/img_close_black_900_02.svg" />
+              </button>
+            </a>
+          </header>
+          <div class="flex flex-col items-center self-stretch">
+            <!-- user selection section -->
+            <div class="container-xl flex flex-col items-start gap-1.5 md:p-5">
+              <p class="size-md text ui !font-medium !text-black-900_02">User</p>
+              <select
+                class="round fill size-lg white_a700 selectbox ui gap-px self-stretch !rounded-[7px] border border-solid border-gray-900_99 bg-[url(../public/images/img_arrowdown_gray_900_03_1.svg)] bg-[length:13px] bg-no-repeat !text-gray-900_99 sm:px-5"
+                name="Search Dropdown"
+              >
+                <option value="option1">Option1</option>
+                <option value="option2">Option2</option>
+                <option value="option3">Option3</option>
+              </select>
+            </div>
+
+            <!-- invoice id section -->
+            <div class="container-xl mt-[27px] flex flex-col items-start gap-[7px] md:p-5">
+              <p class="size-md text ui !font-medium !text-black-900_02">Invoice ID</p>
+              <label
+                class="round fill size-sm white_a700 input ui self-stretch !rounded-[7px] border border-solid border-gray-900_99 !text-gray-900_99 sm:px-5"
+              >
+                <input name="Zip Code" placeholder="1002" type="text" />
+              </label>
+            </div>
+
+            <!-- invoice date section -->
+            <div class="container-xl mt-[27px] flex items-center gap-6 md:flex-col md:p-5">
+              <div class="flex w-full flex-col items-start gap-[7px]">
+                <p class="size-md text ui !font-medium !text-black-900_02">Invoice date</p>
+                <div
+                  class="relative flex gap-[35px] self-stretch rounded-[7px] border border-solid border-gray-900_99 bg-white-A700 py-[11px] pl-[27px] pr-[17px] text-base text-gray-900_99 sm:pl-5"
+                >
+                  <input name="Invoice Date Picker" type="date" placeholder="Jan 10, 2024" />
+                </div>
+              </div>
+              <div class="flex w-full flex-col items-start gap-1.5">
+                <p class="size-md text ui !font-medium !text-black-900_02">Due date</p>
+                <div
+                  class="relative flex gap-[35px] self-stretch rounded-[7px] border border-solid border-gray-900_99 bg-white-A700 px-[25px] py-[11px] text-base text-gray-900_99 sm:px-5"
+                >
+                  <input name="Due Date Picker" type="date" placeholder="Jan 12, 2024" />
+                </div>
+              </div>
+            </div>
+
+            <!-- invoice items header section -->
+            <div class="mt-[51px] h-px w-full self-stretch bg-gray-900_66"></div>
+            <p class="size-md text ui ml-[34px] mt-8 self-start !font-medium !text-black-900_02 md:ml-0">Items</p>
+
+            <!-- invoice items section -->
+            <table class="size-5xl ui mt-[9px] table w-[95%]" cellpadding="0" cellspacing="0">
+              <thead class="bg-gray-100 md:flex-col">
+                <tr>
+                  <th width="525px">
+                    <div class="flex flex-1 flex-wrap justify-between gap-5 p-2.5 md:self-stretch md:p-5">
+                      <p class="size-md text ui ml-[13px] !text-gray-900_a5 md:ml-0">Items</p>
+                      <p class="size-md text ui mr-[136px] self-end !text-gray-900_a5 md:mr-0">Quantity</p>
+                    </div>
+                  </th>
+                  <th width="412px">
+                    <p class="size-md text ui py-3 !text-gray-900_a5 md:p-5">Price</p>
+                  </th>
+                  <th width="159px">
+                    <p class="size-md text ui py-3 !text-gray-900_a5 md:p-5">Amount (USD)</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="md:flex-col">
+                  <td>
+                    <div class="flex flex-1 items-end gap-2 md:self-stretch md:p-5">
+                      <button class="square fill size-xs indigo_a200 button ui w-[20px]">
+                        <img src="public/images/img_facebook.svg" />
+                      </button>
+                      <p class="size-md text ui mt-[13px] !font-medium !text-indigo-A200">Add item</p>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="size-md text ui !text-gray-900_a5 md:p-5">Subtotal</p>
+                  </td>
+                  <td>
+                    <p class="size-md text ui !text-gray-900_a5 md:p-5">0.00</p>
+                  </td>
+                </tr>
+                <tr class="md:flex-col">
+                  <td>
+                    <div class="flex flex-1 items-center gap-2 md:self-stretch md:p-5">
+                      <button class="square fill size-xs indigo_a200 button ui w-[20px]">
+                        <img src="public/images/img_facebook.svg" />
+                      </button>
+                      <p class="size-md text ui !font-medium !text-indigo-A200">Add tax</p>
+                    </div>
+                  </td>
+                  <td>
+                    <h1 class="size-lg heading ui !text-gray-900_a5 md:p-5">Total</h1>
+                  </td>
+                  <td>
+                    <h2 class="size-lg heading ui !text-gray-900_a5 md:p-5">0.00</h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="mt-[21px] h-px w-full self-stretch bg-gray-900_66"></div>
+
+            <!-- invoice notes section -->
+            <div class="mx-auto mt-[35px] flex w-full max-w-[1096px] flex-col items-start md:p-5">
+              <p class="size-md text ui !font-medium !text-black-900_02">Note</p>
+              <textarea
+                class="round taroutlinegray90099 size-xs white_a700 textarea ui mt-[9px] self-stretch !rounded-[7px] !border-gray-900_99 text-gray-900_a5 sm:px-5 sm:pb-5"
+                name="Thank You Area"
+                placeholder="Thank you for your purchase"
+              ></textarea>
+              <label class="checkbox ui mt-[38px] gap-3.5 p-px text-base font-medium text-gray-900_03">
+                <input class="square checkbox ui" type="checkbox" name="Invoice Checkbox" />
+                <div>Email invoice</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- invoice actions section -->
+          <div class="mr-[29px] flex gap-2 self-end md:mr-0">
+            <button
+              class="fill size-2xl white_a700 button ui min-w-[195px] rounded-[5px] border border-solid border-indigo-A200 font-semibold !text-indigo-A200 sm:px-5"
+            >
+              Schedule for later
+            </button>
+            <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+              <button class="fill size-2xl indigo_a200 button ui min-w-[195px] rounded-[5px] font-semibold sm:px-5">
+                Save
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

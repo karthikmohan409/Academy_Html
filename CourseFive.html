@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Course Management Dashboard - Organize and Track</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Efficiently manage and track your courses, events, and student interactions with our comprehensive Course Management Dashboard. Streamline your educational administration tasks with ease."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex items-start gap-6 md:flex-col">
+          <aside class="!sticky top-0 flex h-screen w-[494px] flex-col overflow-auto bg-white-A700 md:hidden md:p-5">
+            <div class="relative z-[1] flex flex-col self-stretch">
+              <div class="relative z-[2] flex w-[57%] flex-col items-center gap-4 px-[18px] pt-[18px] md:w-full">
+                <div class="mt-[34px] flex w-[78%] self-end md:w-full">
+                  <div
+                    class="w-[86%] rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs md:w-full"
+                  >
+                    <img
+                      src="public/images/img_images_1_1.png"
+                      alt="profile image"
+                      class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <h4 class="size-4xl heading ui tracking-[-0.48px] !text-black-900_01">Olivia</h4>
+                  <p class="size-s text ui relative mt-[-2px] !font-light tracking-[-0.28px] !text-black-900_cc">
+                    Actionzone- Receptionist
+                  </p>
+                </div>
+              </div>
+              <ul class="relative mt-[-164px] flex flex-col gap-[4.71px] py-0 pl-[285px] pr-0 md:pl-5">
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img
+                      src="public/images/img_calendar_black_900_02.svg"
+                      alt="overview icon"
+                      class="h-[19px] w-[19px]"
+                    />
+                    <span> Overview</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_search_white_a700.svg" alt="manage icon" class="h-[17px] w-[17px]" />
+                    <span> Manage</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                    <span> Dashboard</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img
+                      src="public/images/img_component_2_indigo_a200_31x31.svg"
+                      alt="calendar icon"
+                      class="h-[31px] w-[31px]"
+                    />
+                    <span> Calendar</span>
+                    <img
+                      src="public/images/defaultNoData.png"
+                      alt="calendar suffix"
+                      class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                    />
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img
+                      src="public/images/img_component_2_black_900_02_31x31.svg"
+                      alt="course icon"
+                      class="h-[31px] w-[31px]"
+                    />
+                    <span> Course</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                    <span> Package</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                    <span> Add ons</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                    <span> Coach</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                    <span> Video analyzer</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                    <span> Student</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                    <span> Meetings</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                    <span> Report</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_television.svg" alt="notifications icon" class="h-[31px] w-[31px]" />
+                    <span> Notification settings</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                    <span> Events & Transportation</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                    <span> Billing</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-1.5 rounded-[23.5px] border-b border-t border-solid border-black-900_19 bg-white-A700 py-2.5 text-base font-normal text-black-900_e5 hover:!bg-blue_gray-400 hover:!font-medium hover:text-white-A700"
+                  >
+                    <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                    <span> Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <h4 class="size-5xl heading ui relative mb-[1038px] mr-[71px] mt-[-988px] md:mr-0">Calendar</h4>
+          </aside>
+
+          <!-- content tabs section -->
+          <div
+            id="tabList"
+            role="tablist"
+            aria-label="Tabs Row"
+            class="mt-[27px] flex flex-1 flex-col items-start gap-[18px] md:self-stretch md:p-5"
+            data-active-class="!text-gray-900_02 font-semibold"
+          >
+            <h1 class="size-xl heading ui">Manage</h1>
+            <div class="flex flex-wrap gap-[105px] bg-white-A700 p-[11px] md:gap-5">
+              <span
+                class="ml-8 text-lg font-normal font-semibold !text-gray-900_02 text-gray-900_bf"
+                id="tab01"
+                role="tab"
+                aria-controls="tabpanel01"
+                aria-selected="true"
+                tabindex="0"
+              >
+                Indoor</span
+              >
+              <span
+                class="mr-[879px] text-lg font-normal text-gray-900_bf"
+                id="tab11"
+                role="tab"
+                aria-controls="tabpanel11"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Outdoor</span
+              >
+            </div>
+            <div
+              id="tabpanel01"
+              role="tabpanel"
+              aria-labelledby="tab01"
+              hidden
+              class="tabcontent ml-4 self-stretch md:ml-0"
+            >
+              <!-- content management section -->
+              <div class="flex flex-col gap-[35px]">
+                <div class="flex justify-between gap-5 sm:flex-col">
+                  <div class="flex w-[23%] items-center justify-center gap-[19px] sm:w-full">
+                    <p class="size-lg text ui !text-black-900_02">Sort by</p>
+                    <label class="round bordered size-sm black_900_4c input ui flex-grow !rounded-[7px] sm:px-5">
+                      <input name="Sort Dropdown" placeholder="All" type="text" />
+                    </label>
+                  </div>
+                  <div class="flex">
+                    <button class="fill size-2xl indigo_a200 button ui min-w-[153px] rounded-md sm:px-5">
+                      + Add new
+                    </button>
+                  </div>
+                </div>
+
+                <!-- sports table section -->
+                <table class="size-4xl ui table" cellpadding="0" cellspacing="0">
+                  <thead class="flex-wrap">
+                    <tr>
+                      <th width="222px">
+                        <p class="size-lg text ui pb-[9px] pt-0.5 !text-black-900_7f_02">Sports</p>
+                      </th>
+                      <th width="475px">
+                        <p class="size-lg text ui pb-3 !text-black-900_7f_02">Location</p>
+                      </th>
+                      <th width="286px">
+                        <p class="size-lg text ui pb-[11px] pt-px !text-black-900_7f_02">Status</p>
+                      </th>
+                      <th width="188px">
+                        <p class="size-lg text ui pb-3 !text-black-900_7f_02">Action</p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="md:flex-col">
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Cricket</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">123 Main Street, Ontario, Canada</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Active</p>
+                      </td>
+                      <td>
+                        <div class="flex items-start gap-[23px]">
+                          <img alt="edit icon" class="ml-1.5 h-[20px] w-[20px]" />
+                          <img
+                            src="public/images/img_thumbs_up_black_900_02.svg"
+                            alt="thumbs up icon"
+                            class="mb-1.5 h-[23px] w-[23px]"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="md:flex-col">
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Cricket</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">45 Oxford Road, London, Canada</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Active</p>
+                      </td>
+                      <td>
+                        <div class="flex items-start gap-[23px]">
+                          <img alt="edit icon alt" class="ml-2 h-[20px] w-[20px]" />
+                          <img
+                            src="public/images/img_thumbs_up_black_900_02.svg"
+                            alt="thumbs up icon alt"
+                            class="mb-2 h-[23px] w-[23px]"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="md:flex-col">
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Cricket</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Berlinstraße 55, Berlin, Canada</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Active</p>
+                      </td>
+                      <td>
+                        <div class="flex items-center gap-[23px]">
+                          <img alt="edit" class="h-[20px] w-[20px]" />
+                          <img
+                            src="public/images/img_thumbs_up_black_900_02.svg"
+                            alt="thumbsup"
+                            class="h-[23px] w-[23px]"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="md:flex-col">
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Volleyball</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">22 Main Street, Ontario, Canada</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Active</p>
+                      </td>
+                      <td>
+                        <div class="flex items-center gap-[23px]">
+                          <img alt="edit" class="h-[20px] w-[20px]" />
+                          <img
+                            src="public/images/img_thumbs_up_black_900_02.svg"
+                            alt="thumbsup"
+                            class="h-[23px] w-[23px]"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="md:flex-col">
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Volleyball</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">22 Main Street, Ontario, Canada</p>
+                      </td>
+                      <td>
+                        <p class="size-lg text ui !text-black-900_02">Active</p>
+                      </td>
+                      <td>
+                        <div class="flex items-center gap-[23px]">
+                          <img alt="edit" class="h-[20px] w-[20px]" />
+                          <img
+                            src="public/images/img_thumbs_up_black_900_02.svg"
+                            alt="thumbsup"
+                            class="h-[23px] w-[23px]"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              style="display: none"
+              id="tabpanel11"
+              role="tabpanel"
+              aria-labelledby="tab11"
+              hidden
+              class="tabcontent ml-4 self-stretch md:ml-0"
+            >
+              <span style="min-height: 446px"> Outdoor content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

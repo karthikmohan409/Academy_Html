@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Student Management - Add and Organize Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Efficiently add and organize students into categories. Manage your coaching sessions with ease by sorting students by age and skill level."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- student addition section -->
+    <div class="w-full bg-white-A700 pt-[18px]">
+      <div class="flex flex-col items-center gap-[21px]">
+        <h1 class="size-2xl heading ui ml-[42px] self-start md:ml-0">Add students</h1>
+        <div class="h-px w-full self-stretch bg-black-900_33"></div>
+        <div class="container-3xl relative h-[945px] md:h-auto md:p-5">
+          <div class="w-full">
+            <div class="flex flex-col gap-3.5">
+              <!-- student list header section -->
+              <header class="flex w-[64%] items-center justify-between gap-5 md:w-full md:flex-col">
+                <div class="flex flex-1 items-center justify-between gap-5 md:self-stretch sm:flex-col">
+                  <div class="flex flex-wrap gap-2 self-end">
+                    <h6 class="size-lg heading ui !text-blue_gray-900_03">Students</h6>
+                    <p class="size-md text ui !text-blue_gray-900_7f">(15)</p>
+                  </div>
+                  <div class="flex w-[45%] items-center justify-center gap-[15px] sm:w-full">
+                    <p class="size-md text ui self-end !text-black-900_99">Sort by</p>
+                    <select
+                      class="bordered size-xs black_900_4f selectbox ui flex-grow gap-px rounded-[5px] bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:9px] bg-no-repeat sm:pr-5"
+                      name="Sort Dropdown"
+                    >
+                      <option value="option1">Option1</option>
+                      <option value="option2">Option2</option>
+                      <option value="option3">Option3</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-1.5 self-end">
+                  <h6 class="size-lg heading ui !text-blue_gray-900_03">Selected coach</h6>
+                  <p class="size-md text ui !text-blue_gray-900_7f">(1)</p>
+                </div>
+              </header>
+              <div class="flex items-start gap-11 md:flex-col">
+                <!-- student list section -->
+                <div class="flex w-full flex-col gap-[0.5px]">
+                  <div class="h-[651px] flex-1 rounded-lg border border-solid border-gray-400 bg-white-A700"></div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[51%] items-end justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_1.png"
+                        alt="item image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 2 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button
+                      class="round bordered size-lg indigo_a200_87 button ui mr-[25px] min-w-[73px] opacity-0.5 md:mr-0"
+                    >
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-[15px] pb-[15px]">
+                    <div class="ml-1.5 flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Bowling</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-6 min-w-[73px] md:mr-0">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-[15px] pb-[15px]">
+                    <div class="ml-1.5 flex w-[51%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] self-end rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 4 |</span>
+                        <span class="text-blue_gray-900_7f"> &nbsp;Fitness</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-6 min-w-[73px] md:mr-0">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex w-[90%] items-center justify-between gap-5 md:w-full">
+                    <div class="flex w-[51%] items-center justify-center gap-3.5">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_3.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 1 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui min-w-[73px]">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 p-3">
+                    <div class="ml-[9px] flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_4.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[27px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex w-[90%] items-center justify-between gap-5 md:w-full">
+                    <div class="flex w-[51%] items-end justify-center gap-3.5">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_1.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 2 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui min-w-[73px]">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 p-3">
+                    <div class="ml-[9px] flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Bowling</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[27px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-[15px] pb-[15px]">
+                    <div class="ml-1.5 flex w-[51%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] self-end rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 4 |</span>
+                        <span class="text-blue_gray-900_7f"> &nbsp;Fitness</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-6 min-w-[73px] md:mr-0">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[51%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_3.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 1 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[25px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_4.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui self-end !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[25px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[51%] items-end justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_1.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 2 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[25px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-[15px] pb-[15px]">
+                    <div class="ml-1.5 flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Bowling</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-6 min-w-[73px] md:mr-0">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-[15px] pb-[15px]">
+                    <div class="ml-1.5 flex w-[51%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="mb-2 h-[15px] w-[15px] self-end rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_62_2.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 4 |</span>
+                        <span class="text-blue_gray-900_7f"> &nbsp;Fitness</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-6 min-w-[73px] md:mr-0">Add</button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[51%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_3.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 1 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[25px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                  <div class="h-px w-[587px] bg-black-900_14"></div>
+                  <div class="flex flex-1 items-center justify-between gap-5 px-3.5 pb-3.5">
+                    <div class="ml-[7px] flex w-[52%] items-center justify-center gap-3.5 md:ml-0">
+                      <div
+                        class="h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                      ></div>
+                      <img
+                        src="public/images/img_ellipse_55_4.png"
+                        alt="image"
+                        class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                      />
+                      <p class="size-md text ui !text-blue_gray-900_03">
+                        <span class="text-blue_gray-900_03"> Student name 3 |&nbsp;</span>
+                        <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                      </p>
+                    </div>
+                    <button class="round bordered size-lg indigo_a200 button ui mr-[25px] min-w-[73px] md:mr-0">
+                      Add
+                    </button>
+                  </div>
+                </div>
+
+                <!-- coach list section -->
+                <div class="w-full rounded-lg border border-solid border-gray-400 bg-white-A700 py-3">
+                  <div class="mb-[576px] flex flex-col items-center gap-[13px]">
+                    <div class="flex w-[91%] items-center justify-between gap-5 md:w-full">
+                      <div class="flex w-[49%] items-end justify-center gap-3.5">
+                        <div
+                          class="mb-2 h-[15px] w-[15px] rounded-[3px] border border-solid border-indigo-A200 bg-white-A700"
+                        ></div>
+                        <img
+                          src="public/images/img_ellipse_62_1.png"
+                          alt="profile image"
+                          class="h-[33px] w-[33px] rounded-[16px] object-cover"
+                        />
+                        <p class="size-md text ui !text-blue_gray-900_03">
+                          <span class="text-blue_gray-900_03"> Coach name 2 |&nbsp;</span>
+                          <span class="text-blue_gray-900_7f"> Batting &nbsp;</span>
+                        </p>
+                      </div>
+                      <button class="round bordered size-lg indigo_a200 button ui min-w-[106px]">Remove</button>
+                    </div>
+                    <div class="h-px w-full self-stretch bg-black-900_14"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-[15%] right-[0.00px] m-auto flex gap-2.5">
+            <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+              <button
+                class="fill size-4xl white_a700_9e button ui min-w-[165px] rounded-[5px] border border-solid border-black-900_9e font-semibold opacity-0.75 sm:px-5"
+              >
+                Cancel
+              </button>
+            </a>
+            <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+              <button
+                class="fill size-4xl indigo_a200_87 button ui min-w-[165px] rounded-[5px] font-semibold opacity-0.5 sm:px-5"
+              >
+                Save
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

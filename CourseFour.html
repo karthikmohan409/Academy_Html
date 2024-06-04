@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Weekly Schedule - Plan Your Training Sessions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Stay on top of your weekly training and booking schedule. Easily manage time slots for various sports facilities and ensure a seamless coaching experience."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- main content section -->
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+
+        <!-- calendar section -->
+        <div class="flex items-center gap-[23px] md:flex-col">
+          <!-- sidebar section -->
+          <div class="flex w-[29%] md:w-full md:p-5 sm:flex-col">
+            <aside
+              class="!sticky top-0 flex h-screen w-[272px] flex-1 flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5 sm:self-stretch"
+            >
+              <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+                <div class="flex w-full items-center">
+                  <div
+                    class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                  >
+                    <img
+                      src="public/images/img_images_1_1.png"
+                      alt="featured image"
+                      class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                    />
+                  </div>
+                  <img
+                    src="public/images/img_.svg"
+                    alt="secondary image"
+                    class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                  />
+                </div>
+              </div>
+              <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <span> Actionzone- Receptionist</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                    <span> Dashboard</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img
+                      src="public/images/img_component_2_indigo_a200_31x31.svg"
+                      alt="calendar icon"
+                      class="h-[31px] w-[31px]"
+                    />
+                    <span> Calendar</span>
+                    <img
+                      src="public/images/defaultNoData.png"
+                      alt="calendar suffix"
+                      class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                    />
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img
+                      src="public/images/img_component_2_black_900_02_31x31.svg"
+                      alt="course icon"
+                      class="h-[31px] w-[31px]"
+                    />
+                    <span> Course</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                    <span> Package</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                    <span> Add ons</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                    <span> Coach</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_2.svg" alt="video icon" class="h-[31px] w-[31px]" />
+                    <span> Video analyzer</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                    <span> Student</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                    <span> Meetings</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                    <span> Report</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                    <span> Notification settings</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                    <span> Events & Transportation</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                    <span> Billing</span>
+                  </a>
+                </li>
+                <li class="w-full">
+                  <a
+                    class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                  >
+                    <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                    <span> Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </aside>
+            <div class="flex w-[45%] flex-col items-start bg-gray-300_03 p-[15px] sm:w-full">
+              <h1 class="size-5xl heading ui ml-[9px] md:ml-0">Calendar</h1>
+              <label
+                class="fill size-sm blue_gray_400 input ui mt-[58px] gap-2.5 self-stretch rounded-[23px] font-medium sm:pr-5"
+              >
+                <img src="public/images/img_calendar.svg" alt="calendar" class="h-[19px] w-[19px]" />
+                <input name="OverviewInput" placeholder="Overview" type="text" />
+              </label>
+              <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                <div class="mb-[865px] mt-[9px] flex items-center gap-1.5 self-stretch p-[7px]">
+                  <img src="public/images/img_search.svg" alt="searchicon" class="ml-3 h-[17px] w-[17px]" />
+                  <p class="size-lg text ui self-end !text-black-900_02">Manage</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- tab section -->
+          <div
+            id="tabList"
+            role="tablist"
+            aria-label="Tabs Row"
+            class="flex flex-1 flex-col gap-[35px] md:self-stretch md:p-5"
+            data-active-class="!text-indigo-A200 font-bold bg-white-A700 rounded-[22px]"
+          >
+            <div class="flex w-[97%] items-center justify-between gap-5 md:w-full md:flex-col">
+              <div class="flex items-center gap-[26px] md:flex-col">
+                <div class="flex flex-wrap gap-[11px] rounded-[28px] bg-gray-300_02">
+                  <span
+                    class="ml-1.5 rounded-[22px] bg-white-A700 px-[30px] py-3 text-base font-bold font-normal !text-indigo-A200 text-indigo-900 sm:px-5"
+                    id="tab01"
+                    role="tab"
+                    aria-controls="tabpanel01"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    Daily</span
+                  >
+                  <span
+                    class="px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab11"
+                    role="tab"
+                    aria-controls="tabpanel11"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Weekly</span
+                  >
+                  <span
+                    class="px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab21"
+                    role="tab"
+                    aria-controls="tabpanel21"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Monthly</span
+                  >
+                  <span
+                    class="mr-1.5 px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab31"
+                    role="tab"
+                    aria-controls="tabpanel31"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Yearly</span
+                  >
+                </div>
+                <div class="flex items-start gap-[11px]">
+                  <img src="public/images/img_thumbsup.svg" alt="thumbs up image" class="h-[23px] w-[23px]" />
+                  <h2 class="size-xl heading ui !text-black-900_cc_01">13 Monday- 19 Sunday , 2024</h2>
+                </div>
+              </div>
+              <div class="flex gap-4 self-end">
+                <button class="bordered size-2xl indigo_a200 button ui min-w-[110px] gap-[11px] rounded-md">
+                  <img src="public/images/img_grid.svg" alt="grid" class="h-[15px] w-[16px]" />
+                  <span> Filter</span>
+                </button>
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <button
+                    class="fill size-2xl indigo_a200 button ui min-w-[165px] rounded-md border border-solid border-indigo-A200 sm:px-5"
+                  >
+                    New Booking
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- schedule section -->
+            <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent">
+              <div class="overflow-auto">
+                <div class="flex flex-col items-start justify-center pb-[232px] md:pb-5">
+                  <div class="mr-2.5 flex w-[91%] self-end md:mr-0 md:w-full">
+                    <div class="flex w-full justify-between gap-5 md:flex-col">
+                      <div class="flex flex-col items-center">
+                        <p class="size-lg text ui !text-black-900_02">Cricket-lane 1</p>
+                        <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                      </div>
+                      <div class="flex flex-col items-center">
+                        <p class="size-lg text ui !text-black-900_02">Cricket-lane 2</p>
+                        <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                      </div>
+                      <div class="flex w-[63%] items-center justify-between gap-5 md:w-full sm:flex-col">
+                        <div class="flex flex-col items-center">
+                          <p class="size-lg text ui !text-black-900_02">Cricket-lane 3</p>
+                          <p class="size-md text ui !text-black-900_8c">Outdoor</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                          <p class="size-lg text ui !text-black-900_02">Volleyball 1</p>
+                          <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                          <p class="size-lg text ui !text-black-900_02">Volleyball 2</p>
+                          <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                          <p class="size-lg text ui !text-black-900_02">Basketball</p>
+                          <p class="size-md text ui !text-black-900_8c">Outdoor</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-[15px] self-stretch">
+                    <div class="flex items-center justify-between gap-5 md:flex-col">
+                      <div class="flex flex-col items-end gap-[163px] md:gap-[122px] sm:gap-[81px]">
+                        <p class="size-md text ui !text-black-900_02">13 Mon</p>
+                        <p class="size-md text ui !text-black-900_02">14 Tue</p>
+                        <p class="size-md text ui !text-black-900_02">15 Wed</p>
+                        <p class="size-md text ui !text-black-900_02">16 Thu</p>
+                        <p class="size-md text ui !text-black-900_02">17 Fri</p>
+                      </div>
+                      <div class="flex-1 bg-white-A700 md:self-stretch">
+                        <div class="mb-[61px] flex flex-col items-start">
+                          <div class="ml-2 flex items-center justify-between gap-5 self-stretch md:ml-0 md:flex-col">
+                            <div class="flex">
+                              <p class="size-s text ui !text-black-900_4c">10 am - 11 am</p>
+                            </div>
+                            <p class="size-s text ui self-end !text-indigo-A200">12 pm - 1 pm</p>
+                            <div class="flex">
+                              <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                            </div>
+                            <div class="flex w-[45%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                              <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                              <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                            </div>
+                          </div>
+                          <div class="flex w-[81%] items-center justify-between gap-5 md:w-full md:flex-col">
+                            <div class="flex w-[33%] items-center justify-center gap-5 md:w-full">
+                              <div class="flex flex-1 flex-col items-start gap-0.5">
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                                <div class="ml-2 flex md:ml-0">
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <p class="size-s text ui !text-black-900_4f">1 pm - 2 pm</p>
+                            </div>
+                            <div class="flex w-[31%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                              <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                            </div>
+                          </div>
+                          <div class="mt-[7px] flex w-[63%] md:w-full">
+                            <div class="flex w-full flex-col items-start gap-[5px]">
+                              <div
+                                class="ml-[23px] flex items-center justify-between gap-5 self-stretch md:ml-0 sm:flex-col"
+                              >
+                                <p class="size-s text ui !text-indigo-A200">3 pm - 5 pm</p>
+                                <div class="flex w-[71%] flex-wrap justify-between gap-5 sm:w-full">
+                                  <p class="size-s text ui !text-black-900_4f">2 pm - 3 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">3 pm - 5 pm</p>
+                                </div>
+                              </div>
+                              <div class="h-px w-[28%] bg-black-900_19"></div>
+                            </div>
+                          </div>
+                          <div
+                            class="ml-[226px] mt-[5px] flex w-[54%] flex-wrap justify-between gap-5 md:ml-0 md:w-full"
+                          >
+                            <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                            <p class="size-s text ui !text-indigo-A200">3 pm - 5 pm</p>
+                          </div>
+                          <button
+                            class="square fill size-md indigo_50_01 button ui mr-[323px] mt-[19px] min-w-[205px] self-end md:mr-0 sm:px-5"
+                          >
+                            3 more
+                          </button>
+                          <div class="mt-[17px] self-stretch">
+                            <div class="flex items-start justify-between gap-5 md:flex-col">
+                              <div class="flex w-[28%] flex-col items-start gap-3.5 md:w-full">
+                                <div class="ml-[7px] flex items-start justify-between gap-5 self-stretch md:ml-0">
+                                  <div class="flex w-[39%] flex-col gap-[3px]">
+                                    <div class="flex justify-center">
+                                      <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                                    </div>
+                                    <div class="flex justify-center">
+                                      <p class="size-s text ui !text-black-900_4c">1 pm - 2 pm</p>
+                                    </div>
+                                    <div class="flex justify-center">
+                                      <p class="size-s text ui !text-black-900_4c">10 am - 11 am</p>
+                                    </div>
+                                    <div class="flex justify-center">
+                                      <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                    </div>
+                                  </div>
+                                  <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                                </div>
+                                <button class="square fill size-md indigo_50_01 button ui min-w-[205px] sm:px-5">
+                                  6 more
+                                </button>
+                              </div>
+                              <div class="flex w-[62%] flex-col md:w-full">
+                                <div class="flex flex-wrap justify-between gap-5">
+                                  <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                                  <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                                  <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                                </div>
+                                <div class="mt-[11px] flex w-[70%] flex-wrap justify-between gap-5 md:w-full">
+                                  <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                </div>
+                                <div class="mr-[200px] mt-[5px] flex self-end md:mr-0">
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-[18px] flex w-[80%] justify-between gap-5 self-end md:w-full md:flex-col">
+                            <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                            <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                            <div class="flex w-[55%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                              <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                            </div>
+                          </div>
+                          <div class="ml-[215px] mt-[5px] flex md:ml-0">
+                            <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                          </div>
+                          <div class="ml-[23px] mt-32 flex justify-between gap-5 self-stretch md:ml-0 md:flex-col">
+                            <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                            <div class="flex w-[82%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                              <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                              <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                            </div>
+                          </div>
+                          <div class="ml-[23px] mt-3 flex w-[63%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                            <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                            <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                          </div>
+                          <div class="ml-2 mt-[127px] self-stretch md:ml-0">
+                            <div class="flex flex-col">
+                              <div class="flex flex-wrap justify-between gap-5">
+                                <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                                <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                                <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                                <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                                <p class="size-s text ui !text-indigo-A200">10 am - 11 am</p>
+                                <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                              </div>
+                              <div class="mt-[11px] flex w-[81%] justify-between gap-5 md:w-full sm:flex-col">
+                                <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                <div class="flex w-[55%] flex-wrap justify-between gap-5 sm:w-full">
+                                  <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                  <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                                </div>
+                              </div>
+                              <div class="mr-[200px] mt-[5px] flex self-end md:mr-0">
+                                <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-3.5 h-[-14px] w-[94%] self-center bg-black-900_11"></div>
+                  <div class="mt-[29px] flex w-[76%] items-start justify-between gap-5 self-end md:w-full md:flex-col">
+                    <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                    <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                    <div class="flex w-[56%] flex-wrap items-start justify-between gap-5 md:w-full">
+                      <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                      <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                    </div>
+                  </div>
+                  <div
+                    class="ml-2.5 mt-[11px] flex w-[31%] flex-wrap items-start justify-between gap-5 md:ml-0 md:w-full"
+                  >
+                    <p class="size-md text ui mt-[236px] !text-black-900_02">19 Sun</p>
+                    <p class="size-s text ui !text-indigo-A200">3 pm - 4 pm</p>
+                  </div>
+                  <div class="ml-2.5 mt-[97px] flex items-start gap-[9px] self-stretch md:ml-0 md:flex-col">
+                    <p class="size-md text ui !text-black-900_02">18 Sat</p>
+                    <div class="mt-[103px] h-[-200px] flex-1 bg-black-900_11 md:self-stretch"></div>
+                  </div>
+                  <div
+                    class="mt-[211px] flex w-[93%] flex-wrap items-start justify-between gap-5 self-center md:w-full"
+                  >
+                    <p class="size-s text ui ml-[11px] !text-indigo-A200">10 am - 11 am</p>
+                    <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                  </div>
+                  <div
+                    class="relative ml-[295px] mt-[-17px] flex w-[54%] flex-wrap justify-between gap-5 md:ml-0 md:w-full"
+                  >
+                    <p class="size-s text ui !text-indigo-A200">8 am - 10 am</p>
+                    <p class="size-s text ui !text-indigo-A200">7 am - 8 am</p>
+                  </div>
+                  <div class="ml-[88px] mt-[247px] flex w-[62%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                    <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                    <p class="size-s text ui !text-indigo-A200">1 pm - 2 pm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- schedule section -->
+            <div
+              style="display: none"
+              id="tabpanel11"
+              role="tabpanel"
+              aria-labelledby="tab11"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 982px"> Weekly content</span>
+            </div>
+
+            <!-- schedule section -->
+            <div
+              style="display: none"
+              id="tabpanel21"
+              role="tabpanel"
+              aria-labelledby="tab21"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 982px"> Monthly content</span>
+            </div>
+
+            <!-- schedule section -->
+            <div
+              style="display: none"
+              id="tabpanel31"
+              role="tabpanel"
+              aria-labelledby="tab31"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 982px"> Yearly content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coach Profile - Detailed Information & Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Explore the coach profile for a comprehensive view of qualifications, availability, and scheduled meetings. Connect and engage with our coaching staff."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex items-start gap-6 md:flex-col">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:p-5 md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_13.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="coach suffix"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="video icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- main content section -->
+          <div class="mt-4 flex-1 md:self-stretch md:p-5">
+            <div class="flex flex-col gap-[23px]">
+              <div class="flex items-center justify-between gap-5 sm:flex-col">
+                <div class="flex flex-wrap items-center">
+                  <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                    <p class="size-3xl text ui !text-black-900_7f_02">Coach</p>
+                  </a>
+                  <img
+                    src="public/images/img_arrow_1_black_900_02.svg"
+                    alt="arrow image"
+                    class="mb-[15px] ml-[18px] h-[3px] self-end"
+                  />
+                  <h1 class="size-5xl heading ui ml-6 !text-gray-900_03">Coach name S</h1>
+                </div>
+                <div class="flex items-start gap-2 self-end">
+                  <img
+                    src="public/images/img_thumbs_up_indigo_a200.svg"
+                    alt="thumbs up image"
+                    class="h-[20px] w-[20px]"
+                  />
+                  <p class="size-lg text ui !text-black-900_cc_01">Delete profile</p>
+                </div>
+              </div>
+
+              <!-- coach profile section -->
+              <div class="flex items-start gap-[30px] md:flex-col">
+                <div class="mt-20 flex w-[20%] flex-col gap-[21px] md:w-full">
+                  <div class="relative h-[310px] md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_462_310x339.png"
+                      alt="profileimage"
+                      class="h-[310px] w-full rounded-[10px] object-cover"
+                    />
+                    <div class="absolute bottom-[14.77px] left-0 right-0 m-auto flex flex-col items-start">
+                      <h2 class="size-4xl heading ui tracking-[-0.48px] !text-white-A700">Coach name A</h2>
+                      <p class="size-xl text ui tracking-[-0.40px] !text-white-A700_bf">Coach name A@11gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      class="fill size-4xl white_a700 button ui min-w-[136px] gap-2 rounded-[24px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+                    >
+                      <img src="public/images/img_thumbsup_blue_a700.svg" alt="thumbs_up" class="h-[18px] w-[18px]" />
+                      <span> Chat now</span>
+                    </button>
+                    <button
+                      class="fill size-2xl white_a700 button ui min-w-[197px] gap-1 rounded-[22px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+                    >
+                      <img src="public/images/img_user_blue_a700.svg" alt="user" class="h-[17px] w-[17px]" />
+                      <span> Schedule meeting</span>
+                    </button>
+                  </div>
+                  <div class="flex flex-col items-start">
+                    <h3 class="size-xl heading ui tracking-[-0.36px] !text-black-900_01">About Me</h3>
+                    <p
+                      class="size-lg text ui mt-[5px] w-[93%] leading-[29px] tracking-[-0.36px] !text-gray-900_01 md:w-full"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur sem id porttitor tempor.
+                      Nunc sodales, neque nec hendrerit consequat, mauris elit euismod.
+                    </p>
+                    <div class="mt-[18px] self-stretch">
+                      <div>
+                        <div class="flex items-center justify-between gap-5">
+                          <h4 class="size-xl heading ui !text-gray-900_02">Profile details</h4>
+                          <img
+                            src="public/images/img_arrowdown_black_900_02.svg"
+                            alt="expandicon"
+                            class="mb-[7px] h-[8px] self-end"
+                          />
+                        </div>
+                        <div class="h-px bg-black-900_02"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="tabList"
+                  role="tablist"
+                  aria-label="Calendar Row"
+                  class="flex flex-1 flex-col gap-4 md:self-stretch"
+                  data-active-class="!text-gray-900_02 font-semibold"
+                >
+                  <div class="flex flex-wrap gap-[167px] bg-white-A700 p-[11px] md:gap-5">
+                    <span
+                      class="ml-[47px] text-lg font-normal font-semibold !text-gray-900_02 text-gray-900_bf"
+                      id="tab01"
+                      role="tab"
+                      aria-controls="tabpanel01"
+                      aria-selected="true"
+                      tabindex="0"
+                    >
+                      Calendar</span
+                    >
+                    <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                      <span
+                        class="text-lg font-normal text-gray-900_bf"
+                        id="tab11"
+                        role="tab"
+                        aria-controls="tabpanel11"
+                        aria-selected="false"
+                        tabindex="-1"
+                      >
+                        Working hours</span
+                      >
+                    </a>
+                    <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                      <span
+                        class="text-lg font-normal text-gray-900_bf"
+                        id="tab21"
+                        role="tab"
+                        aria-controls="tabpanel21"
+                        aria-selected="false"
+                        tabindex="-1"
+                      >
+                        Leave</span
+                      >
+                    </a>
+                    <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                      <span
+                        class="mr-[119px] text-lg font-normal text-gray-900_bf"
+                        id="tab31"
+                        role="tab"
+                        aria-controls="tabpanel31"
+                        aria-selected="false"
+                        tabindex="-1"
+                      >
+                        Payment</span
+                      >
+                    </a>
+                  </div>
+                  <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent">
+                    <div>
+                      <div class="bg-white-A700 pt-3.5">
+                        <div class="flex flex-col items-center">
+                          <div class="flex w-[94%] justify-between gap-5 md:w-full md:flex-col">
+                            <div class="flex w-[15%] items-start justify-between gap-5 md:w-full">
+                              <img src="public/images/img_arrow_left.svg" alt="left arrow" class="mt-[5px] h-[14px]" />
+                              <h5 class="size-2xl heading ui !font-bold">May 2023</h5>
+                            </div>
+                            <div class="flex w-[78%] items-start justify-between gap-5 md:w-full sm:flex-col">
+                              <img
+                                src="public/images/img_arrow_right.svg"
+                                alt="right arrow"
+                                class="mt-[7px] h-[14px] sm:w-full"
+                              />
+                              <div class="flex flex-wrap">
+                                <p
+                                  class="size-md text ui flex items-center justify-center rounded-bl-[3px] rounded-tl-[3px] border border-solid border-indigo-A200_38 bg-indigo-A200_51 px-[35px] py-[3px] !font-medium !text-black-900_bf sm:px-5"
+                                >
+                                  month
+                                </p>
+                                <p
+                                  class="size-md text ui flex items-center justify-center border border-solid border-indigo-A200_38 bg-indigo-A200_19 px-[35px] py-[3px] !text-black-900_a0 sm:px-5"
+                                >
+                                  week
+                                </p>
+                                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                                  <p
+                                    class="size-md text ui flex items-center justify-center rounded-br-[3px] rounded-tr-[3px] border border-solid border-indigo-A200_38 bg-indigo-A200_19 px-[35px] py-[3px] !text-black-900_a0 sm:px-5"
+                                  >
+                                    day
+                                  </p>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-[15px] flex w-[87%] flex-wrap justify-between gap-5 md:w-full">
+                            <h6 class="size-md heading ui h-[17px] w-[17px] !font-inter">Su</h6>
+                            <p class="size-md heading ui !font-inter">Mo</p>
+                            <p class="size-md heading ui h-[17px] w-[17px] !font-inter">Tu</p>
+                            <p class="size-md heading ui !font-inter">We</p>
+                            <p class="size-md heading ui h-[17px] w-[18px] !font-inter">Th</p>
+                            <p class="size-md heading ui !font-inter">Fr</p>
+                            <p class="size-md heading ui h-[17px] w-[17px] !font-inter">Sa</p>
+                          </div>
+                          <div class="mt-[11px] flex self-stretch md:flex-col">
+                            <div class="h-[52px] w-full border border-solid border-gray-900_26 bg-white-A700"></div>
+                            <div class="h-[52px] w-full border border-solid border-gray-900_26 bg-white-A700"></div>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              1
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              2
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              3
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              4
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              5
+                            </button>
+                          </div>
+                          <div class="relative mt-[-1px] flex self-stretch md:flex-col">
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              6
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              7
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              8
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              9
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              10
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              11
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              12
+                            </button>
+                          </div>
+                          <div class="relative mt-[-1px] flex self-stretch md:flex-col">
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              13
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              14
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              15
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              16
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              17
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              18
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              19
+                            </button>
+                          </div>
+                          <div class="relative mt-[-1px] flex self-stretch md:flex-col">
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              20
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              21
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              22
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              23
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              24
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              25
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              26
+                            </button>
+                          </div>
+                          <div class="relative mt-[-1px] flex self-stretch md:flex-col">
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              27
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_300 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              28
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              29
+                            </button>
+                            <button
+                              class="square fill size-6xl indigo_600 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              30
+                            </button>
+                            <button
+                              class="square fill size-6xl white_a700 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              31
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_50 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              1
+                            </button>
+                            <button
+                              class="square fill size-6xl gray_50 button ui w-full border border-solid border-gray-900_26 font-inter sm:px-5"
+                            >
+                              2
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-[30px] flex flex-wrap items-center justify-between gap-5">
+                        <h6 class="size-xl heading ui">Schedules for May 30, 2023</h6>
+                        <p class="size-s text ui !text-black-900_7f_01">
+                          <span class="text-black-900_7f_01"> Total&nbsp;</span>
+                          <span class="font-semibold text-black-900_ba"> 3</span>
+                        </p>
+                      </div>
+                      <div class="mt-2.5 flex flex-col gap-[5px]">
+                        <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                          <div class="flex flex-1 bg-white-A700 p-[19px]">
+                            <div class="ml-3.5 flex w-[84%] flex-col md:ml-0 md:w-full">
+                              <div class="relative z-[2] flex w-[88%] flex-wrap justify-between gap-5 md:w-full">
+                                <p class="size-s text ui !text-black-900_7f_01">Course</p>
+                                <p class="size-s text ui !text-black-900_7f_01">Batch</p>
+                                <p class="size-s text ui !text-black-900_7f_01">Students</p>
+                                <p class="size-s text ui self-end !text-black-900_7f_01">Days</p>
+                              </div>
+                              <div class="relative mt-[-1px] flex items-center justify-between gap-5 md:flex-col">
+                                <p class="size-s text ui !text-black-900_01">Fundamentals of Cricket</p>
+                                <div class="flex w-[70%] items-center justify-between gap-5 md:w-full sm:flex-col">
+                                  <p class="size-s text ui !text-black-900_01">10:00 am-11:00 am</p>
+                                  <div class="flex w-[56%] flex-wrap justify-between gap-5 sm:w-full">
+                                    <p class="size-s text ui !text-black-900_01">20</p>
+                                    <p class="size-s text ui self-end !text-black-900_01">Weekly, Mo-Tu-We</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                        <div class="flex flex-1 bg-white-A700 p-5">
+                          <div class="ml-[13px] flex w-[84%] flex-col md:ml-0 md:w-full">
+                            <div class="relative z-[3] flex w-[88%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-s text ui !text-black-900_7f_01">Course</p>
+                              <p class="size-s text ui !text-black-900_7f_01">Batch</p>
+                              <p class="size-s text ui !text-black-900_7f_01">Students</p>
+                              <p class="size-s text ui self-end !text-black-900_7f_01">Days</p>
+                            </div>
+                            <div class="relative mt-[-1px] flex items-center justify-between gap-5 sm:flex-col">
+                              <p class="size-s text ui !text-black-900_01">Package D</p>
+                              <div class="flex w-[32%] flex-wrap justify-between gap-5 sm:w-full">
+                                <p class="size-s text ui !text-black-900_01">12:00 pm-01:30 pm</p>
+                                <p class="size-s text ui !text-black-900_01">10</p>
+                              </div>
+                              <p class="size-s text ui self-end !text-black-900_01">Weekly, Mo-Tu-We</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex flex-1 bg-white-A700 p-5">
+                          <div
+                            class="ml-[13px] flex w-[84%] items-center justify-between gap-5 md:ml-0 md:w-full md:flex-col"
+                          >
+                            <div class="flex flex-col items-start gap-[3px]">
+                              <p class="size-s text ui !text-black-900_7f_01">Course</p>
+                              <p class="size-s text ui !text-black-900_01">Package C</p>
+                            </div>
+                            <div class="flex w-[70%] items-center justify-between gap-5 md:w-full sm:flex-col">
+                              <div class="flex flex-col items-start gap-[3px]">
+                                <p class="size-s text ui !text-black-900_7f_01">Batch</p>
+                                <p class="size-s text ui !text-black-900_01">02:00 pm-03:00 pm</p>
+                              </div>
+                              <div class="flex w-[56%] flex-col sm:w-full">
+                                <div class="relative z-[4] flex w-[70%] flex-wrap justify-between gap-5 md:w-full">
+                                  <p class="size-s text ui !text-black-900_7f_01">Students</p>
+                                  <p class="size-s text ui self-end !text-black-900_7f_01">Days</p>
+                                </div>
+                                <div class="flex flex-wrap justify-between gap-5">
+                                  <p class="size-s text ui !text-black-900_01">8</p>
+                                  <p class="size-s text ui self-end !text-black-900_01">Weekly, Mo-Tu-We</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: none"
+                    id="tabpanel11"
+                    role="tabpanel"
+                    aria-labelledby="tab11"
+                    hidden
+                    class="tabcontent"
+                  >
+                    <span style="min-height: 690px"> Working hours content</span>
+                  </div>
+                  <div
+                    style="display: none"
+                    id="tabpanel21"
+                    role="tabpanel"
+                    aria-labelledby="tab21"
+                    hidden
+                    class="tabcontent"
+                  >
+                    <span style="min-height: 690px"> Leave content</span>
+                  </div>
+                  <div
+                    style="display: none"
+                    id="tabpanel31"
+                    role="tabpanel"
+                    aria-labelledby="tab31"
+                    hidden
+                    class="tabcontent"
+                  >
+                    <span style="min-height: 690px"> Payment content</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

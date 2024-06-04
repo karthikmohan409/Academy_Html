@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Billing Invoice Details - Manage Your Payments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Access your billing invoice details including due dates, amounts, and payment history. Manage invoices and payments efficiently for your courses."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- main content section -->
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[98%] items-start gap-6 md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="main image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_14.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="billing suffix"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- tabbed content section -->
+          <div
+            id="tabList"
+            role="tablist"
+            aria-label="Roles Row"
+            class="flex flex-1 flex-col items-center md:self-stretch"
+            data-active-class="!text-indigo-A200 font-semibold border-indigo-A200 border-b-4"
+          >
+            <h1 class="size-5xl heading ui self-start">Billing</h1>
+            <div class="mt-[17px] flex flex-wrap gap-[-3px]">
+              <span
+                class="border-b-4 border-indigo-A200 px-[50px] py-[9px] text-xl font-normal font-semibold !text-indigo-A200 text-black-900_cc_01 md:px-5"
+                id="tab01"
+                role="tab"
+                aria-controls="tabpanel01"
+                aria-selected="true"
+                tabindex="0"
+              >
+                Student</span
+              >
+              <span
+                class="px-[50px] py-[9px] text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab11"
+                role="tab"
+                aria-controls="tabpanel11"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Coach</span
+              >
+              <span
+                class="px-[50px] py-[9px] text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab21"
+                role="tab"
+                aria-controls="tabpanel21"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Invoice</span
+              >
+              <span
+                class="mr-[744px] px-[50px] py-[9px] text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab31"
+                role="tab"
+                aria-controls="tabpanel31"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Tax</span
+              >
+            </div>
+
+            <!-- billing details section -->
+            <div
+              id="tabpanel01"
+              role="tabpanel"
+              aria-labelledby="tab01"
+              hidden
+              class="tabcontent mt-[51px] flex w-[67%] md:w-full"
+            >
+              <div class="flex w-full items-start justify-between gap-5 md:flex-col">
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <button class="circle fill size-3xl indigo_a200_33 button ui w-[48px] !rounded-[24px]">
+                    <img src="public/images/img_arrow_down_gray_900_03.svg" />
+                  </button>
+                </a>
+                <div class="w-[89%] md:w-full">
+                  <div class="flex flex-col items-end">
+                    <div class="flex flex-col items-start self-stretch">
+                      <div class="flex flex-wrap items-center gap-[17px]">
+                        <h2 class="size-6xl heading ui !text-blue_gray-900_01">Invoice#10052</h2>
+                        <p
+                          class="size-lg text ui flex items-center justify-center rounded-md border border-solid border-blue-A200 bg-blue-A200_21 px-[13px] py-[3px] !text-blue-A200"
+                        >
+                          Issued
+                        </p>
+                      </div>
+                      <div class="mt-[11px] self-stretch">
+                        <div class="flex items-center justify-between gap-5 md:flex-col">
+                          <div class="flex w-[25%] flex-col md:w-full">
+                            <div class="flex flex-wrap justify-between gap-5">
+                              <p class="size-md text ui !text-gray-900_a5">Due date</p>
+                              <p class="size-md text ui !text-gray-900_a5">Amount</p>
+                            </div>
+                            <div class="flex w-[89%] flex-wrap justify-between gap-5 md:w-full">
+                              <p class="size-lg text ui !text-gray-900_e5">Jan 12, 2024</p>
+                              <p class="size-lg text ui !text-gray-900_e5">$150</p>
+                            </div>
+                          </div>
+                          <div class="flex w-[66%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex w-[27%] flex-col items-start">
+                              <p class="size-md text ui !text-gray-900_a5">Invoiced to</p>
+                              <div class="flex gap-1.5 self-stretch">
+                                <img
+                                  src="public/images/img_ellipse_80.png"
+                                  alt="client image"
+                                  class="h-[27px] w-[27px] rounded-[13px] object-cover"
+                                />
+                                <p class="size-lg text ui !text-gray-900_e5">Sarah Taylor</p>
+                              </div>
+                            </div>
+                            <button
+                              class="fill size-2xl white_a700 button ui min-w-[175px] gap-2.5 self-end rounded-md border border-solid border-gray-900_66 !text-gray-900_99 shadow-4xl sm:px-5"
+                            >
+                              <img src="public/images/img_vector.svg" alt="vector" class="h-[15px] w-[12px]" />
+                              <span> Reminder</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-[18px] h-px self-stretch bg-gray-900_19"></div>
+                      <p class="size-md text ui mt-[22px] !font-medium !text-black-900_02">Payments</p>
+                      <button
+                        class="bordered size-2xl indigo_a200 button ui mt-7 min-w-[215px] gap-2 rounded-[5px] font-medium"
+                      >
+                        <img src="public/images/img_facebook.svg" alt="facebook" class="h-[20px] w-[20px]" />
+                        <span> Payment received</span>
+                      </button>
+                      <div class="mt-6 flex items-center gap-2">
+                        <img src="public/images/img_facebook.svg" alt="facebook image" class="h-[20px] w-[20px]" />
+                        <p class="size-md text ui !font-medium !text-indigo-A200">Create installment</p>
+                      </div>
+                    </div>
+                    <div class="mt-[42px] self-stretch">
+                      <div class="flex flex-col gap-6">
+                        <div class="h-px bg-gray-900_19"></div>
+                        <div class="flex justify-between gap-5 sm:flex-col">
+                          <div class="flex gap-[17px]">
+                            <button
+                              class="fill size-2xl white_a700 button ui min-w-[156px] gap-2.5 rounded-[5px] border border-solid border-gray-900_66 !text-gray-900_b2 shadow-4xl"
+                            >
+                              <img src="public/images/img_download.svg" alt="download" class="h-[16px] w-[16px]" />
+                              <span> Invoice PDF</span>
+                            </button>
+                            <button
+                              class="fill size-2xl white_a700 button ui min-w-[177px] gap-2.5 rounded-[5px] border border-solid border-gray-900_66 !text-gray-900_b2 shadow-4xl"
+                            >
+                              <img src="public/images/img_arrowup.svg" alt="arrow_up" class="h-[24px] w-[24px]" />
+                              <span> Payment link</span>
+                            </button>
+                          </div>
+                          <button
+                            class="fill size-2xl white_a700 button ui min-w-[97px] gap-2.5 rounded-[5px] border border-solid border-gray-900_66 !text-gray-900_b2 shadow-4xl"
+                          >
+                            <img src="public/images/img_edit_gray_900_03.svg" alt="edit" class="h-[18px] w-[18px]" />
+                            <span> Edit</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- invoice preview section -->
+                    <div class="relative mt-4 h-[789px] self-stretch">
+                      <div
+                        class="absolute left-0 right-0 top-[0.00px] m-auto h-[484px] w-full rounded-[10px] bg-gray-100_01"
+                      ></div>
+                      <div
+                        class="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-max w-[93%] justify-center bg-white-A700 py-[15px] shadow-3xl"
+                      >
+                        <!-- invoice notes section -->
+                        <div class="mb-[65px] flex w-full flex-col items-end">
+                          <div class="flex flex-col items-center gap-4 self-stretch">
+                            <div class="flex w-[89%] md:w-full">
+                              <div class="flex w-full flex-col items-center gap-3">
+                                <div class="flex items-center justify-between gap-5 self-stretch">
+                                  <div class="flex w-[24%] flex-col items-start">
+                                    <p class="size-4xl text ui !font-calibri !text-[57.51px] !text-gray-900">Invoice</p>
+                                    <div class="relative ml-1 mt-[-3px] h-[3px] w-[34%] bg-gray-900 md:ml-0"></div>
+                                  </div>
+                                  <div class="flex w-[23%] items-center justify-center gap-1.5 self-end">
+                                    <img
+                                      src="public/images/img_vector_black_900_02.svg"
+                                      alt="logo image"
+                                      class="h-[57px] w-[58px]"
+                                    />
+                                    <h3 class="size-3xl heading ui self-end !font-firasanscondensed !text-[22.02px]">
+                                      Your Logo
+                                    </h3>
+                                  </div>
+                                </div>
+                                <div class="flex w-[94%] items-start justify-between gap-5 md:w-full sm:flex-col">
+                                  <div class="mb-[11px] flex w-[19%] flex-col gap-[18px] sm:w-full">
+                                    <div class="flex flex-col items-start">
+                                      <h4 class="size-md heading ui !font-calibri !font-bold !text-gray-600">
+                                        Due Total:
+                                      </h4>
+                                      <h5
+                                        class="size-6xl heading ui relative mt-[-1px] !font-calibri !font-bold !text-gray-900"
+                                      >
+                                        $150.00
+                                      </h5>
+                                    </div>
+                                    <div class="flex flex-col items-start gap-[5px]">
+                                      <h6 class="size-lg heading ui !font-calibri !font-bold !text-gray-900_cc_01">
+                                        Billing from
+                                      </h6>
+                                      <p class="size-md text ui w-full !font-calibri leading-[19px] !text-gray-900_cc">
+                                        <span class="font-bold text-gray-900_cc"> ABCD<br /></span>
+                                        <span class="text-gray-900_cc">
+                                          Canada<br />+1 987-965-9988<br />Name@gmail.vom<br />Name 12223344</span
+                                        >
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="flex w-[49%] items-start justify-center gap-[27px] sm:w-full">
+                                    <div class="flex w-[43%] flex-col items-start">
+                                      <h6 class="size-lg heading ui !font-calibri !font-bold !text-gray-900">
+                                        Invoice Details
+                                      </h6>
+                                      <div class="h-px w-full self-stretch bg-gray-600"></div>
+                                      <h6 class="size-lg heading ui mt-[9px] !font-calibri !font-bold !text-gray-900">
+                                        #10052
+                                      </h6>
+                                      <p class="size-md text ui !font-calibri !text-gray-900_b2_01">Invoice number</p>
+                                      <h6 class="size-lg heading ui mt-3 !font-calibri !font-bold !text-gray-900">
+                                        Jan 10, 2024
+                                      </h6>
+                                      <p class="size-md text ui !font-calibri !text-gray-900_b2_01">Date of issue</p>
+                                      <h6 class="size-lg heading ui mt-3 !font-calibri !font-bold !text-gray-900">
+                                        Jan 12, 2024
+                                      </h6>
+                                      <p class="size-md text ui !font-calibri !text-gray-900_b2_01">Date of due</p>
+                                    </div>
+                                    <div class="flex flex-1 flex-col items-start">
+                                      <h6 class="size-lg heading ui !font-calibri !font-bold !text-gray-900">
+                                        Invoice To
+                                      </h6>
+                                      <div class="h-px w-[75%] bg-gray-600"></div>
+                                      <h6 class="size-lg heading ui mt-[9px] !font-calibri !font-bold !text-gray-900">
+                                        Jane Smith
+                                      </h6>
+                                      <p class="size-md text ui !font-calibri !text-gray-900_b2_01">
+                                        Jane Smith11@gmal.com
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="self-stretch">
+                              <div class="flex justify-between gap-5 bg-gray-200 p-1.5">
+                                <p class="size-s heading ui ml-[51px] !font-calibri !text-gray-900_03 md:ml-0">
+                                  Item Description
+                                </p>
+                                <div class="mr-[99px] flex w-[34%] flex-wrap justify-between gap-5 md:mr-0">
+                                  <p class="size-xs heading ui !font-calibri !text-[11.88px] !text-gray-900_03">Qty</p>
+                                  <p class="size-s heading ui !font-calibri !text-gray-900_03">Price</p>
+                                  <p class="size-s heading ui !font-calibri !text-gray-900_03">Total</p>
+                                </div>
+                              </div>
+                              <div class="flex flex-col items-end px-[13px] pt-[13px]">
+                                <p
+                                  class="size-md heading ui relative z-[2] ml-11 self-start !font-calibri !font-bold !text-gray-900 md:ml-0"
+                                >
+                                  Course details
+                                </p>
+                                <p
+                                  class="size-md heading ui relative z-[3] mr-[281px] mt-[-8px] !font-calibri !font-bold !text-gray-900 md:mr-0"
+                                >
+                                  1
+                                </p>
+                                <p
+                                  class="size-s text ui relative z-[4] mr-[171px] mt-[-17px] !font-calibri !text-gray-600 md:mr-0"
+                                >
+                                  $150.00
+                                </p>
+                                <p
+                                  class="size-s text ui relative mr-[69px] mt-[-17px] !font-calibri !text-gray-600 md:mr-0"
+                                >
+                                  $150.00
+                                </p>
+                                <p
+                                  class="size-xs text ui relative ml-11 mt-[-6px] self-start !font-calibri !text-gray-600 md:ml-0"
+                                >
+                                  Lorem ipsum dolor sit amet ultricies pretium turpis.
+                                </p>
+                                <div class="mt-3 h-px w-[88%] self-center bg-gray-900_19"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="mr-[82px] mt-12 flex w-[32%] flex-wrap items-center justify-between gap-5 md:mr-0 md:w-full"
+                          >
+                            <p class="size-s text ui self-start !font-firasanscondensed !text-gray-900">Sub-Total:</p>
+                            <p class="size-s text ui !font-firasanscondensed !text-gray-900">$150.00</p>
+                          </div>
+                          <div
+                            class="mr-[82px] mt-2.5 flex w-[32%] flex-wrap items-center justify-between gap-5 md:mr-0 md:w-full"
+                          >
+                            <p class="size-s text ui self-start !font-firasanscondensed !text-gray-900">Discount</p>
+                            <p class="size-s text ui !font-firasanscondensed !text-gray-900">$150.00</p>
+                          </div>
+                          <div
+                            class="mr-[82px] mt-2.5 flex w-[32%] flex-wrap items-center justify-between gap-5 md:mr-0 md:w-full"
+                          >
+                            <p class="size-s text ui self-start !font-firasanscondensed !text-gray-900">Paid</p>
+                            <p class="size-s text ui !font-firasanscondensed !text-gray-900">$-0.00</p>
+                          </div>
+                          <div
+                            class="mt-[15px] flex w-[42%] flex-wrap items-center justify-between gap-5 bg-gray-200 md:w-full"
+                          >
+                            <p class="size-md heading ui ml-[17px] !font-calibri !font-bold !text-gray-900_03">
+                              Amount due
+                            </p>
+                            <p class="size-md heading ui mr-[79px] !font-calibri !font-bold !text-gray-900_03">
+                              $150.00
+                            </p>
+                          </div>
+                          <h6
+                            class="size-lg heading ui ml-14 mt-[67px] self-start !font-calibri !font-bold !text-gray-900 md:ml-0"
+                          >
+                            Notes:
+                          </h6>
+                          <p class="size-md text ui ml-14 self-start !font-calibri !text-gray-900_b2_01 md:ml-0">
+                            Thank you for your purchase.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="size-md text ui mr-[70px] mt-[49px] !font-medium !text-white-A700 md:mr-0">Save</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- billing details section -->
+            <div
+              style="display: none"
+              id="tabpanel11"
+              role="tabpanel"
+              aria-labelledby="tab11"
+              hidden
+              class="tabcontent mt-[51px] flex w-[67%] md:w-full"
+            >
+              <span style="min-height: 906px"> Coach content</span>
+            </div>
+
+            <!-- billing details section -->
+            <div
+              style="display: none"
+              id="tabpanel21"
+              role="tabpanel"
+              aria-labelledby="tab21"
+              hidden
+              class="tabcontent mt-[51px] flex w-[67%] md:w-full"
+            >
+              <span style="min-height: 906px"> Invoice content</span>
+            </div>
+
+            <!-- billing details section -->
+            <div
+              style="display: none"
+              id="tabpanel31"
+              role="tabpanel"
+              aria-labelledby="tab31"
+              hidden
+              class="tabcontent mt-[51px] flex w-[67%] md:w-full"
+            >
+              <span style="min-height: 906px"> Tax content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

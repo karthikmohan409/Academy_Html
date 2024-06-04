@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coach Schedule & Student Management - Dreams into Reality</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Manage your coaching schedule, track student progress, and organize courses with our comprehensive dashboard. Perfect for coaches seeking efficiency."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex items-start gap-6 md:flex-col">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:p-5 md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_13.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="coach suffix"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="video icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+          <div class="mt-20 flex w-[20%] flex-col gap-[21px] md:w-full md:p-5">
+            <div class="relative h-[310px] md:h-auto">
+              <img
+                src="public/images/img_rectangle_462_310x339.png"
+                alt="profileimage"
+                class="h-[310px] w-full rounded-[10px] object-cover"
+              />
+              <div class="absolute bottom-[14.77px] left-0 right-0 m-auto flex flex-col items-start">
+                <h1 class="size-4xl heading ui tracking-[-0.48px] !text-white-A700">Coach name A</h1>
+                <p class="size-xl text ui tracking-[-0.40px] !text-white-A700_bf">Coach name A@11gmail.com</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button
+                class="fill size-4xl white_a700 button ui min-w-[136px] gap-2 rounded-[24px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+              >
+                <img src="public/images/img_thumbsup_blue_a700.svg" alt="thumbs_up" class="h-[18px] w-[18px]" />
+                <span> Chat now</span>
+              </button>
+              <button
+                class="fill size-2xl white_a700 button ui min-w-[197px] gap-1 rounded-[22px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+              >
+                <img src="public/images/img_user_blue_a700.svg" alt="user" class="h-[17px] w-[17px]" />
+                <span> Schedule meeting</span>
+              </button>
+            </div>
+            <div class="flex flex-col items-start">
+              <h2 class="size-xl heading ui tracking-[-0.36px] !text-black-900_01">About Me</h2>
+              <p class="size-lg text ui mt-[5px] w-[93%] leading-[29px] tracking-[-0.36px] !text-gray-900_01 md:w-full">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur sem id porttitor tempor. Nunc
+                sodales, neque nec hendrerit consequat, mauris elit euismod.
+              </p>
+              <div class="mt-[18px] self-stretch">
+                <div>
+                  <div class="flex items-center justify-between gap-5">
+                    <h3 class="size-xl heading ui !text-gray-900_02">Profile details</h3>
+                    <img
+                      src="public/images/img_arrowdown_black_900_02.svg"
+                      alt="expandicon"
+                      class="mb-[7px] h-[8px] self-end"
+                    />
+                  </div>
+                  <div class="h-px bg-black-900_02"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- profile actions section -->
+          <div class="mt-[29px] flex flex-1 flex-col items-end gap-[23px] md:self-stretch md:p-5">
+            <div class="flex items-start gap-2">
+              <img src="public/images/img_thumbs_up_indigo_a200.svg" alt="thumbs up image" class="h-[20px] w-[20px]" />
+              <p class="size-lg text ui !text-black-900_cc_01">Delete profile</p>
+            </div>
+
+            <!-- tabbed content section -->
+            <div
+              id="tabList"
+              role="tablist"
+              aria-label="Tab Row"
+              class="flex flex-col gap-4 self-stretch"
+              data-active-class="!text-gray-900_02 font-semibold"
+            >
+              <div class="flex flex-wrap gap-[167px] p-[11px] md:gap-5">
+                <a
+                  href="https://www.youtube.com/embed/bv8Fxk0sz7I"
+                  target="_blank"
+                  class="font-semibold !text-gray-900_02"
+                >
+                  <span
+                    class="ml-[47px] text-lg font-normal text-gray-900_bf"
+                    id="tab01"
+                    role="tab"
+                    aria-controls="tabpanel01"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    Calendar</span
+                  >
+                </a>
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <span
+                    class="text-lg font-normal text-gray-900_bf"
+                    id="tab11"
+                    role="tab"
+                    aria-controls="tabpanel11"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Working hours</span
+                  >
+                </a>
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <span
+                    class="text-lg font-normal text-gray-900_bf"
+                    id="tab21"
+                    role="tab"
+                    aria-controls="tabpanel21"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Leave</span
+                  >
+                </a>
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <span
+                    class="mr-[119px] text-lg font-normal text-gray-900_bf"
+                    id="tab31"
+                    role="tab"
+                    aria-controls="tabpanel31"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Payment</span
+                  >
+                </a>
+              </div>
+              <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent">
+                <div>
+                  <div class="flex flex-col items-center gap-[39px] bg-white-A700 px-3.5 pt-3.5">
+                    <div class="flex w-[96%] justify-between gap-5 md:w-full md:flex-col">
+                      <div class="flex flex-wrap items-start">
+                        <img src="public/images/img_arrow_left.svg" alt="left arrow image" class="mt-[5px] h-[14px]" />
+                        <h4 class="size-2xl heading ui ml-[9px] !font-bold">May 30, 2023</h4>
+                        <img
+                          src="public/images/img_arrow_right_black_900_02.svg"
+                          alt="right arrow image"
+                          class="ml-4 mt-1 h-[14px]"
+                        />
+                        <p class="size-lg text ui ml-[19px] !text-black-900_02">Wednesday</p>
+                      </div>
+                      <div class="flex flex-wrap gap-3.5 sm:flex-col">
+                        <p
+                          class="size-md text ui w-[35%] px-[41px] py-0.5 text-center leading-6 !text-black-900_a0 md:px-5 sm:w-full"
+                        >
+                          month
+                        </p>
+                        <p
+                          class="size-md text ui w-[32%] px-[41px] py-0.5 text-center leading-6 !text-black-900_a0 md:px-5 sm:w-full"
+                        >
+                          week
+                        </p>
+                        <p
+                          class="size-md text ui mr-2 w-[29%] px-[41px] py-0.5 text-center leading-6 !text-black-900_a0 md:px-5 sm:mr-0 sm:w-full"
+                        >
+                          day
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex w-[97%] md:w-full">
+                      <div class="flex w-full flex-col">
+                        <div>
+                          <div class="flex flex-col">
+                            <div>
+                              <div class="relative mt-[-10px]">
+                                <div class="relative z-[2] flex items-start gap-[31px] md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">6am</p>
+                                  <div
+                                    class="mt-2.5 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                                <div class="relative mt-[-10px] flex items-start gap-[31px] md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">7am</p>
+                                  <div
+                                    class="mt-2.5 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                              </div>
+                              <div class="relative mt-[-10px]">
+                                <div class="relative z-[2] flex items-start gap-[31px] md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">8am</p>
+                                  <div
+                                    class="mt-2.5 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                                <div class="relative mt-[-10px] flex items-start gap-[31px] md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">9am</p>
+                                  <div
+                                    class="mt-2.5 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="relative mt-[-10px] flex w-[72%] flex-col items-start md:w-full">
+                              <div class="flex items-start gap-[26px] self-stretch md:flex-col">
+                                <p class="size-md text ui !text-black-900_02">10am</p>
+                                <div
+                                  class="mt-2.5 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                ></div>
+                              </div>
+                              <p class="size-md text ui relative mt-[-10px] !text-black-900_02">11am</p>
+                            </div>
+                          </div>
+                          <div class="relative mt-[-47px]">
+                            <div class="flex flex-col items-end">
+                              <div class="w-[93%] md:w-full">
+                                <div class="relative z-[3] border border-solid border-black-900_0c bg-blue-100 p-[7px]">
+                                  <div class="flex flex-col items-start">
+                                    <p class="size-s text ui !text-black-900_01">Package A</p>
+                                    <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                                      <p class="size-s text ui !text-black-900_99_01">10:00 am-11:30 am</p>
+                                      <p class="size-s text ui !text-black-900_99_01">Students 5</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="relative mt-[-23px] h-[34px] border border-solid border-black-900_0c bg-gray-50_01"
+                                ></div>
+                              </div>
+                              <div class="relative mt-[-8px] self-stretch">
+                                <div class="relative z-[4] flex items-start gap-8 md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">12pm</p>
+                                  <div
+                                    class="mt-2 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                                <div class="relative mt-[-8px] flex items-start gap-8 md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">1pm</p>
+                                  <div
+                                    class="mt-2 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="relative mt-[-8px]">
+                              <div>
+                                <div class="relative z-[4] flex items-start gap-8 md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">2pm</p>
+                                  <div
+                                    class="mt-2 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                                <div class="relative mt-[-8px] flex items-start gap-8 md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">3pm</p>
+                                  <div
+                                    class="mt-2 h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                              </div>
+                              <div class="relative z-[5] mt-[-11px]">
+                                <div class="flex items-start gap-[11px] md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">4pm</p>
+                                  <div
+                                    class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                                <div class="relative mt-[-11px] flex items-start gap-3 md:flex-col">
+                                  <p class="size-md text ui !text-black-900_02">5am</p>
+                                  <div
+                                    class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="relative mt-[-13px] w-[71%] md:w-full">
+                          <div>
+                            <div class="relative z-[5]">
+                              <div class="flex items-start gap-[11px] md:flex-col">
+                                <p class="size-md text ui !text-black-900_02">6pm</p>
+                                <div
+                                  class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                ></div>
+                              </div>
+                              <div class="relative mt-[-11px] flex items-start gap-3 md:flex-col">
+                                <p class="size-md text ui !text-black-900_02">7pm</p>
+                                <div
+                                  class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                ></div>
+                              </div>
+                            </div>
+                            <div class="relative z-[5] mt-[-11px]">
+                              <div class="flex items-start gap-[11px] md:flex-col">
+                                <p class="size-md text ui !text-black-900_02">8pm</p>
+                                <div
+                                  class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                ></div>
+                              </div>
+                              <div class="relative mt-[-11px] flex items-start gap-3 md:flex-col">
+                                <p class="size-md text ui !text-black-900_02">9pm</p>
+                                <div
+                                  class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="relative mt-[-11px] flex items-start gap-1.5 md:flex-col">
+                            <p class="size-md text ui !text-black-900_02">10am</p>
+                            <div
+                              class="mt-[11px] h-[34px] flex-1 border border-solid border-black-900_0c bg-gray-50_01 md:self-stretch"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-[18px] flex flex-wrap items-start justify-between gap-5">
+                    <h5 class="size-xl heading ui">Batch assignment for May 30, 2023</h5>
+                    <p class="size-s text ui !text-black-900_7f_01">
+                      <span class="text-black-900_7f_01"> Total&nbsp;</span>
+                      <span class="font-semibold text-black-900_ba"> 3</span>
+                    </p>
+                  </div>
+                  <div class="relative z-[6] mt-2.5 flex w-full bg-white-A700 p-[19px] md:p-5">
+                    <div class="ml-3.5 flex w-[84%] items-center justify-between gap-5 md:ml-0 md:w-full sm:flex-col">
+                      <div class="flex flex-col items-start gap-[3px]">
+                        <p class="size-s text ui !text-black-900_7f_01">Practice title</p>
+                        <p class="size-s text ui !text-black-900_01">Package A</p>
+                      </div>
+                      <div class="flex flex-col items-start gap-0.5">
+                        <p class="size-s text ui !text-black-900_7f_01">Time</p>
+                        <p class="size-s text ui !text-black-900_01">10:00 am-11:30 am</p>
+                      </div>
+                      <div class="flex w-[39%] flex-col sm:w-full">
+                        <div class="relative z-[7] flex w-[89%] flex-wrap justify-between gap-5 md:w-full">
+                          <p class="size-s text ui !text-black-900_7f_01">Students</p>
+                          <p class="size-s text ui self-end !text-black-900_7f_01">Practice Days</p>
+                        </div>
+                        <div class="flex flex-wrap justify-between gap-5">
+                          <p class="size-s text ui !text-black-900_01">5</p>
+                          <p class="size-s text ui self-end !text-black-900_01">Weekly, Mo-Tu-We</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="display: none"
+                id="tabpanel11"
+                role="tabpanel"
+                aria-labelledby="tab11"
+                hidden
+                class="tabcontent"
+              >
+                <span style="min-height: 567px"> Working hours content</span>
+              </div>
+              <div
+                style="display: none"
+                id="tabpanel21"
+                role="tabpanel"
+                aria-labelledby="tab21"
+                hidden
+                class="tabcontent"
+              >
+                <span style="min-height: 567px"> Leave content</span>
+              </div>
+              <div
+                style="display: none"
+                id="tabpanel31"
+                role="tabpanel"
+                aria-labelledby="tab31"
+                hidden
+                class="tabcontent"
+              >
+                <span style="min-height: 567px"> Payment content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

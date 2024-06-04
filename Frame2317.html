@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Create New Package - Customize Your Course Offerings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Design tailored course packages with our Add Package feature. Set fees, discounts, and add-ons to provide value and flexibility for your educational programs."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- package creation section -->
+    <div class="w-full bg-white-A700 pt-[21px] sm:pt-5">
+      <div class="flex flex-col items-center">
+        <!-- package title section -->
+        <h1 class="size-2xl heading ui self-start !text-gray-900_03">Add Package</h1>
+        <div class="mt-[15px] h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- package name input section -->
+        <div class="container-xs mt-[42px] flex flex-col items-start gap-1 md:p-5">
+          <p class="size-md text ui !text-blue_gray-900_03">Package name</p>
+          <label
+            class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_26 !text-blue_gray-900_7f sm:pr-5"
+          >
+            <input name="Name Input" placeholder="Enter package name" type="text" />
+          </label>
+        </div>
+
+        <!-- course selection section -->
+        <div class="container-xs mt-[43px] flex flex-col items-start gap-1 md:p-5">
+          <p class="size-md text ui !text-blue_gray-900_03">
+            Please select which courses you want to add to this package.
+          </p>
+          <select
+            class="fill size-lg white_a700 selectbox ui gap-px self-stretch rounded-[5px] border border-solid border-black-900_26 bg-[url(../public/images/img_arrowdown_indigo_a200_6x12.svg)] bg-[length:12px] bg-no-repeat sm:pr-5"
+            name="Courses Dropdown"
+          >
+            <option value="option1">Option1</option>
+            <option value="option2">Option2</option>
+            <option value="option3">Option3</option>
+          </select>
+        </div>
+
+        <!-- pricing and discount section -->
+        <div class="mt-[43px] flex w-[92%] gap-[15px] md:w-full md:flex-col md:p-5">
+          <div class="flex w-full flex-col items-start gap-1">
+            <p class="size-md text ui !text-blue_gray-900_03">Package fee</p>
+            <label
+              class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_26 !text-blue_gray-900_7f sm:pr-5"
+            >
+              <input name="Fee Input" placeholder="Enter package fee" type="text" />
+            </label>
+          </div>
+          <div class="flex w-full flex-col items-start gap-1">
+            <p class="size-md text ui !text-blue_gray-900_03">Package discount</p>
+            <label
+              class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_26 !text-blue_gray-900_7f sm:pr-5"
+            >
+              <input name="Discount Input" placeholder="Enter package discount % or discount amount" type="text" />
+            </label>
+          </div>
+        </div>
+        <p class="size-md text ui mt-[30px] self-start !font-medium !text-indigo-A200">+ Add new discount</p>
+
+        <!-- add ons section -->
+        <div class="mt-[31px] flex w-[92%] flex-col items-start gap-[11px] md:w-full md:p-5">
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+          <h2 class="size-lg heading ui !text-blue_gray-900_03">Add ons</h2>
+        </div>
+
+        <!-- add add ons section -->
+        <div class="mt-[116px] flex w-[92%] flex-col items-start gap-[19px] md:w-full md:p-5">
+          <p class="size-md text ui !font-medium !text-indigo-A200">+ Add add ons</p>
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+        </div>
+
+        <!-- package description section -->
+        <div class="container-xs mt-5 flex flex-col items-start gap-[5px] md:p-5">
+          <p class="size-md text ui !text-blue_gray-900_03">Description</p>
+          <textarea
+            class="round taroutlineblack90026 size-sm white_a700 textarea ui self-stretch !border-black-900_26 text-blue_gray-900_7f sm:pb-5 sm:pr-5"
+            name="Description Input"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+        <div class="mt-[43px] h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- action buttons section -->
+        <div class="mt-[26px] flex gap-[11px] self-end">
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl white_a700 button ui min-w-[199px] rounded-lg border border-solid border-gray-200_01 font-semibold !text-gray-700_01 sm:px-5"
+            >
+              Cancel
+            </button>
+          </a>
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl indigo_a200_87 button ui min-w-[199px] rounded-lg font-semibold opacity-0.5 sm:px-5"
+            >
+              Save
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Attendance Report - Actionzone Coaching Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="View detailed attendance reports for coaches and students. Ensure high participation with our tracking system showing a 90% coach and 85% student attendance rate."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[98%] items-start gap-6 md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_15.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="suffix icon"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+          <div class="flex flex-1 flex-col gap-[19px] md:self-stretch">
+            <!-- main content section -->
+            <div class="flex flex-col items-start gap-[25px]">
+              <div class="container-4xl flex flex-col items-start gap-2.5 self-stretch md:p-5">
+                <h1 class="size-5xl heading ui">Report</h1>
+                <h2 class="size-xl heading ui !font-inter !text-black-900_b2">Overview</h2>
+                <div class="flex gap-[9px] self-stretch md:flex-col">
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[7px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total revenue generated</p>
+                    <h3 class="size-6xl heading ui !font-inter !text-white-A700">$465000</h3>
+                  </div>
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of courses</p>
+                    <h4 class="size-6xl heading ui !font-inter !text-white-A700">53</h4>
+                  </div>
+                  <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of students</p>
+                    <h5 class="size-6xl heading ui !font-inter !text-white-A700">600</h5>
+                  </div>
+                  <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of coaches</p>
+                    <h6 class="size-6xl heading ui !font-inter !text-white-A700">120</h6>
+                  </div>
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total calendar revenue</p>
+                    <h3 class="size-6xl heading ui !font-inter !text-white-A700">$18000</h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- report overview section -->
+              <div class="h-px self-stretch bg-black-900_1e"></div>
+
+              <!-- filter section -->
+              <div class="flex justify-between gap-5 self-stretch md:flex-col">
+                <div class="flex w-[42%] justify-center gap-3.5 md:w-full sm:flex-col">
+                  <select
+                    class="round fill size-2xl indigo_a200_07 selectbox ui flex-grow gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat sm:px-5"
+                    name="Attendance Dropdown"
+                  >
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                  <select
+                    class="round fill size-2xl indigo_a200_07 selectbox ui w-[37%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat sm:w-full sm:px-5"
+                    name="Status Dropdown"
+                  >
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                </div>
+                <select
+                  class="round fill size-2xl indigo_a200_07 selectbox ui w-[19%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat md:w-full sm:px-5"
+                  name="Period Dropdown"
+                >
+                  <option value="option1">Option1</option>
+                  <option value="option2">Option2</option>
+                  <option value="option3">Option3</option>
+                </select>
+              </div>
+
+              <!-- statistics section -->
+              <div class="flex w-[51%] gap-[21px] md:w-full md:flex-col">
+                <div
+                  class="flex w-full flex-col items-start justify-center rounded-[5px] bg-white-A700 p-[15px] shadow-5xl"
+                >
+                  <p class="size-md text ui ml-1 !text-black-900_99 md:ml-0">Total hours</p>
+                  <h5 class="size-2xl heading ui ml-1 md:ml-0">230 hours</h5>
+                </div>
+                <div class="flex w-full justify-center rounded-[5px] bg-white-A700 p-[15px] shadow-5xl">
+                  <div class="flex flex-col items-start">
+                    <p class="size-md text ui !text-black-900_99">Coach attendance</p>
+                    <div class="flex flex-wrap items-center gap-[5px]">
+                      <h5 class="size-2xl heading ui">90%</h5>
+                      <p class="size-s text ui self-end !text-indigo-A200_bf">Present</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full flex-col items-start justify-center rounded-[5px] bg-white-A700 p-[15px] shadow-5xl"
+                >
+                  <p class="size-md text ui self-center !text-black-900_99">Students attendance</p>
+                  <div class="ml-[9px] flex flex-wrap items-center gap-[7px] md:ml-0">
+                    <h5 class="size-2xl heading ui">85%</h5>
+                    <p class="size-s text ui self-end !text-indigo-A200_bf">Present</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- attendance table section -->
+            <div class="rounded-[10px] bg-white-A700 pb-2.5 shadow-6xl">
+              <table class="size-3xl ui table" cellpadding="0" cellspacing="0">
+                <thead class="rounded-tl-[10px] rounded-tr-[10px] bg-indigo-A200_11 md:flex-col">
+                  <tr>
+                    <th width="303px">
+                      <p class="size-md text ui py-[11px] pl-[35px] !font-inter !text-black-900_99 md:p-5 sm:pl-5">
+                        Name
+                      </p>
+                    </th>
+                    <th width="263px">
+                      <div class="flex cursor-pointer items-end gap-2.5 p-[9px] md:p-5">
+                        <p class="size-md text ui ml-5 mt-1 !font-inter !text-black-900_99">Coach / Student</p>
+                        <img src="public/images/img_arrowdown_black_900_02.svg" alt="sort icon" class="mb-2 h-[3px]" />
+                      </div>
+                    </th>
+                    <th width="247px">
+                      <div class="flex cursor-pointer items-end gap-2.5 p-[9px] md:p-5">
+                        <p class="size-md text ui ml-5 !font-inter !text-black-900_99">Total hours</p>
+                        <img src="public/images/img_arrowdown_black_900_02.svg" alt="sort icon" class="mb-2 h-[3px]" />
+                      </div>
+                    </th>
+                    <th width="260px">
+                      <div class="flex cursor-pointer items-end gap-2.5 p-[9px] md:p-5">
+                        <p class="size-md text ui ml-5 !font-inter !text-black-900_99">Present hours</p>
+                        <img src="public/images/img_arrowdown_black_900_02.svg" alt="sort icon" class="mb-2 h-[3px]" />
+                      </div>
+                    </th>
+                    <th width="324px">
+                      <div class="flex flex-1 cursor-pointer items-end gap-2.5 p-[9px] md:self-stretch md:p-5">
+                        <p class="size-md text ui ml-5 !font-inter !text-black-900_99">Absent hours</p>
+                        <img src="public/images/img_arrowdown_black_900_02.svg" alt="sort icon" class="mb-2 h-[3px]" />
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_129.png"
+                          alt="image_fifteen"
+                          class="ml-[34px] h-[25px] w-[25px] self-end rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Williams</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Coach</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">0 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end justify-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_129_25x25.png"
+                          alt="profile image"
+                          class="mt-[5px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Amanda Thompson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">150 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">120 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">30 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_130.png"
+                          alt="profile image"
+                          class="ml-11 mt-[17px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Rodriguez</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Coach</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">160 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">150 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_131.png"
+                          alt="imageeen"
+                          class="ml-[43px] mt-[19px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Johnson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Coach</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">0 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_130_25x25.png"
+                          alt="imageteen"
+                          class="ml-[43px] mt-[22px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Daniel Garcia</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">200 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">20 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128.png"
+                          alt="image_twenty"
+                          class="ml-[19px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Smith</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Coach</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">160 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">20 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_131_25x25.png"
+                          alt="image_twentyone"
+                          class="ml-[18px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Emily Johnson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">190 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_25x25.png"
+                          alt="image_twentytwo"
+                          class="ml-[45px] mt-[23px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Michael Brown</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">175 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">150 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">15 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-end gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_130_25x25.png"
+                          alt="image"
+                          class="ml-[43px] mt-[22px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Daniel Garcia</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">200 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">20 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128.png"
+                          alt="image"
+                          class="ml-[19px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Smith</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Coach</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">160 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">20 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_131_25x25.png"
+                          alt="image"
+                          class="ml-[18px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Emily Johnson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">190 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">180 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10 hours</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_25x25.png"
+                          alt="profile image"
+                          class="ml-[21px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Michael Brown</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">Student</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">175 hour</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">150 hours</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">15 hours</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

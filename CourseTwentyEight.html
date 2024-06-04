@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Billing and Invoice - Course Payment Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Review your billing and invoice details for course payments. Find comprehensive information on course fees, tax invoices, and payment statuses for all your enrolled courses."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[98%] items-start gap-[23px] md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="main image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_14.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="billing suffix"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- main content section -->
+          <div
+            id="tabList"
+            role="tablist"
+            aria-label="Tabs Row"
+            class="flex flex-1 flex-col items-start gap-[17px] md:self-stretch"
+            data-active-class="!text-indigo-A200 font-semibold border-indigo-A200 border-b-4"
+          >
+            <h1 class="size-5xl heading ui">Billing</h1>
+            <div class="flex flex-wrap gap-[-1px]">
+              <span
+                class="border-b-4 border-indigo-A200 px-[50px] py-2.5 text-xl font-normal font-semibold !text-indigo-A200 text-black-900_cc_01 md:px-5"
+                id="tab01"
+                role="tab"
+                aria-controls="tabpanel01"
+                aria-selected="true"
+                tabindex="0"
+              >
+                Student</span
+              >
+              <span
+                class="px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab11"
+                role="tab"
+                aria-controls="tabpanel11"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Coach</span
+              >
+              <span
+                class="px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab21"
+                role="tab"
+                aria-controls="tabpanel21"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Invoice</span
+              >
+              <span
+                class="mr-[744px] px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+                id="tab31"
+                role="tab"
+                aria-controls="tabpanel31"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Tax</span
+              >
+            </div>
+
+            <!-- billing tab section -->
+            <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent self-stretch">
+              <!-- student list section -->
+              <div class="flex flex-col gap-2.5">
+                <div class="flex w-[25%] justify-between gap-5 md:w-full">
+                  <div class="flex w-[41%] items-center justify-center gap-2.5 p-[9px]">
+                    <div class="w-[15%] rounded-lg border border-solid border-indigo-A200 p-[3px]">
+                      <div class="h-[11px] w-[11px] rounded-[5px] bg-indigo-A200"></div>
+                    </div>
+                    <h2 class="size-lg heading ui !text-black-900_cc_01">All students</h2>
+                  </div>
+                  <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                    <div class="flex w-[46%] items-center justify-center gap-2.5 p-[9px]">
+                      <div class="h-[17px] w-[17px] rounded-lg border border-solid border-indigo-A200"></div>
+                      <p class="size-md text ui !text-black-900_cc_01">Course based</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="flex w-[27%] items-center justify-between gap-5 md:w-full">
+                  <p class="size-md text ui self-end !text-black-900_99">
+                    <span class="text-black-900_99"> Students :&nbsp;</span>
+                    <span class="font-semibold text-black-900_02"> 75</span>
+                  </p>
+                  <select
+                    class="bordered size-xs black_900_7f_02 selectbox ui w-[35%] gap-px rounded-[5px] bg-[url(../public/images/img_arrowdown_indigo_a200.svg)] bg-[length:7px] bg-no-repeat sm:pr-5"
+                    name="Filter Dropdown"
+                  >
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                </div>
+
+                <!-- student details section -->
+                <div class="flex items-start gap-3.5 md:flex-col">
+                  <div class="flex w-[27%] flex-col gap-[39px] md:w-full">
+                    <!-- student list section -->
+                    <div class="flex flex-1 flex-col items-center rounded-[10px] bg-white-A700 pt-3">
+                      <div class="flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui !text-black-900">Alice Smith</p>
+                        </div>
+                        <div class="mb-3 flex w-[38%] self-end rounded bg-blue_gray-100_01">
+                          <div class="h-[9px] w-[26px] rounded bg-green-500_01"></div>
+                        </div>
+                      </div>
+                      <div
+                        class="mt-[9px] self-stretch rounded-[7px] border border-solid border-indigo-A200 bg-indigo-A200_19"
+                      >
+                        <div class="mb-[7px] flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex items-center gap-3">
+                              <img
+                                src="public/images/img_ellipse_101_37x37.png"
+                                alt="user image"
+                                class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                              />
+                              <p class="size-md text ui !text-black-900">John Doe</p>
+                            </div>
+                            <div class="flex w-[38%] justify-center rounded bg-blue_gray-100_01 pr-[15px]">
+                              <div class="h-[9px] w-full rounded bg-red-A400"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="h-px self-stretch bg-black-900_19"></div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_1.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui !text-black-900">John Doe</p>
+                        </div>
+                        <progress
+                          max="100"
+                          value="21"
+                          class="progressbar ui h-[9px] w-[38%] appearance-none [&::-moz-progress-bar]:rounded [&::-moz-progress-bar]:bg-blue_gray-100_01 [&::-webkit-progress-bar]:rounded [&::-webkit-progress-bar]:bg-blue_gray-100_01 [&::-webkit-progress-value]:rounded [&::-webkit-progress-value]:bg-green-500_01"
+                        ></progress>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex items-center gap-3">
+                              <img
+                                src="public/images/img_ellipse_101_2.png"
+                                alt="user image"
+                                class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                              />
+                              <p class="size-md text ui !text-black-900">David Brown</p>
+                            </div>
+                            <div class="flex w-[38%] rounded bg-blue_gray-100_01">
+                              <div class="h-[9px] w-[64%] rounded bg-yellow-900_02"></div>
+                            </div>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_3.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui !text-black-900">Sarah Wilson</p>
+                        </div>
+                        <button
+                          class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                        >
+                          Fully paid
+                        </button>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center md:w-full">
+                            <img
+                              src="public/images/img_ellipse_101_4.png"
+                              alt="user image"
+                              class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                            />
+                            <p class="size-md text ui ml-3 !text-black-900">Michael Jessica</p>
+                            <progress
+                              max="100"
+                              value="40"
+                              class="progressbar ui ml-[29px] h-[9px] flex-1 appearance-none [&::-moz-progress-bar]:rounded [&::-moz-progress-bar]:bg-blue_gray-100_01 [&::-webkit-progress-bar]:rounded [&::-webkit-progress-bar]:bg-blue_gray-100_01 [&::-webkit-progress-value]:rounded [&::-webkit-progress-value]:bg-amber-400"
+                            ></progress>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_5.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui !text-black-900">Lauren Davis</p>
+                        </div>
+                        <button
+                          class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                        >
+                          Fully paid
+                        </button>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex items-center gap-3">
+                              <img
+                                src="public/images/img_ellipse_101_6.png"
+                                alt="user image"
+                                class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                              />
+                              <p class="size-md text ui !text-black-900">John Doe</p>
+                            </div>
+                            <button
+                              class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                            >
+                              Fully paid
+                            </button>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_7.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui mb-1 self-end !text-black-900">Michael Taylor</p>
+                        </div>
+                        <div class="mb-3 flex w-[38%] self-end rounded bg-blue_gray-100_01">
+                          <div class="h-[9px] w-[49px] rounded bg-amber-400"></div>
+                        </div>
+                      </div>
+                      <div class="mt-[9px] h-px self-stretch bg-black-900_19"></div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_8.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui mb-1 self-end !text-black-900">Emily Johnson</p>
+                        </div>
+                        <button
+                          class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                        >
+                          Fully paid
+                        </button>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex items-center gap-3">
+                              <img
+                                src="public/images/img_ellipse_101_9.png"
+                                alt="user image"
+                                class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                              />
+                              <p class="size-md text ui !text-black-900">David Brown</p>
+                            </div>
+                            <button
+                              class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                            >
+                              Fully paid
+                            </button>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_10.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui mb-1 self-end !text-black-900">Michael Taylor</p>
+                        </div>
+                        <div class="flex w-[38%] rounded bg-blue_gray-100_01">
+                          <div class="h-[9px] w-[64%] rounded bg-yellow-900_02"></div>
+                        </div>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center justify-between gap-5 md:w-full">
+                            <div class="flex items-center gap-3">
+                              <img
+                                src="public/images/img_ellipse_101_11.png"
+                                alt="user image"
+                                class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                              />
+                              <p class="size-md text ui !text-black-900">Sarah Wilson</p>
+                            </div>
+                            <button
+                              class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                            >
+                              Fully paid
+                            </button>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-[9px] flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_6.png"
+                            alt="user image"
+                            class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                          />
+                          <p class="size-md text ui !text-black-900">John Doe</p>
+                        </div>
+                        <button
+                          class="round fill size-lg black_900_0a button ui min-w-[116px] border border-solid border-black-900_4c"
+                        >
+                          Fully paid
+                        </button>
+                      </div>
+                      <div class="mt-[9px] self-stretch">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          <div class="flex w-[88%] items-center md:w-full">
+                            <img
+                              src="public/images/img_ellipse_101_7.png"
+                              alt="user image"
+                              class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                            />
+                            <p class="size-md text ui mb-1 ml-3 self-end !text-black-900">Michael Taylor</p>
+                            <button
+                              class="round fill size-lg black_900_0a button ui ml-12 w-full flex-1 border border-solid border-black-900_4c"
+                            >
+                              Fully paid
+                            </button>
+                          </div>
+                          <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex w-[88%] items-center justify-between gap-5 md:w-full md:p-5">
+                        <div class="flex items-center gap-3">
+                          <img
+                            src="public/images/img_ellipse_101_7x37.png"
+                            alt="user image"
+                            class="h-[7px] rounded-[3px] object-cover"
+                          />
+                          <p class="size-md text ui self-end !text-black-900">Emily Johnson</p>
+                        </div>
+                        <div class="flex w-[35%] flex-col items-center self-end">
+                          <div
+                            class="h-[5px] w-full self-stretch rounded-sm border-[5px] border-solid border-black-900_4c bg-black-900_0a"
+                          ></div>
+                          <p class="size-md text ui !text-black-900_ad">Fully paid</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <div class="ml-5 flex items-start gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_1x37.png"
+                        alt="user image"
+                        class="h-px rounded-[-24px] object-cover"
+                      />
+                      <p class="size-md text ui mt-1.5 !text-black-900">David Brown</p>
+                    </div>
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <div
+                      class="mr-[25px] flex w-[33%] flex-col items-center gap-[55px] md:mr-0 md:w-full sm:gap-[27px]"
+                    >
+                      <div
+                        class="h-[-50px] w-full self-stretch border-[-50px] border-solid border-black-900_4c bg-black-900_0a"
+                      ></div>
+                      <p class="size-md text ui !text-black-900_ad">Fully paid</p>
+                    </div>
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <div class="ml-5 flex items-start gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_13.png"
+                        alt="image"
+                        class="h-px rounded-[-51px] object-cover"
+                      />
+                      <p class="size-md text ui mt-1.5 !text-black-900">Michael Taylor</p>
+                    </div>
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <img
+                      src="public/images/img_group_2532.svg"
+                      alt="group"
+                      class="mr-[25px] h-px w-[36%] md:mr-0 md:w-full"
+                    />
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <div class="ml-5 flex items-start gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_14.png"
+                        alt="image"
+                        class="h-px rounded-[-79px] object-cover"
+                      />
+                      <p class="size-md text ui mt-1.5 !text-black-900">Sarah Wilson</p>
+                    </div>
+                    <div class="h-[-39px] w-[372px] bg-black-900_19"></div>
+                    <img
+                      src="public/images/img_group_2532.svg"
+                      alt="group"
+                      class="mr-[25px] h-px w-[36%] md:mr-0 md:w-full"
+                    />
+                  </div>
+
+                  <!-- student course enrollment section -->
+                  <div class="flex flex-1 flex-col items-center rounded-[7px] bg-white-A700 py-5 md:self-stretch">
+                    <div class="flex w-[90%] justify-between gap-5 md:w-full md:p-5">
+                      <div class="flex items-center gap-3">
+                        <img
+                          src="public/images/img_ellipse_101.png"
+                          alt="user image fifteen"
+                          class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                        />
+                        <p class="size-md text ui !text-black-900">Alice Smith</p>
+                      </div>
+                      <select
+                        class="bordered size-xs black_900_66 selectbox ui w-[12%] gap-px rounded-[5px] bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:7px] bg-no-repeat sm:pr-5"
+                        name="Year Dropdown"
+                      >
+                        <option value="option1">Option1</option>
+                        <option value="option2">Option2</option>
+                        <option value="option3">Option3</option>
+                      </select>
+                    </div>
+                    <div class="mt-[19px] h-px w-full self-stretch bg-black-900_14"></div>
+
+                    <!-- course fee table section -->
+                    <table class="striped size-xl ui mb-[67px] mt-2 table w-[94%]" cellpadding="0" cellspacing="0">
+                      <thead class="flex-wrap">
+                        <tr>
+                          <th width="193px">
+                            <p class="size-s text ui py-px pl-[35px] !text-blue_gray-900_7f sm:pl-5">Course name</p>
+                          </th>
+                          <th width="119px">
+                            <p class="size-s text ui py-px !text-blue_gray-900_7f">Course fee</p>
+                          </th>
+                          <th width="141px">
+                            <p class="size-s text ui py-px !text-blue_gray-900_7f">Batch</p>
+                          </th>
+                          <th width="499px">
+                            <p class="size-s text ui py-px !text-blue_gray-900_7f">Payment type</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="bg-indigo-A200_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name C</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$300</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">10 am -11 am</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center justify-between gap-5 md:self-stretch md:p-5">
+                              <p class="size-s text ui !text-blue_gray-900_03">6 month instalment</p>
+                              <div class="flex w-[27%] justify-center rounded bg-blue_gray-100_01 pr-[15px]">
+                                <div class="h-[9px] w-full rounded bg-red-A400"></div>
+                              </div>
+                              <p class="size-s text ui mr-[30px] !font-medium !text-indigo-A200">View details</p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-white-A700_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name D</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">11 am - 12 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center justify-between gap-5 md:self-stretch md:p-5">
+                              <p class="size-s text ui !text-blue_gray-900_03">6 month instalment</p>
+                              <div class="flex w-[27%] rounded bg-blue_gray-100_01">
+                                <div class="h-[9px] w-[64%] rounded bg-yellow-900_02"></div>
+                              </div>
+                              <p class="size-s text ui mr-[30px] !font-medium !text-indigo-A200">View details</p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-indigo-A200_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name A</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$200</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center justify-between gap-5 md:self-stretch md:p-5">
+                              <p class="size-s text ui !text-blue_gray-900_03">3 month instalment</p>
+                              <div class="flex w-[27%] rounded bg-blue_gray-100_01">
+                                <div class="h-[9px] w-[26px] rounded bg-green-500_01"></div>
+                              </div>
+                              <p class="size-s text ui mr-[30px] !font-medium !text-indigo-A200">View details</p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-white-A700_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name A</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$200</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center md:self-stretch md:p-5 sm:flex-col">
+                              <p class="size-s text ui !text-blue_gray-900_03">One time</p>
+                              <button
+                                class="round fill size-md black_900_0a button ui ml-[133px] min-w-[107px] !rounded-[15px] border border-solid border-black-900_4c sm:ml-0"
+                              >
+                                Fully paid
+                              </button>
+                              <p class="size-s text ui ml-[68px] self-start !font-medium !text-indigo-A200 sm:ml-0">
+                                View details
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-indigo-A200_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name F</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center md:self-stretch md:p-5 sm:flex-col">
+                              <p class="size-s text ui !text-blue_gray-900_03">One time</p>
+                              <button
+                                class="round fill size-md black_900_0a button ui ml-[133px] min-w-[107px] !rounded-[15px] border border-solid border-black-900_4c sm:ml-0"
+                              >
+                                Fully paid
+                              </button>
+                              <p class="size-s text ui ml-[68px] self-start !font-medium !text-indigo-A200 sm:ml-0">
+                                View details
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-white-A700_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name R</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$200</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center md:self-stretch md:p-5 sm:flex-col">
+                              <p class="size-s text ui !text-blue_gray-900_03">One time</p>
+                              <button
+                                class="round fill size-md black_900_0a button ui ml-[133px] min-w-[107px] !rounded-[15px] border border-solid border-black-900_4c sm:ml-0"
+                              >
+                                Fully paid
+                              </button>
+                              <p class="size-s text ui ml-[68px] self-start !font-medium !text-indigo-A200 sm:ml-0">
+                                View details
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-indigo-A200_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name B</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$80</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center md:self-stretch md:p-5 sm:flex-col">
+                              <p class="size-s text ui !text-blue_gray-900_03">One time</p>
+                              <button
+                                class="round fill size-md black_900_0a button ui ml-[133px] min-w-[107px] !rounded-[15px] border border-solid border-black-900_4c sm:ml-0"
+                              >
+                                Fully paid
+                              </button>
+                              <p class="size-s text ui ml-[68px] self-start !font-medium !text-indigo-A200 sm:ml-0">
+                                View details
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="bg-white-A700_14 md:flex-col">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">Coarse name B</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">$80</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03 md:p-5">2 pm - 3 pm</p>
+                          </td>
+                          <td>
+                            <div class="flex flex-1 items-center md:self-stretch md:p-5 sm:flex-col">
+                              <p class="size-s text ui !text-blue_gray-900_03">One time</p>
+                              <button
+                                class="round fill size-md black_900_0a button ui ml-[133px] min-w-[107px] !rounded-[15px] border border-solid border-black-900_4c sm:ml-0"
+                              >
+                                Fully paid
+                              </button>
+                              <p class="size-s text ui ml-[68px] self-start !font-medium !text-indigo-A200 sm:ml-0">
+                                View details
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- billing tab section -->
+            <div
+              style="display: none"
+              id="tabpanel11"
+              role="tabpanel"
+              aria-labelledby="tab11"
+              hidden
+              class="tabcontent self-stretch"
+            >
+              <span style="min-height: 946px"> Coach content</span>
+            </div>
+
+            <!-- billing tab section -->
+            <div
+              style="display: none"
+              id="tabpanel21"
+              role="tabpanel"
+              aria-labelledby="tab21"
+              hidden
+              class="tabcontent self-stretch"
+            >
+              <span style="min-height: 946px"> Invoice content</span>
+            </div>
+
+            <!-- billing tab section -->
+            <div
+              style="display: none"
+              id="tabpanel31"
+              role="tabpanel"
+              aria-labelledby="tab31"
+              hidden
+              class="tabcontent self-stretch"
+            >
+              <span style="min-height: 946px"> Tax content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Course Dashboard - Manage Your Learning Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Access your course dashboard to manage events, billing, and settings. Engage with interactive tools like the video analyzer and track your progress with detailed reports."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- main content section -->
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[97%] items-start gap-6 md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col overflow-auto bg-white-A700 pt-[92px] md:hidden md:pt-5"
+          >
+            <ul class="mt-[198px] flex w-full flex-col gap-[0.15px] self-stretch p-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_10.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="addons suffix"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- main dashboard section -->
+          <div class="mt-[15px] flex-1 md:self-stretch">
+            <div class="flex flex-col items-start">
+              <div class="flex items-start justify-between gap-5 self-stretch">
+                <h1 class="size-5xl heading ui">Add ons</h1>
+                <button
+                  class="fill size-5xl indigo_a200 button ui mt-1.5 min-w-[159px] rounded-lg font-semibold shadow-md sm:px-5"
+                >
+                  + Add new
+                </button>
+              </div>
+              <p class="size-md text ui relative mt-[-2px] !text-gray-800_b2">
+                <span class="text-gray-800_b2"> Total items&nbsp;</span>
+                <span class="font-bold text-gray-800_b2"> 24</span>
+              </p>
+              <div class="mt-2.5 grid grid-cols-6 gap-[11px] self-stretch md:grid-cols-3 sm:grid-cols-1">
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-[13px] shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686.png"
+                      alt="cap image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="group image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(10)</p>
+                      </div>
+                      <h2 class="size-lg heading ui relative mt-[-3px] !font-bold !text-gray-800">CAD25</h2>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_117x222.png"
+                      alt="product image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="overlay image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h3 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h3>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(12)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_1.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">QuikMop Pro</p>
+                      <h4 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h4>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(10)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_2.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">FlexiGrip</p>
+                      <h5 class="size-lg heading ui !font-bold !text-gray-800">CAD75</h5>
+                    </div>
+                    <p class="size-md text ui h-[24px] w-[23px] !text-gray-800_99">(8)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_3.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(26)</p>
+                      </div>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_4.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                        <p class="size-md text ui !text-gray-800_99">(33)</p>
+                      </div>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_2.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">FlexiGrip</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD75</h6>
+                    </div>
+                    <p class="size-md text ui h-[24px] w-[23px] !text-gray-800_99">(8)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_4.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(33)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_3.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(26)</p>
+                      </div>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-[13px] shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(10)</p>
+                      </div>
+                      <h6 class="size-lg heading ui relative mt-[-3px] !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_117x222.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                        <p class="size-md text ui !text-gray-800_99">(12)</p>
+                      </div>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-full cursor-pointer flex-col items-center gap-3 hover:shadow-lg">
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_1.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">QuikMop Pro</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(10)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-[13px] shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(10)</p>
+                      </div>
+                      <h6 class="size-lg heading ui relative mt-[-3px] !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_117x222.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(12)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_1.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">QuikMop Pro</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(10)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_2.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">FlexiGrip</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD75</h6>
+                    </div>
+                    <p class="size-md text ui h-[24px] w-[23px] !text-gray-800_99">(8)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_3.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap items-center justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(26)</p>
+                      </div>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_4.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(33)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_2.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">FlexiGrip</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD75</h6>
+                    </div>
+                    <p class="size-md text ui h-[24px] w-[23px] !text-gray-800_99">(8)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_4.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(33)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_3.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cap</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(26)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-[13px] shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] md:w-full md:p-5">
+                    <div class="flex w-full flex-col items-start">
+                      <div class="flex flex-wrap justify-between gap-5 self-stretch">
+                        <p class="size-md text ui !text-gray-800">Cap</p>
+                        <p class="size-md text ui !text-gray-800_99">(10)</p>
+                      </div>
+                      <h6 class="size-lg heading ui relative mt-[-3px] !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-[11px] rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_117x222.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">Cricket Bat</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD130</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(12)</p>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full cursor-pointer flex-col items-center gap-3 rounded-[7px] bg-white-A700 pb-4 shadow-lg hover:shadow-lg"
+                >
+                  <div class="relative h-[117px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_686_1.png"
+                      alt="image"
+                      class="h-[117px] w-full rounded-[7px] object-cover"
+                    />
+                    <img
+                      src="public/images/img_group_2108.svg"
+                      alt="image"
+                      class="absolute right-[19.00px] top-[17.00px] m-auto h-[15px]"
+                    />
+                  </div>
+                  <div class="flex w-[82%] items-start justify-between gap-5 md:w-full md:p-5">
+                    <div class="flex flex-col items-start">
+                      <p class="size-md text ui !text-gray-800">QuikMop Pro</p>
+                      <h6 class="size-lg heading ui !font-bold !text-gray-800">CAD25</h6>
+                    </div>
+                    <p class="size-md text ui !text-gray-800_99">(10)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Booking Summary - Review Your Cricket Lane Reservation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Review your ground booking details for Cricket-lane 2. Check your scheduled dates, start and end times, and add any notes for your upcoming indoor cricket session. Confirm your booking with ease."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- booking section -->
+    <div class="w-full bg-white-A700 pt-5">
+      <div class="flex flex-col items-center">
+        <!-- booking title section -->
+        <div class="flex flex-col items-start gap-4 self-stretch">
+          <h1 class="size-2xl heading ui ml-[42px] !text-gray-900_03 md:ml-0">Ground booking</h1>
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+        </div>
+
+        <!-- booking location input section --><label
+          class="fill size-lg blue_50_02 input ui mt-5 rounded-[10px] md:p-5 sm:pr-5"
+        >
+          <input name="Price Hint" placeholder="Cricket-lane 2 | Indoor" type="text" />
+        </label>
+
+        <!-- booking type label section -->
+        <p class="size-lg text ui mt-8 self-start !font-medium !text-black-900_02">Booking type</p>
+
+        <!-- booking options section -->
+        <div class="mt-3 flex w-[92%] md:w-full md:p-5">
+          <!-- booking date time section -->
+          <div class="flex w-full flex-col gap-9">
+            <div class="ml-[15px] flex flex-col md:ml-0">
+              <label
+                class="radio ui mr-[496px] mt-[7px] flex flex-1 gap-2 text-lg font-medium text-black-900_02 md:mr-0"
+              >
+                <input type="radio" class="primary size-xs radio ui" value="generalbooking2" name="bookingoptions2" />
+                <span> General booking</span>
+              </label>
+              <label
+                class="radio ui relative ml-[223px] mr-[262px] mt-[-34px] flex flex-1 gap-2 pb-0.5 pr-[15px] pt-[7px] text-lg text-black-900_02 md:mx-0"
+              >
+                <input type="radio" class="primary size-md radio ui" value="publicbooking2" name="bookingoptions2" />
+                <span> Public booking</span>
+              </label>
+              <label
+                class="radio ui relative ml-[440px] mt-[-37px] flex flex-1 gap-2 pb-0.5 pr-[15px] pt-[7px] text-lg text-black-900_02 md:ml-0"
+              >
+                <input
+                  type="radio"
+                  class="primary size-md radio ui"
+                  value="actionzonebooking2"
+                  name="bookingoptions2"
+                />
+                <span> Actionzone booking</span>
+              </label>
+            </div>
+            <div class="flex gap-[15px] md:flex-col">
+              <div class="flex w-full flex-col items-start gap-1.5">
+                <p class="size-md text ui !font-medium !text-black-900_7f_02">Start date</p>
+                <label
+                  class="round fill size-sm white_a700 input ui gap-[35px] self-stretch border border-solid border-black-900_26"
+                >
+                  <input name="Start Input" placeholder="13 Monday, 2024" type="text" />
+                  <div class="flex h-[23px] w-[23px] items-center justify-center">
+                    <img src="public/images/img_thumbsup.svg" alt="thumbs_up" class="h-[23px] w-[23px]" />
+                  </div>
+                </label>
+              </div>
+              <div class="flex w-full flex-col items-start gap-1.5">
+                <p class="size-md text ui !font-medium !text-black-900_7f_02">End date</p>
+                <label
+                  class="round fill size-sm white_a700 input ui gap-[35px] self-stretch border border-solid border-black-900_26"
+                >
+                  <input name="End Input" placeholder="13 Monday, 2024" type="text" />
+                  <div class="flex h-[23px] w-[23px] items-center justify-center">
+                    <img src="public/images/img_thumbsup.svg" alt="thumbs_up" class="h-[23px] w-[23px]" />
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="flex gap-[15px] md:flex-col">
+              <div class="flex w-full flex-col items-start gap-[7px]">
+                <p class="size-md text ui !font-medium !text-black-900_7f_02">Start time</p>
+                <div
+                  class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_26 bg-white-A700 px-[21px] py-2.5 text-lg text-black-900_cc_01 sm:px-5"
+                >
+                  <input name="Start Picker" type="time" placeholder="07:00 am" />
+                </div>
+              </div>
+              <div class="flex w-full flex-col items-start gap-[7px]">
+                <p class="size-md text ui !font-medium !text-black-900_7f_02">End time</p>
+                <div
+                  class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_26 bg-white-A700 px-[21px] py-2.5 text-lg text-black-900_cc_01 sm:px-5"
+                >
+                  <input name="End Picker" type="time" placeholder="08:00 am" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-9 flex w-[14%] gap-[7px] self-start md:w-full md:p-5">
+          <img src="public/images/img_gg_repeat.svg" alt="ggrepeatimage" class="h-[32px] w-[32px]" />
+          <div class="flex flex-1 items-center gap-[11px]">
+            <p class="size-md text ui !text-black-900_02">Repeat</p>
+            <div class="square size-sm switch ui rotate-[180deg]">
+              <input type="checkbox" name="switch" id="switch" />
+              <label for="switch"> </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- booking notes section -->
+        <div class="container-xs mt-[39px] flex flex-col items-start gap-1.5 md:p-5">
+          <p class="size-md text ui !text-blue_gray-900_03">Note</p>
+          <textarea
+            class="round taroutlineblack90026 size-md white_a700 textarea ui self-stretch !border-black-900_26 text-blue_gray-900_7f sm:pb-5 sm:pr-5"
+            name="Note Input"
+            placeholder="Enter your note"
+          ></textarea>
+        </div>
+        <div class="mt-[199px] h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- booking actions section -->
+        <div class="mt-[26px] flex gap-[11px] self-end">
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl white_a700 button ui min-w-[199px] rounded-lg border border-solid border-gray-200_01 font-semibold !text-gray-700_01 sm:px-5"
+            >
+              Cancel
+            </button>
+          </a>
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl indigo_a200_87 button ui min-w-[199px] rounded-lg font-semibold opacity-0.5 sm:px-5"
+            >
+              Save
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

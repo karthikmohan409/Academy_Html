@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Booking Calendar - Schedule and Manage Sessions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Organize and oversee your bookings with our comprehensive calendar. Plan daily, weekly, monthly, and yearly sessions for sports like cricket and volleyball."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- main content section -->
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex items-center gap-[23px] md:flex-col">
+          <!-- sidebar section -->
+          <div class="flex w-[29%] items-start md:w-full md:p-5 sm:flex-col">
+            <!-- profile section -->
+            <div class="flex-1 sm:self-stretch">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col items-center">
+                  <div
+                    class="flex h-[248px] items-center justify-end self-stretch bg-[url(../public/images/img_group_536.png)] bg-cover bg-no-repeat p-[18px] md:h-auto"
+                  >
+                    <div class="mb-[26px] mt-[34px] flex w-[78%] justify-end md:w-full">
+                      <div class="flex w-full items-center justify-end">
+                        <div
+                          class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                        >
+                          <img
+                            src="public/images/img_images_1_1.png"
+                            alt="primary image"
+                            class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                          />
+                        </div>
+                        <img
+                          src="public/images/img_.svg"
+                          alt="secondary image"
+                          class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative mt-[-28px] flex flex-col items-center">
+                    <h1 class="size-4xl heading ui tracking-[-0.48px] !text-black-900_01">Olivia</h1>
+                    <p class="size-s text ui relative mt-[-2px] !font-light tracking-[-0.28px] !text-black-900_cc">
+                      Actionzone- Receptionist
+                    </p>
+                  </div>
+                </div>
+                <aside class="!sticky top-0 flex h-screen w-[272px] flex-col overflow-auto md:hidden">
+                  <ul class="flex w-full flex-col gap-[0.15px] self-stretch p-0">
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                        <span> Dashboard</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img
+                          src="public/images/img_component_2_indigo_a200_31x31.svg"
+                          alt="calendar icon"
+                          class="h-[31px] w-[31px]"
+                        />
+                        <span> Calendar</span>
+                        <img
+                          src="public/images/defaultNoData.png"
+                          alt="calendar suffix"
+                          class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                        />
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img
+                          src="public/images/img_component_2_black_900_02_31x31.svg"
+                          alt="course icon"
+                          class="h-[31px] w-[31px]"
+                        />
+                        <span> Course</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img
+                          src="public/images/img_component_2_31x31.svg"
+                          alt="package icon"
+                          class="h-[31px] w-[31px]"
+                        />
+                        <span> Package</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                        <span> Add ons</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                        <span> Coach</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                        <span> Video analyzer</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                        <span> Student</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                        <span> Meetings</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                        <span> Report</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                        <span> Notification settings</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                        <span> Events & Transportation</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                        <span> Billing</span>
+                      </a>
+                    </li>
+                    <li class="w-full">
+                      <a
+                        class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                      >
+                        <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                        <span> Settings</span>
+                      </a>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </div>
+            <div class="flex w-[45%] flex-col items-start bg-gray-300_03 p-[15px] sm:w-full">
+              <h2 class="size-5xl heading ui ml-[9px] md:ml-0">Calendar</h2>
+              <label
+                class="fill size-sm blue_gray_400 input ui mt-[58px] gap-2.5 self-stretch rounded-[23px] font-medium sm:pr-5"
+              >
+                <img src="public/images/img_calendar.svg" alt="calendar" class="h-[19px] w-[19px]" />
+                <input name="OverviewInput" placeholder="Overview" type="text" />
+              </label>
+              <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                <div class="mb-[865px] mt-[9px] flex items-center gap-1.5 self-stretch p-[7px]">
+                  <img src="public/images/img_search.svg" alt="searchicon" class="ml-3 h-[17px] w-[17px]" />
+                  <p class="size-lg text ui self-end !text-black-900_02">Manage</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            id="tabList"
+            role="tablist"
+            aria-label="Time Tab"
+            class="flex flex-1 flex-col gap-[33px] md:self-stretch md:p-5"
+            data-active-class="!text-indigo-A200 font-bold bg-white-A700 rounded-[22px]"
+          >
+            <!-- tab navigation section -->
+            <div class="flex w-[97%] items-center justify-between gap-5 md:w-full md:flex-col">
+              <div class="flex items-center gap-[26px] pr-[41px] md:flex-col md:pr-5">
+                <div class="flex flex-wrap gap-3 rounded-[28px] bg-gray-300_02">
+                  <span
+                    class="ml-1.5 rounded-[22px] bg-white-A700 px-[30px] py-3 text-base font-bold font-normal !text-indigo-A200 text-indigo-900 sm:px-5"
+                    id="tab01"
+                    role="tab"
+                    aria-controls="tabpanel01"
+                    aria-selected="true"
+                    tabindex="0"
+                  >
+                    Daily</span
+                  >
+                  <span
+                    class="px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab11"
+                    role="tab"
+                    aria-controls="tabpanel11"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Weekly</span
+                  >
+                  <span
+                    class="px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab21"
+                    role="tab"
+                    aria-controls="tabpanel21"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Monthly</span
+                  >
+                  <span
+                    class="mr-1.5 px-[30px] py-3 text-base font-normal text-indigo-900 sm:px-5"
+                    id="tab31"
+                    role="tab"
+                    aria-controls="tabpanel31"
+                    aria-selected="false"
+                    tabindex="-1"
+                  >
+                    Yearly</span
+                  >
+                </div>
+                <div class="flex items-start gap-[11px]">
+                  <img src="public/images/img_thumbsup.svg" alt="thumbs up image" class="h-[23px] w-[23px]" />
+                  <h3 class="size-xl heading ui !text-black-900_cc_01">13 Monday, 2024</h3>
+                </div>
+              </div>
+              <div class="flex gap-4 self-end">
+                <button class="bordered size-2xl indigo_a200 button ui min-w-[110px] gap-[11px] rounded-md">
+                  <img src="public/images/img_grid.svg" alt="grid" class="h-[15px] w-[16px]" />
+                  <span> Filter</span>
+                </button>
+                <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                  <button
+                    class="fill size-2xl indigo_a200 button ui min-w-[165px] rounded-md border border-solid border-indigo-A200 sm:px-5"
+                  >
+                    New Booking
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent">
+              <div class="flex flex-col items-center justify-center pb-[197px] md:pb-5">
+                <div class="relative z-[2] flex w-[91%] self-end md:w-full">
+                  <div class="flex w-full items-center justify-between gap-5 md:flex-col">
+                    <div class="flex flex-col items-center">
+                      <p class="size-lg text ui !text-black-900_02">Cricket-lane 1</p>
+                      <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <p class="size-lg text ui !text-black-900_02">Cricket-lane 2</p>
+                      <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <p class="size-lg text ui !text-black-900_02">Cricket-lane 3</p>
+                      <p class="size-md text ui !text-black-900_8c">Outdoor</p>
+                    </div>
+                    <div class="flex w-[28%] justify-between gap-5 md:w-full">
+                      <div class="flex flex-col items-center">
+                        <p class="size-lg text ui !text-black-900_02">Volleyball 1</p>
+                        <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                      </div>
+                      <div class="flex flex-col items-center">
+                        <p class="size-lg text ui !text-black-900_02">Volleyball 2</p>
+                        <p class="size-md text ui !text-black-900_8c">Indoor</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                      <p class="size-lg text ui !text-black-900_02">Basketball</p>
+                      <p class="size-md text ui mr-1.5 !text-black-900_8c md:mr-0">Outdoor</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="relative mt-[-3px] flex items-center justify-between gap-5 self-stretch overflow-auto md:flex-col"
+                >
+                  <div class="flex w-[94%] items-center justify-between gap-5 md:w-full md:flex-col">
+                    <div class="flex flex-col items-start">
+                      <p class="size-lg text ui !text-black-900_02">7 am</p>
+                      <p class="size-lg text ui mt-[68px] !text-black-900_02">8 am</p>
+                      <p class="size-lg text ui mt-[68px] !text-black-900_02">9 am</p>
+                      <p class="size-lg text ui mt-[69px] !text-black-900_02">10 am</p>
+                      <p class="size-lg text ui mt-[69px] !text-black-900_02">11 am</p>
+                      <p class="size-lg text ui mt-[71px] !text-black-900_02">12 pm</p>
+                      <p class="size-lg text ui mt-[69px] !text-black-900_02">1 pm</p>
+                      <p class="size-lg text ui mt-[68px] !text-black-900_02">2 pm</p>
+                      <p class="size-lg text ui mt-[68px] !text-black-900_02">3 pm</p>
+                      <p class="size-lg text ui mt-[69px] !text-black-900_02">4 pm</p>
+                      <p class="size-lg text ui mt-[66px] !text-black-900_02">5 pm</p>
+                      <p class="size-lg text ui mt-[117px] !text-black-900_02">6 pm</p>
+                      <p class="size-lg text ui mt-[213px] !text-black-900_02">7 pm</p>
+                      <p class="size-lg text ui mt-[309px] !text-black-900_02">8 pm</p>
+                    </div>
+                    <div class="relative h-[927px] flex-1 md:h-auto md:w-full md:flex-none md:self-stretch">
+                      <div class="flex w-full items-start justify-center md:flex-col">
+                        <div class="flex-1 bg-white-A700 pb-14 md:self-stretch md:pb-5">
+                          <div class="flex flex-col items-center">
+                            <div class="self-stretch">
+                              <div class="flex flex-col items-center">
+                                <div class="h-px w-full self-stretch bg-black-900_66"></div>
+                                <div class="mt-[95px] h-px w-full self-stretch bg-black-900_66"></div>
+                                <div class="ml-1.5 flex w-[88%] gap-[13px] self-start md:ml-0 md:w-full md:flex-col">
+                                  <div
+                                    class="flex flex-1 flex-col gap-[106px] md:gap-[79px] md:self-stretch sm:gap-[53px]"
+                                  >
+                                    <div class="flex items-center justify-between gap-5 sm:flex-col">
+                                      <div
+                                        class="flex w-[32%] justify-center rounded-[10px] bg-indigo-400 p-[17px] sm:w-full"
+                                      >
+                                        <div class="mb-[98px] flex w-[84%] flex-col items-end md:w-full">
+                                          <div class="flex items-center gap-[7px] self-stretch">
+                                            <img
+                                              src="public/images/img_thumbs_up_white_a700.svg"
+                                              alt="thumbs up image"
+                                              class="h-[16px] self-end"
+                                            />
+                                            <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                                          </div>
+                                          <p class="size-s text ui mr-[15px] !text-white-A700 md:mr-0">8 am -10 am</p>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="flex w-[32%] items-start self-end rounded-[10px] bg-teal-500 p-2.5 sm:w-full"
+                                      >
+                                        <img
+                                          src="public/images/img_lock_white_a700.svg"
+                                          alt="lock image"
+                                          class="h-[18px] w-[18px]"
+                                        />
+                                        <div class="mb-[21px] ml-[5px] flex flex-col items-start">
+                                          <p class="size-md text ui !font-medium !text-white-A700">Amal</p>
+                                          <p class="size-s text ui !text-white-A700">9 am -10 am</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="flex w-[66%] gap-[13px] md:w-full sm:flex-col">
+                                      <div
+                                        class="flex w-full justify-center rounded-[10px] bg-indigo-400 p-3 sm:w-full"
+                                      >
+                                        <div class="mb-[15px] flex w-[79%] flex-col items-end md:w-full">
+                                          <div class="flex items-center gap-[7px] self-stretch">
+                                            <img
+                                              src="public/images/img_thumbs_up_white_a700.svg"
+                                              alt="thumbs up 2 image"
+                                              class="h-[16px] self-end"
+                                            />
+                                            <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                                          </div>
+                                          <p class="size-s text ui mr-[15px] !text-white-A700 md:mr-0">11 am -12 pm</p>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="flex w-full items-start rounded-[10px] bg-teal-500 p-[13px] sm:w-full"
+                                      >
+                                        <img
+                                          src="public/images/img_lock_white_a700.svg"
+                                          alt="lock 2 image"
+                                          class="ml-[7px] h-[18px] w-[18px]"
+                                        />
+                                        <div class="mb-[15px] ml-[5px] flex flex-col">
+                                          <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                          <p class="size-s text ui !text-white-A700">9 am -10 am</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="flex w-[40%] flex-col items-end gap-3 md:w-full">
+                                    <div class="flex w-[48%] items-start rounded-[10px] bg-teal-500 p-3.5 md:w-full">
+                                      <img
+                                        src="public/images/img_lock_white_a700.svg"
+                                        alt="lock 3 image"
+                                        class="h-[18px] w-[18px]"
+                                      />
+                                      <div class="mb-[13px] ml-[5px] flex flex-col">
+                                        <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                        <p class="size-s text ui !text-white-A700">8 am -9 am</p>
+                                      </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 self-stretch sm:flex-col">
+                                      <div
+                                        class="flex w-full flex-col items-start rounded-[10px] bg-teal-500 p-[7px] sm:w-full"
+                                      >
+                                        <div class="ml-[11px] flex w-[65%] md:ml-0 md:w-full">
+                                          <div class="flex w-full flex-col items-start">
+                                            <div class="flex items-center gap-[5px]">
+                                              <img
+                                                src="public/images/img_lock_white_a700.svg"
+                                                alt="lock 4 image"
+                                                class="h-[18px] w-[18px]"
+                                              />
+                                              <p class="size-md text ui !font-medium !text-white-A700">Basil</p>
+                                            </div>
+                                            <p class="size-s text ui self-end !text-white-A700">9 am -11 am</p>
+                                          </div>
+                                        </div>
+                                        <p
+                                          class="size-md text ui ml-6 mt-[22px] flex items-center justify-center rounded-[15px] border border-solid border-red-A200 bg-white-A700_7f px-[18px] pb-px pt-[5px] !font-medium !text-deep_orange-A400 md:ml-0"
+                                        >
+                                          Pending
+                                        </p>
+                                        <p class="size-s text ui mb-10 ml-[34px] !text-white-A700_e5 md:ml-0">
+                                          Payment
+                                        </p>
+                                      </div>
+                                      <div
+                                        class="flex w-full items-start gap-[7px] rounded-[10px] bg-indigo-400 p-4 sm:w-full"
+                                      >
+                                        <img
+                                          src="public/images/img_thumbs_up_white_a700.svg"
+                                          alt="thumbs up 3 image"
+                                          class="mt-[5px] h-[16px]"
+                                        />
+                                        <div class="mb-[197px] flex flex-col items-start">
+                                          <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                                          <p class="size-s text ui !text-white-A700">9 am -11 am</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mt-[5px] h-px w-full self-stretch bg-black-900_66"></div>
+                                <div class="flex w-[34%] gap-[13px] md:w-full sm:flex-col">
+                                  <div class="flex w-full justify-center rounded-[10px] bg-indigo-400 p-3 sm:w-full">
+                                    <div class="mb-[15px] flex w-[79%] flex-col items-end md:w-full">
+                                      <div class="flex items-center gap-[7px] self-stretch">
+                                        <img
+                                          src="public/images/img_thumbs_up_white_a700.svg"
+                                          alt="thumbs up 4 image"
+                                          class="h-[16px] self-end"
+                                        />
+                                        <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                                      </div>
+                                      <p class="size-s text ui mr-4 !text-white-A700 md:mr-0">12 pm - 1 pm</p>
+                                    </div>
+                                  </div>
+                                  <div class="flex w-full rounded-[10px] bg-teal-500 p-[13px] sm:w-full">
+                                    <div class="mb-[13px] flex w-[69%] flex-col items-end md:w-full">
+                                      <div class="flex items-start gap-[5px] self-stretch">
+                                        <img
+                                          src="public/images/img_lock_white_a700.svg"
+                                          alt="lock 5 image"
+                                          class="h-[18px] w-[18px]"
+                                        />
+                                        <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                      </div>
+                                      <p class="size-s text ui !text-white-A700">12 pm - 1 pm</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mt-[5px] h-px w-full self-stretch bg-black-900_66"></div>
+                              </div>
+                            </div>
+                            <div
+                              class="ml-1.5 mt-[5px] flex w-[35%] gap-[13px] self-start md:ml-0 md:w-full sm:flex-col"
+                            >
+                              <div class="flex w-full rounded-[10px] bg-teal-500 p-3 sm:w-full">
+                                <div class="mb-[15px] ml-2 flex w-[70%] flex-col items-end md:ml-0 md:w-full">
+                                  <div class="flex items-start gap-[5px] self-stretch">
+                                    <img
+                                      src="public/images/img_lock_white_a700.svg"
+                                      alt="lock 6 image"
+                                      class="h-[18px] w-[18px]"
+                                    />
+                                    <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                  </div>
+                                  <p class="size-s text ui mr-2 !text-white-A700 md:mr-0">1 pm -2 pm</p>
+                                </div>
+                              </div>
+                              <div class="flex w-full items-start rounded-[10px] bg-teal-500 p-3 sm:w-full">
+                                <img
+                                  src="public/images/img_lock_white_a700.svg"
+                                  alt="lock 7 image"
+                                  class="ml-2 h-[18px] w-[18px]"
+                                />
+                                <div class="mb-[15px] ml-[5px] flex flex-col items-start">
+                                  <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                  <p class="size-s text ui !text-white-A700">1 pm -2 pm</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="h-px w-full self-stretch bg-black-900_66"></div>
+                            <div
+                              class="mr-[133px] flex w-[79%] items-start justify-between gap-5 self-end md:mr-0 md:w-full sm:flex-col"
+                            >
+                              <div class="flex w-[24%] items-start rounded-[10px] bg-teal-500 p-2.5 sm:w-full">
+                                <img
+                                  src="public/images/img_lock_white_a700.svg"
+                                  alt="lock 8 image"
+                                  class="ml-2.5 h-[18px] w-[18px]"
+                                />
+                                <div class="mb-[18px] ml-[5px] flex flex-col">
+                                  <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                                  <p class="size-s text ui !text-white-A700">2 pm - 3 pm</p>
+                                </div>
+                              </div>
+                              <div
+                                class="flex w-[24%] items-start gap-[7px] rounded-[10px] bg-indigo-400 p-4 sm:w-full"
+                              >
+                                <img
+                                  src="public/images/img_thumbs_up_white_a700.svg"
+                                  alt="thumbs up 5 image"
+                                  class="mt-[5px] h-[16px]"
+                                />
+                                <div class="mb-[99px] flex flex-col items-start">
+                                  <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                                  <p class="size-s text ui !text-white-A700">2 pm - 4 pm</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mt-[9px] h-px w-full self-stretch bg-black-900_66"></div>
+                          </div>
+                        </div>
+                        <div class="relative ml-[-79px] mt-[115px] flex flex-col md:ml-0">
+                          <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                          <p class="size-s text ui !text-white-A700">8 am -9 am</p>
+                        </div>
+                      </div>
+                      <div
+                        class="absolute right-[1.00px] top-[32%] m-auto w-[10%] rounded-[10px] bg-teal-500 py-[17px] pl-[17px]"
+                      >
+                        <div class="mb-[98px] flex flex-col items-end">
+                          <div class="flex items-start gap-[5px] self-stretch">
+                            <img
+                              src="public/images/img_lock_white_a700.svg"
+                              alt="lock 9 image"
+                              class="h-[18px] w-[18px]"
+                            />
+                            <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                          </div>
+                          <p class="size-s text ui !text-white-A700">8 am -9 am</p>
+                        </div>
+                      </div>
+                      <div class="absolute bottom-[28%] right-[0.00px] m-auto flex w-[11%] items-start justify-end">
+                        <div class="flex flex-1 rounded-[10px] bg-teal-500 p-4">
+                          <img
+                            src="public/images/img_lock_white_a700.svg"
+                            alt="lock 10 image"
+                            class="mb-9 h-[18px] w-[18px]"
+                          />
+                        </div>
+                        <div class="relative ml-[-79px] mt-[13px] flex flex-col">
+                          <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                          <p class="size-s text ui !text-white-A700">1 pm -2 pm</p>
+                        </div>
+                      </div>
+                      <div
+                        class="absolute right-[1.00px] top-[11%] m-auto flex w-[10%] rounded-[10px] bg-teal-500 p-[17px]"
+                      >
+                        <img
+                          src="public/images/img_lock_white_a700.svg"
+                          alt="lock 11 image"
+                          class="mb-[34px] h-[18px] w-[18px]"
+                        />
+                      </div>
+                      <div
+                        class="absolute bottom-0 left-[6.00px] top-0 my-auto flex h-max w-[71%] flex-col items-start"
+                      >
+                        <div class="flex w-[76%] self-end md:w-full md:flex-col">
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                        </div>
+                        <div class="flex w-[76%] self-end md:w-full md:flex-col">
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                          <div class="h-[96px] w-full border border-solid border-black-900_66 bg-white-A700"></div>
+                        </div>
+                        <div
+                          class="ml-[198px] h-[96px] w-[33%] border border-solid border-black-900_66 bg-white-A700 md:ml-0"
+                        ></div>
+                        <div class="mt-[483px] flex w-[74%] items-center justify-between gap-5 md:w-full sm:flex-col">
+                          <div class="flex w-[32%] justify-center self-end sm:w-full">
+                            <div class="flex w-full flex-col items-start">
+                              <label
+                                class="fill size-md teal_500 input ui gap-[5px] self-stretch rounded-[10px] font-medium sm:px-5"
+                              >
+                                <img src="public/images/img_lock_white_a700.svg" alt="lock" class="h-[18px] w-[18px]" />
+                                <input name="Edit Text" placeholder="User name" type="text" />
+                              </label>
+                              <p class="size-s text ui relative ml-11 mt-[-15px] !text-white-A700 md:ml-0">
+                                4 pm - 5 pm
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="flex w-[32%] items-start justify-center gap-[7px] rounded-[10px] bg-indigo-400 p-[18px] sm:w-full"
+                          >
+                            <img
+                              src="public/images/img_thumbs_up_white_a700.svg"
+                              alt="thumbs up 6 image"
+                              class="mt-[5px] h-[16px]"
+                            />
+                            <div class="mb-[69px] flex flex-col items-start">
+                              <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                              <p class="size-s text ui !text-white-A700">3 pm - 5 pm</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="absolute bottom-[7%] right-[0.00px] m-auto flex w-[11%] items-start justify-end">
+                        <div class="flex flex-1 rounded-[10px] bg-teal-500 p-[17px]">
+                          <img
+                            src="public/images/img_lock_white_a700.svg"
+                            alt="lock 12 image"
+                            class="mb-[34px] h-[18px] w-[18px]"
+                          />
+                        </div>
+                        <div class="relative ml-[-79px] mt-3.5 flex flex-col">
+                          <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                          <p class="size-s text ui !text-white-A700">3 pm - 4 pm</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-[923px] w-px bg-black-900_66 md:h-px md:w-[923px]"></div>
+                </div>
+                <div class="mt-[34px] h-[-39px] w-[95%] bg-black-900_66"></div>
+                <div class="mr-[338px] mt-[45px] h-[-45px] w-[22%] self-end bg-teal-500 md:mr-0"></div>
+                <div class="mr-[399px] mt-[60px] flex w-[14%] flex-col items-end self-end md:mr-0 md:w-full">
+                  <div class="flex items-center gap-[5px] self-stretch">
+                    <img src="public/images/img_lock_white_a700.svg" alt="lock 13 image" class="h-[18px] w-[18px]" />
+                    <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                  </div>
+                  <p class="size-s text ui !text-white-A700">5 pm - 6 pm</p>
+                </div>
+                <div class="mt-[30px] h-[-135px] w-[95%] bg-black-900_66"></div>
+                <div class="mr-[134px] mt-[139px] h-[-139px] w-[18%] self-end bg-indigo-400 md:mr-0"></div>
+                <div class="mt-[142px] h-[-142px] w-[16%] bg-teal-500"></div>
+                <div
+                  class="mt-[152px] flex w-[95%] flex-col items-end justify-center gap-[126px] pb-[197px] md:w-full md:gap-[94px] md:pb-5 sm:gap-[63px]"
+                >
+                  <div class="mr-[174px] flex w-[55%] justify-between gap-5 md:mr-0 md:w-full">
+                    <div class="flex w-[21%] flex-col items-end">
+                      <div class="flex items-center gap-[5px] self-stretch">
+                        <img
+                          src="public/images/img_lock_white_a700.svg"
+                          alt="lock 14 image"
+                          class="h-[18px] w-[18px]"
+                        />
+                        <p class="size-md text ui !font-medium !text-white-A700">User name</p>
+                      </div>
+                      <p class="size-s text ui !text-white-A700">6 pm - 7 pm</p>
+                    </div>
+                    <div class="flex w-[24%] flex-col items-end">
+                      <div class="flex items-center gap-[7px] self-stretch">
+                        <img
+                          src="public/images/img_thumbs_up_white_a700.svg"
+                          alt="thumbs up 7 image"
+                          class="h-[16px] self-end"
+                        />
+                        <p class="size-md text ui !font-medium !text-white-A700">Couse name</p>
+                      </div>
+                      <p class="size-s text ui mr-5 !text-white-A700 md:mr-0">6 pm -7 pm</p>
+                    </div>
+                  </div>
+                  <div class="h-[-323px] w-full self-stretch bg-black-900_66"></div>
+                </div>
+                <div class="mt-8 h-[-229px] w-[95%] bg-black-900_66"></div>
+              </div>
+            </div>
+            <div
+              style="display: none"
+              id="tabpanel11"
+              role="tabpanel"
+              aria-labelledby="tab11"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 986px"> Weekly content</span>
+            </div>
+            <div
+              style="display: none"
+              id="tabpanel21"
+              role="tabpanel"
+              aria-labelledby="tab21"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 986px"> Monthly content</span>
+            </div>
+            <div
+              style="display: none"
+              id="tabpanel31"
+              role="tabpanel"
+              aria-labelledby="tab31"
+              hidden
+              class="tabcontent"
+            >
+              <span style="min-height: 986px"> Yearly content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coach Billing Overview - Detailed Payment Reports and Statuses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Access comprehensive billing information for coaches. Track payment dates, hours worked, gross pay, and view detailed pay slips for each payment period."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="flex w-full flex-col bg-gray-100_01">
+      <header class="flex items-end justify-center bg-white-A700">
+        <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+          <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+            <a href="#">
+              <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+            </a>
+            <img
+              src="public/images/img_header_logo.png"
+              alt="logo image"
+              class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+            />
+            <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+              Dreams into Reality
+            </h3>
+          </div>
+          <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+            <a href="#">
+              <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+            </a>
+            <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+          </div>
+        </div>
+      </header>
+      <div class="flex w-[98%] items-start gap-[23px] md:w-full md:flex-col md:p-5">
+        <aside
+          class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+        >
+          <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+            <div class="flex w-full items-center">
+              <div
+                class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+              >
+                <img
+                  src="public/images/img_images_1_1.png"
+                  alt="main image"
+                  class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                />
+              </div>
+              <img
+                src="public/images/img_.svg"
+                alt="secondary image"
+                class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+              />
+            </div>
+          </div>
+          <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <span> Actionzone- Receptionist</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                <span> Dashboard</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img
+                  src="public/images/img_component_2_black_900_02.svg"
+                  alt="calendar icon"
+                  class="h-[31px] w-[31px]"
+                />
+                <span> Calendar</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img
+                  src="public/images/img_component_2_black_900_02_31x31.svg"
+                  alt="course icon"
+                  class="h-[31px] w-[31px]"
+                />
+                <span> Course</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                <span> Package</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                <span> Add ons</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                <span> Coach</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                <span> Video analyzer</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                <span> Student</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                <span> Meetings</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                <span> Report</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                <span> Notification settings</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                <span> Events & Transportation</span>
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_14.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                <span> Billing</span>
+                <img
+                  src="public/images/defaultNoData.png"
+                  alt="billing suffix"
+                  class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                />
+              </a>
+            </li>
+            <li class="w-full">
+              <a
+                class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+              >
+                <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                <span> Settings</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- main content section -->
+        <div
+          id="tabList"
+          role="tablist"
+          aria-label="Tabs Row"
+          class="mt-[18px] flex flex-1 flex-col items-start gap-[18px] md:self-stretch"
+          data-active-class="!text-indigo-A200 font-semibold border-indigo-A200 border-b-4"
+        >
+          <h1 class="size-5xl heading ui">Billing</h1>
+          <div class="flex flex-wrap gap-[-1px]">
+            <span
+              class="border-b-4 border-indigo-A200 px-[50px] py-2.5 text-xl font-normal font-semibold !text-indigo-A200 text-black-900_cc_01 md:px-5"
+              id="tab01"
+              role="tab"
+              aria-controls="tabpanel01"
+              aria-selected="true"
+              tabindex="0"
+            >
+              Student</span
+            >
+            <span
+              class="px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+              id="tab11"
+              role="tab"
+              aria-controls="tabpanel11"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Coach</span
+            >
+            <span
+              class="px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+              id="tab21"
+              role="tab"
+              aria-controls="tabpanel21"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Invoice</span
+            >
+            <span
+              class="mr-[744px] px-[50px] py-2.5 text-xl font-normal text-black-900_cc_01 md:px-5"
+              id="tab31"
+              role="tab"
+              aria-controls="tabpanel31"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Tax</span
+            >
+          </div>
+          <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent self-stretch">
+            <div class="flex flex-col items-start gap-3">
+              <p class="size-md text ui !text-black-900_99">
+                <span class="text-black-900_99"> Coaches :&nbsp;</span>
+                <span class="font-semibold text-black-900_02"> 15</span>
+              </p>
+              <div class="flex gap-[13px] self-stretch md:flex-col">
+                <div class="flex w-[23%] flex-col gap-[9px] rounded-[10px] bg-white-A700 py-[9px] md:w-full">
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_15.png"
+                      alt="user image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui !text-black-900">John</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div
+                    class="flex flex-1 flex-col items-start rounded-[7px] border border-solid border-indigo-A200 bg-indigo-A200_19 p-[9px] md:p-5"
+                  >
+                    <div class="ml-[11px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_102_37x37.png"
+                        alt="sarah image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">Sarah</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_16.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui mb-1 self-end !text-black-900">Emily</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_102_1.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui !text-black-900">David</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_17.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">Jennifer</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_18.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui !text-black-900">James</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_19.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">Lisa</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_20.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui !text-black-900">Robert</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_21.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">Jessica</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_22.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui mb-1 self-end !text-black-900">Emily Johnson</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_23.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">David Brown</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_24.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui mb-1 self-end !text-black-900">Michael Taylor</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start justify-center p-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_25.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui !text-black-900">Sarah Wilson</p>
+                    </div>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="ml-5 flex items-center gap-3 md:ml-0 md:p-5">
+                    <img
+                      src="public/images/img_ellipse_101_26.png"
+                      alt="image"
+                      class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                    />
+                    <p class="size-md text ui !text-black-900">John Doe</p>
+                  </div>
+                  <div class="h-px w-[313px] bg-black-900_19"></div>
+                  <div class="flex flex-1 flex-col items-start px-[9px] pt-[9px] md:p-5">
+                    <div class="ml-[9px] flex items-center gap-3 md:ml-0">
+                      <img
+                        src="public/images/img_ellipse_101_27.png"
+                        alt="image"
+                        class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                      />
+                      <p class="size-md text ui mb-1 self-end !text-black-900">Michael Taylor</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-1 rounded-[7px] bg-white-A700 py-4 md:self-stretch">
+                  <div class="mb-1.5 flex flex-col items-center">
+                    <div class="flex w-[93%] items-center justify-between gap-5 md:w-full">
+                      <div class="flex w-[22%] items-center justify-center gap-[15px]">
+                        <div class="flex flex-1 items-center justify-center gap-5">
+                          <div class="flex flex-1 items-center justify-center gap-3">
+                            <img
+                              src="public/images/img_ellipse_102_37x37.png"
+                              alt="user image fifteen"
+                              class="h-[37px] w-[37px] rounded-[18px] object-cover"
+                            />
+                            <div class="flex flex-1 flex-col items-start">
+                              <p class="size-md text ui !text-black-900">Sarah</p>
+                              <p class="size-s text ui !text-black-900_7f">Email id</p>
+                            </div>
+                          </div>
+                          <div class="h-[34px] w-px self-end bg-black-900_7f_02"></div>
+                        </div>
+                        <p class="size-md text ui mb-1.5 self-end !font-medium !text-black-900">$45/hour</p>
+                      </div>
+                      <select
+                        class="bordered size-xs black_900_66 selectbox ui w-[11%] gap-px self-end rounded-[5px] bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:7px] bg-no-repeat sm:pr-5"
+                        name="Year Dropdown"
+                      >
+                        <option value="option1">Option1</option>
+                        <option value="option2">Option2</option>
+                        <option value="option3">Option3</option>
+                      </select>
+                    </div>
+                    <div class="mt-[17px] h-px w-full self-stretch bg-black-900_14"></div>
+                    <table class="striped size-md ui mt-2 table w-[96%]" cellpadding="0" cellspacing="0">
+                      <thead class="flex-wrap">
+                        <tr>
+                          <th width="179px">
+                            <p class="size-s text ui py-px pl-[35px] !text-blue_gray-900_7f sm:pl-5">Date sent</p>
+                          </th>
+                          <th width="149px">
+                            <p class="size-s text ui py-px !text-blue_gray-900_7f">Paid Hours</p>
+                          </th>
+                          <th width="132px">
+                            <p class="size-s text ui p-px !text-blue_gray-900_7f">Gross Pay</p>
+                          </th>
+                          <th width="148px">
+                            <p class="size-s text ui p-px !text-blue_gray-900_7f">Deductions</p>
+                          </th>
+                          <th width="137px">
+                            <p class="size-s text ui py-px !text-blue_gray-900_7f">Net Pay</p>
+                          </th>
+                          <th width="167px">
+                            <p class="size-s text ui p-px !text-blue_gray-900_7f">Status</p>
+                          </th>
+                          <th width="116px">
+                            <p class="size-s text ui p-px !text-blue_gray-900_7f">Pay Slip</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">January, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$230</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">January, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$203</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-orange-400 !text-orange-400"
+                            >
+                              Pending
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">February, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">February, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">March, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$230</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">March, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">60 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">April, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">75 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">April, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">January, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$230</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">January, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$203</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-orange-400 !text-orange-400"
+                            >
+                              Pending
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">February, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">February, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$150</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">March, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">70 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$230</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">March, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">60 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-indigo-A200_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">April, 1</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">75 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2022</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap bg-white-A700_14">
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">April, 15</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">80 hours</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-blue_gray-900_03">$2336</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-red-400">$120</p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !text-green-500_02">$2100</p>
+                          </td>
+                          <td>
+                            <p
+                              class="size-s text ui flex items-center justify-center rounded-[13px] border border-solid border-green-500_02 !text-green-500_02"
+                            >
+                              Paid
+                            </p>
+                          </td>
+                          <td>
+                            <p class="size-s text ui !font-medium !text-indigo-A200">View</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="display: none"
+            id="tabpanel11"
+            role="tabpanel"
+            aria-labelledby="tab11"
+            hidden
+            class="tabcontent self-stretch"
+          >
+            <span style="min-height: 866px"> Coach content</span>
+          </div>
+          <div
+            style="display: none"
+            id="tabpanel21"
+            role="tabpanel"
+            aria-labelledby="tab21"
+            hidden
+            class="tabcontent self-stretch"
+          >
+            <span style="min-height: 866px"> Invoice content</span>
+          </div>
+          <div
+            style="display: none"
+            id="tabpanel31"
+            role="tabpanel"
+            aria-labelledby="tab31"
+            hidden
+            class="tabcontent self-stretch"
+          >
+            <span style="min-height: 866px"> Tax content</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
