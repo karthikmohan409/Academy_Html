@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ground Booking - Reserve Cricket Lane 2 Indoor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Secure your spot at Cricket-lane 2 with our general booking system. Choose your dates, provide contact info, and finalize your booking with convenient payment options. Book now for an unmatched cricket experience."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- booking form section -->
+    <div class="w-full bg-white-A700 pt-5">
+      <div class="flex flex-col items-center">
+        <!-- booking title section -->
+        <div class="flex flex-col items-start gap-4 self-stretch">
+          <h1 class="size-2xl heading ui ml-[42px] !text-gray-900_03 md:ml-0">Ground booking</h1>
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+        </div>
+        <label class="fill size-lg blue_50_02 input ui mt-5 rounded-[10px] md:p-5 sm:pr-5">
+          <input name="Price Field" placeholder="Cricket-lane 2 | Indoor" type="text" />
+        </label>
+
+        <!-- booking type section -->
+        <div class="mt-8 flex w-[67%] self-start md:w-full md:p-5">
+          <div class="flex w-full flex-col items-start gap-3">
+            <p class="size-lg text ui !font-medium !text-black-900_02">Booking type</p>
+            <div class="flex flex-col self-stretch">
+              <label
+                class="radio ui mr-[483px] flex flex-1 gap-2 pb-0.5 pr-[15px] pt-[7px] text-lg text-black-900_02 md:mr-0"
+              >
+                <input type="radio" class="primary size-md radio ui" value="generalbooking1" name="bookingoptions1" />
+                <span> General booking</span>
+              </label>
+              <label
+                class="radio ui relative ml-[253px] mr-[275px] mt-[-29px] flex flex-1 gap-2 text-lg font-medium text-black-900_02 md:mx-0"
+              >
+                <input type="radio" class="primary size-xs radio ui" value="publicbooking1" name="bookingoptions1" />
+                <span> Public booking</span>
+              </label>
+              <label
+                class="radio ui relative ml-[455px] mt-[-34px] flex flex-1 gap-2 pb-0.5 pr-[15px] pt-[7px] text-lg text-black-900_02 md:ml-0"
+              >
+                <input
+                  type="radio"
+                  class="primary size-md radio ui"
+                  value="actionzonebooking1"
+                  name="bookingoptions1"
+                />
+                <span> Actionzone booking</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- schedule section -->
+        <div class="mt-[27px] flex w-[92%] flex-col items-start gap-[21px] md:w-full md:p-5">
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+          <p class="size-lg text ui !font-medium !text-black-900_02">Schedule date and time</p>
+          <div class="self-stretch">
+            <div class="flex flex-col gap-[35px]">
+              <div class="flex gap-[15px] md:flex-col">
+                <div class="flex w-full flex-col items-start gap-1.5">
+                  <p class="size-md text ui !text-black-900_02">Start date</p>
+                  <label
+                    class="round fill size-sm white_a700 input ui gap-[35px] self-stretch border border-solid border-black-900_26"
+                  >
+                    <input name="Start Date Input" placeholder="13 Monday, 2024" type="text" />
+                    <div class="flex h-[23px] w-[23px] items-center justify-center">
+                      <img src="public/images/img_thumbsup.svg" alt="thumbs_up" class="h-[23px] w-[23px]" />
+                    </div>
+                  </label>
+                </div>
+                <div class="flex w-full flex-col items-start gap-1.5">
+                  <p class="size-md text ui !text-black-900_02">End date</p>
+                  <label
+                    class="round fill size-sm white_a700 input ui gap-[35px] self-stretch border border-solid border-black-900_26"
+                  >
+                    <input name="End Date Input" placeholder="13 Monday, 2024" type="text" />
+                    <div class="flex h-[23px] w-[23px] items-center justify-center">
+                      <img src="public/images/img_thumbsup.svg" alt="thumbs_up" class="h-[23px] w-[23px]" />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="flex gap-[15px] md:flex-col">
+                <div class="flex w-full flex-col items-start gap-[7px]">
+                  <p class="size-md text ui !text-black-900_02">Start time</p>
+                  <div
+                    class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_26 bg-white-A700 px-[21px] py-2.5 text-lg text-black-900_cc_01 sm:px-5"
+                  >
+                    <input name="Start Time Picker" type="time" placeholder="07:00 am" />
+                  </div>
+                </div>
+                <div class="flex w-full flex-col items-start gap-[7px]">
+                  <p class="size-md text ui !text-black-900_02">End time</p>
+                  <div
+                    class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_26 bg-white-A700 px-[21px] py-2.5 text-lg text-black-900_cc_01 sm:px-5"
+                  >
+                    <input name="End Time Picker" type="time" placeholder="08:00 am" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-9 flex w-[14%] gap-[7px] self-start md:w-full md:p-5">
+          <img src="public/images/img_gg_repeat.svg" alt="ggrepeatimage" class="h-[32px] w-[32px]" />
+          <div class="flex flex-1 items-center gap-[11px]">
+            <p class="size-md text ui !text-black-900_02">Repeat</p>
+            <div class="square size-sm switch ui rotate-[180deg]">
+              <input type="checkbox" name="switch" id="switch" />
+              <label for="switch"> </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- contact info section -->
+        <div class="mt-[30px] flex w-[92%] flex-col items-start gap-[23px] md:w-full md:p-5">
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+          <p class="size-lg text ui !font-medium !text-black-900_02">Contact info</p>
+          <div class="container-xs flex flex-col items-start gap-1.5">
+            <p class="size-md text ui !text-black-900_02">Name</p>
+            <label
+              class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_26 !text-black-900_66 sm:px-5"
+            >
+              <input name="Booking Input" placeholder="Enter booking name" type="text" />
+            </label>
+          </div>
+        </div>
+        <p class="size-md text ui mt-[34px] self-start !text-black-900_02">Email ID</p>
+        <label
+          class="round fill size-sm white_a700 input ui mt-[7px] border border-solid border-black-900_26 !text-black-900_66 md:p-5 sm:px-5"
+        >
+          <input name="Email Input" placeholder="Enter email id" type="email" />
+        </label>
+
+        <!-- phone number section -->
+        <div class="container-xs mt-[35px] flex flex-col items-start gap-[7px] md:p-5">
+          <p class="size-md text ui !text-black-900_02">Phone number</p>
+          <label
+            class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_26 !text-black-900_66 sm:px-5"
+          >
+            <input name="Phone Input" placeholder="Enter phone number" type="number" />
+          </label>
+        </div>
+        <div class="mt-[47px] h-px w-[92%] bg-black-900_35"></div>
+        <div class="mt-9 flex w-[92%] items-start justify-between gap-5 md:w-full md:flex-col md:p-5">
+          <div class="flex w-[46%] flex-col items-start md:w-full">
+            <p class="size-lg text ui !font-medium !text-black-900_02">Payment</p>
+            <h2 class="size-lg heading ui mt-[35px] !text-blue_gray-900_03">Payment type</h2>
+            <select
+              class="fill size-lg white_a700 selectbox ui mt-2.5 gap-px self-stretch rounded-[5px] border border-solid border-black-900_26 bg-[url(../public/images/img_arrowdown_indigo_a200_6x12.svg)] bg-[length:12px] bg-no-repeat sm:pr-5"
+              name="Cash Dropdown"
+            >
+              <option value="option1">Option1</option>
+              <option value="option2">Option2</option>
+              <option value="option3">Option3</option>
+            </select>
+            <h3 class="size-lg heading ui mt-[33px] !text-indigo-A200">+ Add discount</h3>
+          </div>
+          <div
+            class="mt-[27px] flex w-[38%] flex-col items-center justify-center rounded-[12px] bg-blue_gray-50 py-[11px] md:w-full"
+          >
+            <h4 class="size-lg heading ui ml-[27px] self-start !text-blue_gray-900_03 md:ml-0">Summary</h4>
+            <div class="mt-[13px] h-px w-full self-stretch bg-black-900_35"></div>
+            <p class="size-md text ui ml-[27px] mt-4 self-start !text-black-900_cc_01 md:ml-0">13 Monday, 2024</p>
+            <div class="flex w-[84%] flex-wrap justify-between gap-5 md:w-full md:p-5">
+              <p class="size-md text ui !text-black-900_7f_02">7 am - 8 am</p>
+              <h5 class="size-lg heading ui !text-black-900_cc_01">$20</h5>
+            </div>
+            <div class="mt-[17px] flex w-[84%] flex-wrap justify-between gap-5 md:w-full md:p-5">
+              <p class="size-md text ui !text-black-900_7f_02">Discount</p>
+              <h6 class="size-lg heading ui !text-black-900_cc_01">$5</h6>
+            </div>
+            <div class="mt-[13px] h-px w-[84%] bg-black-900_35"></div>
+            <div class="mt-[9px] flex w-[84%] flex-wrap justify-between gap-5 md:w-full md:p-5">
+              <p class="size-md text ui !font-medium !text-black-900_02">Total</p>
+              <h6 class="size-lg heading ui !text-black-900_cc_01">$15</h6>
+            </div>
+          </div>
+        </div>
+        <div class="mt-[61px] h-px w-[92%] bg-black-900_35"></div>
+
+        <!-- note section -->
+        <div class="container-xs mt-9 flex flex-col items-start gap-[7px] md:p-5">
+          <p class="size-md text ui !text-blue_gray-900_03">Note</p>
+          <textarea
+            class="round taroutlineblack90026 size-md white_a700 textarea ui self-stretch !border-black-900_26 text-blue_gray-900_7f sm:pb-5 sm:pr-5"
+            name="Note Input"
+            placeholder="Enter your note"
+          ></textarea>
+        </div>
+        <div class="mt-[47px] flex flex-col items-end gap-[26px] self-stretch">
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+          <div class="mr-[43px] flex gap-[11px] md:mr-0">
+            <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+              <button
+                class="fill size-4xl white_a700 button ui min-w-[199px] rounded-lg border border-solid border-gray-200_01 font-semibold !text-gray-700_01 sm:px-5"
+              >
+                Cancel
+              </button>
+            </a>
+            <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+              <button
+                class="fill size-4xl indigo_a200_87 button ui min-w-[199px] rounded-lg font-semibold opacity-0.5 sm:px-5"
+              >
+                Save
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,560 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[type="text"],
+input:where(:not([type])),
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  appearance: none;
+  background-color: transparent;
+  border-color: unset;
+  border-width: 0;
+  border-radius: unset;
+  padding: unset;
+  font-size: unset;
+  line-height: unset;
+}
+
+/* Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms */
+[type="text"]:focus,
+[type="email"]:focus,
+[type="url"]:focus,
+[type="password"]:focus,
+[type="number"]:focus,
+[type="date"]:focus,
+[type="search"]:focus,
+[type="checkbox"]:focus,
+[type="radio"]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  --tw-ring-color: transparent;
+  border-color: transparent;
+}
+@layer components {
+  /*-------------------------------------
+  Textarea CSS
+--------------------------------------*/
+  .ui.textarea.round {
+    @apply rounded-[5px];
+  }
+
+  .ui.textarea.size-sm {
+    @apply h-[122px] p-[18px] text-base;
+  }
+
+  .ui.textarea.size-lg {
+    @apply h-[304px] p-[35px] text-base;
+  }
+
+  .ui.textarea.size-xs {
+    @apply h-[115px] p-6 text-base;
+  }
+
+  .ui.textarea.size-md {
+    @apply h-[126px] p-[18px] text-base;
+  }
+
+  .ui.textarea.taroutlinegray400.white_a700 {
+    @apply !border-gray-400 border border-solid bg-white-A700;
+  }
+
+  .ui.textarea.taroutlinegray90099.white_a700 {
+    @apply !border-gray-900_99 border border-solid bg-white-A700;
+  }
+
+  .ui.textarea.taroutlineblack90026.white_a700 {
+    @apply !border-black-900_26 border border-solid bg-white-A700;
+  }
+
+  /*-------------------------------------
+  Button CSS
+--------------------------------------*/
+  .ui.button.circle {
+    @apply rounded-[50%];
+  }
+
+  .ui.button.round {
+    @apply rounded-[17px];
+  }
+
+  .ui.button.square {
+    @apply rounded-[0px];
+  }
+
+  .ui.button.size-5xl {
+    @apply h-[51px] px-[23px] text-xl;
+  }
+
+  .ui.button.size-3xl {
+    @apply h-[48px] px-3;
+  }
+
+  .ui.button.size-xs {
+    @apply h-[20px];
+  }
+
+  .ui.button.size-sm {
+    @apply h-[25px] pl-3.5 pr-[30px] text-sm;
+  }
+
+  .ui.button.size-7xl {
+    @apply h-[57px] px-[30px] text-lg;
+  }
+
+  .ui.button.size-xl {
+    @apply h-[36px] px-[11px];
+  }
+
+  .ui.button.size-2xl {
+    @apply h-[45px] pl-[29px] pr-[35px] text-lg;
+  }
+
+  .ui.button.size-md {
+    @apply h-[29px] px-[35px] text-sm;
+  }
+
+  .ui.button.size-4xl {
+    @apply h-[48px] px-[35px] text-lg;
+  }
+
+  .ui.button.size-lg {
+    @apply h-[34px] px-5 text-base;
+  }
+
+  .ui.button.size-6xl {
+    @apply h-[52px] px-[35px] text-sm;
+  }
+
+  .ui.button.fill.gray_100_01 {
+    @apply bg-gray-100_01 text-indigo-A200;
+  }
+
+  .ui.button.fill.indigo_a200 {
+    @apply bg-indigo-A200 text-white-A700;
+  }
+
+  .ui.button.fill.indigo_a200_d3 {
+    @apply bg-indigo-A200_d3 text-white-A700;
+  }
+
+  .ui.button.fill.indigo_a200_33 {
+    @apply bg-indigo-A200_33;
+  }
+
+  .ui.button.fill.indigo_50_01 {
+    @apply bg-indigo-50_01 text-indigo-700;
+  }
+
+  .ui.button.bordered.indigo_a200_87 {
+    @apply border-indigo-A200_87 border border-solid text-indigo-A200;
+  }
+
+  .ui.button.fill.white_a700_9e {
+    @apply bg-white-A700_9e text-black-900_02;
+  }
+
+  .ui.button.fill.white_a700 {
+    @apply bg-white-A700 text-black-900_02;
+  }
+
+  .ui.button.fill.blue_50 {
+    @apply bg-blue-50 text-gray-700;
+  }
+
+  .ui.button.fill.indigo_600 {
+    @apply bg-indigo-600 text-white-A700;
+  }
+
+  .ui.button.fill.black_900_1c_01 {
+    @apply bg-black-900_1c_01;
+  }
+
+  .ui.button.bordered.yellow_900 {
+    @apply border-yellow-900 border border-solid text-yellow-900;
+  }
+
+  .ui.button.fill.blue_50_01 {
+    @apply bg-blue-50_01 text-blue_gray-600;
+  }
+
+  .ui.button.fill.gray_50 {
+    @apply bg-gray-50 text-black-900_7f_02;
+  }
+
+  .ui.button.bordered.green_a700_01 {
+    @apply border-green-A700_01 border border-solid text-green-A700_01;
+  }
+
+  .ui.button.fill.indigo_a200_87 {
+    @apply bg-indigo-A200_87 text-white-A700;
+  }
+
+  .ui.button.fill.gray_300 {
+    @apply bg-gray-300 text-black-900_02;
+  }
+
+  .ui.button.bordered.indigo_a200 {
+    @apply border-indigo-A200 border border-solid text-indigo-A200;
+  }
+
+  .ui.button.fill.black_900_0a {
+    @apply bg-black-900_0a text-black-900_ad;
+  }
+
+  .ui.button {
+    @apply flex flex-row items-center justify-center text-center cursor-pointer;
+  }
+
+  /*-------------------------------------
+  Switch CSS
+--------------------------------------*/
+  .ui.switch input[type="checkbox"] {
+    @apply w-0 h-0 invisible;
+  }
+
+  .ui.switch.square label {
+    @apply rounded-[0px];
+  }
+
+  .ui.switch.size-sm label {
+    @apply h-[32px];
+  }
+
+  .ui.switch.size-xs label {
+    @apply h-[15px];
+  }
+
+  /*-------------------------------------
+  Selectbox CSS
+--------------------------------------*/
+  .ui.selectbox.round {
+    @apply rounded-lg;
+  }
+
+  .ui.selectbox.size-xl {
+    @apply h-[50px] pl-[15px] pr-[35px] text-xl;
+  }
+
+  .ui.selectbox.size-md {
+    @apply h-[43px] px-[35px] text-lg;
+  }
+
+  .ui.selectbox.size-sm {
+    @apply h-[41px] pl-[15px] pr-[35px] text-sm;
+  }
+
+  .ui.selectbox.size-xs {
+    @apply h-[36px] pl-5 pr-[35px] text-base;
+  }
+
+  .ui.selectbox.size-lg {
+    @apply h-[48px] pl-[18px] pr-[35px] text-base;
+  }
+
+  .ui.selectbox.size-2xl {
+    @apply h-[57px] px-[34px] text-lg;
+  }
+
+  .ui.selectbox.fill.white_a700 {
+    @apply bg-white-A700 text-blue_gray-900_7f;
+  }
+
+  .ui.selectbox.fill.indigo_a200 {
+    @apply bg-indigo-A200 text-white-A700;
+  }
+
+  .ui.selectbox.bordered.black_900_4f {
+    @apply border-black-900_4f border border-solid text-black-900_e5;
+  }
+
+  .ui.selectbox.bordered.black_900_7f_02 {
+    @apply border-black-900_7f_02 border border-solid text-black-900_cc_01;
+  }
+
+  .ui.selectbox.bordered.black_900_66 {
+    @apply border-black-900_66 border border-solid text-black-900_02;
+  }
+
+  .ui.selectbox.fill.indigo_a200_07 {
+    @apply bg-indigo-A200_07 text-black-900_e5;
+  }
+
+  .ui.selectbox {
+    @apply flex;
+  }
+
+  /*-------------------------------------
+  Radio CSS
+--------------------------------------*/
+  .ui.radio.size-xs {
+    @apply h-[11px] w-[11px] rounded-[5px];
+  }
+
+  .ui.radio.size-sm {
+    @apply h-[16px] w-[16px];
+  }
+
+  .ui.radio.size-md {
+    @apply h-[19px] w-[19px] rounded-[9px];
+  }
+
+  .ui.radio.primary {
+    @apply border-indigo-A200 border-2 border-solid bg-white-A700 checked:border-indigo-A200 checked:border-2 checked:border-solid checked:bg-white-A700;
+  }
+
+  .ui.radio {
+    @apply flex items-center gap-[5px] cursor-pointer;
+  }
+
+  /*-------------------------------------
+  Checkbox CSS
+--------------------------------------*/
+  .ui.checkbox.square {
+    @apply rounded-[0px];
+  }
+
+  .ui.checkbox.size-xs {
+    @apply h-[24px] w-[24px] px-px text-base;
+  }
+
+  .ui.checkbox {
+    @apply flex items-center gap-[5px] cursor-pointer;
+  }
+
+  /*-------------------------------------
+  Input CSS
+--------------------------------------*/
+  .ui.input.round {
+    @apply rounded-[5px];
+  }
+
+  .ui.input.size-md {
+    @apply h-[51px] pl-[21px] pr-[35px] text-base;
+  }
+
+  .ui.input.size-lg {
+    @apply h-[59px] pl-5 pr-[35px] text-lg;
+  }
+
+  .ui.input.size-xs {
+    @apply h-[45px] pl-6 pr-4 text-base;
+  }
+
+  .ui.input.size-sm {
+    @apply h-[48px] pl-[21px] pr-[26px] text-lg;
+  }
+
+  .ui.input.fill.white_a700 {
+    @apply bg-white-A700 text-black-900_cc_01;
+  }
+
+  .ui.input.fill.teal_500 {
+    @apply bg-teal-500 text-white-A700;
+  }
+
+  .ui.input.bordered.black_900_4c {
+    @apply border-black-900_4c border border-solid text-black-900_02;
+  }
+
+  .ui.input.fill.blue_50_02 {
+    @apply bg-blue-50_02 text-black-900_b2;
+  }
+
+  .ui.input.fill.blue_gray_400 {
+    @apply bg-blue_gray-400 text-white-A700;
+  }
+
+  .ui.input {
+    @apply flex items-center justify-center cursor-text;
+  }
+
+  /*-------------------------------------
+  Text CSS
+--------------------------------------*/
+  .ui.text.size-xs {
+    @apply text-xs font-normal;
+  }
+
+  .ui.text.size-lg {
+    @apply text-lg font-normal;
+  }
+
+  .ui.text.size-s {
+    @apply text-sm font-normal;
+  }
+
+  .ui.text.size-2xl {
+    @apply text-2xl font-medium md:text-[22px];
+  }
+
+  .ui.text.size-3xl {
+    @apply text-[26px] font-normal md:text-2xl sm:text-[22px];
+  }
+
+  .ui.text.size-4xl {
+    @apply text-[57px] font-normal md:text-[49px] sm:text-[43px];
+  }
+
+  .ui.text.size-xl {
+    @apply text-xl font-normal;
+  }
+
+  .ui.text.size-md {
+    @apply text-base font-normal;
+  }
+
+  .ui.text {
+    @apply text-black-900_e5 font-poppins;
+  }
+
+  /*-------------------------------------
+  Heading CSS
+--------------------------------------*/
+  .ui.heading.size-3xl {
+    @apply text-[22px] font-semibold;
+  }
+
+  .ui.heading.size-2xl {
+    @apply text-xl font-semibold;
+  }
+
+  .ui.heading.size-5xl {
+    @apply text-[26px] font-semibold md:text-2xl sm:text-[22px];
+  }
+
+  .ui.heading.size-xl {
+    @apply text-lg font-semibold;
+  }
+
+  .ui.heading.size-4xl {
+    @apply text-2xl font-semibold md:text-[22px];
+  }
+
+  .ui.heading.size-6xl {
+    @apply text-[28px] font-semibold md:text-[26px] sm:text-2xl;
+  }
+
+  .ui.heading.size-s {
+    @apply text-xs font-bold;
+  }
+
+  .ui.heading.size-md {
+    @apply text-sm font-semibold;
+  }
+
+  .ui.heading.size-xs {
+    @apply text-[11px] font-bold;
+  }
+
+  .ui.heading.size-lg {
+    @apply text-base font-semibold;
+  }
+
+  .ui.heading {
+    @apply text-black-900_02 font-poppins;
+  }
+
+  /*-------------------------------------
+  Table CSS
+--------------------------------------*/
+  .ui.table.size-xs tbody td {
+    @apply p-px;
+  }
+
+  .ui.table.size-sm tbody td {
+    @apply p-[7px];
+  }
+
+  .ui.table.size-md tbody td {
+    @apply p-2;
+  }
+
+  .ui.table.size-lg tbody td {
+    @apply p-[9px];
+  }
+
+  .ui.table.size-xl tbody td {
+    @apply p-2.5;
+  }
+
+  .ui.table.size-2xl tbody td {
+    @apply p-[11px];
+  }
+
+  .ui.table.size-3xl tbody td {
+    @apply p-3;
+  }
+
+  .ui.table.size-4xl tbody td {
+    @apply p-3.5;
+  }
+
+  .ui.table.size-5xl tbody td {
+    @apply p-[15px];
+  }
+
+  .ui.table.size-6xl tbody td {
+    @apply p-[17px];
+  }
+
+  .ui.table.striped tbody tr {
+    @apply odd:bg-indigo-A200_14 even:bg-white-A700_14;
+  }
+
+  .ui.table.simple tbody tr {
+    @apply bg-white-A700;
+  }
+
+  /*-------------------------------------
+  Container CSS
+--------------------------------------*/
+  .container-xs {
+    @apply w-full mx-auto max-w-[945px];
+  }
+
+  .container-sm {
+    @apply w-full mx-auto max-w-[946px];
+  }
+
+  .container-md {
+    @apply w-full mx-auto max-w-[1027px];
+  }
+
+  .container-lg {
+    @apply w-full mx-auto max-w-[1028px];
+  }
+
+  .container-xl {
+    @apply w-full mx-auto max-w-[1088px];
+  }
+
+  .container-2xl {
+    @apply w-full mx-auto max-w-[1156px];
+  }
+
+  .container-3xl {
+    @apply w-full mx-auto max-w-[1218px];
+  }
+
+  .container-4xl {
+    @apply w-full mx-auto max-w-[1396px];
+  }
+
+  .container-5xl {
+    @apply w-full mx-auto max-w-[1412px];
+  }
+}

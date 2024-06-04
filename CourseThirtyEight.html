@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Booking Summary - Analyze Revenue from Sports Facilities</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Get a detailed Booking Summary for indoor and outdoor sports facilities. Track revenue streams by location and sport type, including cricket and volleyball earnings."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[98%] items-start gap-6 md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_15.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="suffix icon"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- main content section -->
+          <div class="flex flex-1 flex-col items-start md:self-stretch">
+            <h1 class="size-5xl heading ui">Report</h1>
+            <h2 class="size-xl heading ui mt-1.5 !font-inter !text-black-900_b2">Overview</h2>
+            <div class="mt-[13px] flex gap-[9px] self-stretch md:flex-col">
+              <div
+                class="flex w-full flex-col items-start justify-center gap-[7px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+              >
+                <p class="size-md text ui !font-inter !text-white-A700">Total revenue generated</p>
+                <h3 class="size-6xl heading ui !font-inter !text-white-A700">$465000</h3>
+              </div>
+              <div
+                class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+              >
+                <p class="size-md text ui !font-inter !text-white-A700">Total number of courses</p>
+                <h4 class="size-6xl heading ui !font-inter !text-white-A700">53</h4>
+              </div>
+              <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                <p class="size-md text ui !font-inter !text-white-A700">Total number of students</p>
+                <h5 class="size-6xl heading ui !font-inter !text-white-A700">600</h5>
+              </div>
+              <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                <p class="size-md text ui !font-inter !text-white-A700">Total number of coaches</p>
+                <h6 class="size-6xl heading ui !font-inter !text-white-A700">120</h6>
+              </div>
+              <div
+                class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+              >
+                <p class="size-md text ui !font-inter !text-white-A700">Total calendar revenue</p>
+                <h3 class="size-6xl heading ui !font-inter !text-white-A700">$18000</h3>
+              </div>
+            </div>
+            <div class="mt-[30px] h-px self-stretch bg-black-900_1e"></div>
+            <div class="mt-[23px] self-stretch">
+              <div class="flex flex-col gap-[22px]">
+                <div class="flex justify-between gap-5 md:flex-col">
+                  <div class="flex w-[43%] justify-center gap-[15px] md:w-full sm:flex-col">
+                    <select
+                      class="round fill size-2xl indigo_a200_07 selectbox ui flex-grow gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat sm:px-5"
+                      name="Booking Dropdown"
+                    >
+                      <option value="option1">Option1</option>
+                      <option value="option2">Option2</option>
+                      <option value="option3">Option3</option>
+                    </select>
+                    <select
+                      class="round fill size-2xl indigo_a200_07 selectbox ui w-[37%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat sm:w-full sm:px-5"
+                      name="All Dropdown"
+                    >
+                      <option value="option1">Option1</option>
+                      <option value="option2">Option2</option>
+                      <option value="option3">Option3</option>
+                    </select>
+                  </div>
+                  <select
+                    class="round fill size-2xl indigo_a200_07 selectbox ui w-[19%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat md:w-full sm:px-5"
+                    name="Month Dropdown"
+                  >
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                </div>
+                <div class="flex w-[71%] gap-[23px] md:w-full md:flex-col">
+                  <div
+                    class="flex flex-1 flex-col items-start justify-center rounded-[5px] bg-white-A700 p-4 shadow-5xl"
+                  >
+                    <p class="size-md text ui self-center !text-black-900_99">Total booking revenue</p>
+                    <h5 class="size-2xl heading ui">$18000</h5>
+                  </div>
+                  <div class="flex flex-1 flex-col items-start rounded-[5px] bg-white-A700 p-4 shadow-5xl">
+                    <p class="size-md text ui !text-black-900_99">Total booking</p>
+                    <h5 class="size-2xl heading ui">35</h5>
+                  </div>
+                  <div
+                    class="flex flex-1 flex-col items-start justify-center rounded-[5px] bg-white-A700 p-3.5 shadow-5xl"
+                  >
+                    <p class="size-md text ui self-center !text-black-900_99">Cricket total revenue</p>
+                    <h5 class="size-2xl heading ui ml-2.5 md:ml-0">$13000</h5>
+                  </div>
+                  <div
+                    class="flex w-[26%] flex-col items-start justify-center rounded-[5px] bg-white-A700 p-4 shadow-5xl md:w-full"
+                  >
+                    <p class="size-md text ui ml-2 !text-black-900_99 md:ml-0">Volleyball total revenue</p>
+                    <h5 class="size-2xl heading ui ml-2 md:ml-0">$5000</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- cricket indoor section -->
+            <div class="mt-6 flex w-[98%] flex-col items-start gap-3.5 md:w-full">
+              <h6 class="size-lg heading ui !font-inter">
+                <span class="text-black-900_02"> Cricket&nbsp;</span>
+                <span class="font-normal text-black-900_02"> (Indoor)&nbsp;</span>
+              </h6>
+              <div class="flex flex-col gap-[27px] self-stretch">
+                <div class="rounded-[10px] bg-white-A700 pb-3 shadow-6xl">
+                  <table class="size-3xl ui table" cellpadding="0" cellspacing="0">
+                    <thead class="flex-wrap rounded-tl-[10px] rounded-tr-[10px] bg-indigo-A200_11">
+                      <tr>
+                        <th width="267px">
+                          <p class="size-md text ui py-[11px] pl-[31px] !font-inter !text-black-900_99 sm:pl-5">
+                            Location
+                          </p>
+                        </th>
+                        <th width="307px">
+                          <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Lane 1 Revenue</p>
+                        </th>
+                        <th width="312px">
+                          <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Lane 2 Revenue</p>
+                        </th>
+                        <th width="284px">
+                          <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Lane 3 Revenue</p>
+                        </th>
+                        <th width="195px">
+                          <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Total revenue</p>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="flex-wrap">
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">Willowbrook</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$650</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$600</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1500</p>
+                        </td>
+                      </tr>
+                      <tr class="flex-wrap">
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">Cedar Springs</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1200</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1400</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$2600</p>
+                        </td>
+                      </tr>
+                      <tr class="flex-wrap">
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">Pineview</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$860</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$226</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$150</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1226</p>
+                        </td>
+                      </tr>
+                      <tr class="flex-wrap">
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">Willowbrook</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1600</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$1800</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                        </td>
+                        <td>
+                          <p class="size-md text ui !font-inter !text-black-900_02">$3500</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- cricket outdoor section -->
+                <div class="flex flex-col items-start gap-3.5">
+                  <h6 class="size-lg heading ui !font-inter">
+                    <span class="text-black-900_02"> Cricket&nbsp;</span>
+                    <span class="font-normal text-black-900_02"> (Outdoor)&nbsp;</span>
+                  </h6>
+                  <div class="self-stretch rounded-[10px] bg-white-A700 pb-[11px] shadow-6xl">
+                    <table class="size-xs ui table" cellpadding="0" cellspacing="0">
+                      <thead class="flex-wrap rounded-tl-[10px] rounded-tr-[10px] bg-indigo-A200_11">
+                        <tr>
+                          <th width="267px">
+                            <p class="size-md text ui py-[11px] pl-[31px] !font-inter !text-black-900_99 sm:pl-5">
+                              Location
+                            </p>
+                          </th>
+                          <th width="307px">
+                            <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Main field</p>
+                          </th>
+                          <th width="596px">
+                            <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Side cage</p>
+                          </th>
+                          <th width="195px">
+                            <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Total revenue</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="flex-wrap">
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">Willowbrook</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">$650</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">$1500</p>
+                          </td>
+                        </tr>
+                        <tr class="flex-wrap">
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">Cedar Springs</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">$1200</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">$1400</p>
+                          </td>
+                          <td>
+                            <p class="size-md text ui !font-inter !text-black-900_02">$2600</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- volleyball indoor section -->
+                <div class="flex flex-col items-start gap-3">
+                  <h6 class="size-lg heading ui !font-inter">Volleyball (Indoor)</h6>
+                  <div class="self-stretch rounded-[10px] bg-white-A700 pb-[13px] shadow-6xl">
+                    <div class="pb-[31px] sm:pb-5">
+                      <div class="pb-[46px] md:pb-5">
+                        <div
+                          class="flex justify-between gap-5 rounded-tl-[10px] rounded-tr-[10px] bg-indigo-A200_11 p-2.5 md:flex-col"
+                        >
+                          <div class="ml-9 flex w-[78%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                            <p class="size-md text ui !font-inter !text-black-900_99">Location</p>
+                            <p class="size-md text ui !font-inter !text-black-900_99">Lane 1 Revenue</p>
+                            <p class="size-md text ui !font-inter !text-black-900_99">Lane 2 Revenue</p>
+                            <p class="size-md text ui !font-inter !text-black-900_99">Lane 3 Revenue</p>
+                          </div>
+                          <p class="size-md text ui mr-[104px] !font-inter !text-black-900_99 md:mr-0">Total revenue</p>
+                        </div>
+                      </div>
+                      <table class="size-3xl ui relative mt-[-33px] table" cellpadding="0" cellspacing="0">
+                        <thead class="flex-wrap">
+                          <tr>
+                            <th width="279px">
+                              <p class="size-md text ui px-[35px] pb-[13px] !font-inter !text-black-900_02 sm:px-5">
+                                Willowbrook
+                              </p>
+                            </th>
+                            <th width="305px">
+                              <p class="size-md text ui pb-[13px] pt-px !font-inter !text-black-900_02">$650</p>
+                            </th>
+                            <th width="285px">
+                              <p class="size-md text ui pb-[13px] pt-px !font-inter !text-black-900_02">$600</p>
+                            </th>
+                            <th width="278px">
+                              <p class="size-md text ui pb-[13px] pt-px !font-inter !text-black-900_02">N/A</p>
+                            </th>
+                            <th width="218px">
+                              <p class="size-md text ui pb-[13px] pt-px !font-inter !text-black-900_02">$1500</p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="flex-wrap">
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">Cedar Springs</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$1200</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$1400</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$2600</p>
+                            </td>
+                          </tr>
+                          <tr class="flex-wrap">
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">Pineview</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$860</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$226</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$150</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$1226</p>
+                            </td>
+                          </tr>
+                          <tr class="flex-wrap">
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">Willowbrook</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$1600</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$1800</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">N/A</p>
+                            </td>
+                            <td>
+                              <p class="size-md text ui !font-inter !text-black-900_02">$3500</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="relative mt-[-77px] h-px bg-black-900_19"></div>
+                      <div class="mt-11 h-px bg-black-900_19"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

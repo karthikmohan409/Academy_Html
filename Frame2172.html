@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>New Category Management - Assign Coaches</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Manage your new category by assigning coaches and overseeing student enrollment. Organize batches efficiently and track coach availability."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- category management section -->
+    <div class="w-full bg-white-A700 py-[21px] sm:py-5">
+      <div class="mb-3.5 flex flex-col items-center">
+        <!-- header section -->
+        <header class="flex flex-col items-start gap-[15px] self-stretch">
+          <h5 class="size-2xl heading ui ml-[42px] !text-gray-900_03 md:ml-0">New category</h5>
+          <div class="h-px w-full self-stretch bg-black-900_35"></div>
+        </header>
+
+        <!-- category info section -->
+        <div class="container-2xl mt-[23px] flex flex-col items-start gap-1 md:p-5">
+          <p class="size-md text ui">Category name</p>
+          <label
+            class="round fill size-sm white_a700 input ui self-stretch border border-solid border-black-900_72 !text-blue_gray-900_7f sm:pr-5"
+          >
+            <input name="Batch Name Input" placeholder="Enter batch name" type="text" />
+          </label>
+        </div>
+
+        <!-- student search section -->
+        <div class="container-2xl mt-12 flex items-center justify-between gap-5 md:flex-col md:p-5">
+          <div class="flex w-[26%] flex-wrap justify-between gap-5 self-end md:w-full">
+            <p class="size-md text ui">
+              <span class="text-black-900_99"> Total students :</span>
+              <span class="text-black-900_e5"> &nbsp;</span>
+              <span class="font-semibold text-black-900_e5"> 150&nbsp;</span>
+            </p>
+            <p class="size-md text ui">
+              <span class="text-black-900_99"> Selected :</span>
+              <span class="text-black-900_b2"> &nbsp;</span>
+              <span class="font-semibold text-black-900_e5"> 0</span>
+            </p>
+          </div>
+          <label
+            class="fill size-xs white_a700 input ui w-[31%] gap-2.5 rounded-lg border border-solid border-gray-900_72 !text-gray-900_7f md:w-full sm:px-5"
+          >
+            <div class="flex h-[15px] w-[15px] items-center justify-center">
+              <img
+                src="public/images/img_search_black_900_02_15x15.svg"
+                alt="search"
+                class="h-[15px] w-[15px] cursor-pointer"
+              />
+            </div>
+            <input name="Student Search" placeholder="Search students" type="text" />
+          </label>
+        </div>
+
+        <!-- coach profiles section -->
+        <div class="mx-auto mt-[26px] flex w-full max-w-[1245px] px-[22px] pt-[22px] md:p-5 sm:px-5 sm:pt-5">
+          <div class="grid w-full grid-cols-3 gap-[17px] md:grid-cols-2 sm:grid-cols-1">
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_8.png"
+                alt="coach image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h1 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h1>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_9.png"
+                alt="secondary image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-3.5 flex flex-1 flex-col items-start gap-0.5">
+                <h2 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h2>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-[31px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-start justify-between gap-5 rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <div class="ml-[5px] flex w-[85%] items-center justify-center gap-[13px] md:ml-0">
+                <img
+                  src="public/images/img_ellipse_17_10.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start gap-0.5">
+                  <h3 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h3>
+                  <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"></div>
+            </div>
+            <div
+              class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_11.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="flex-1">
+                <div class="flex flex-col items-start gap-0.5">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h4 class="size-lg heading ui mt-3 !text-blue_gray-900_03">Coach name S</h4>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_12.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="flex-1">
+                <div class="flex flex-col items-start gap-0.5">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h5 class="size-lg heading ui mt-3 !text-blue_gray-900_03">Coach name S</h5>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex w-full items-start justify-between gap-5 rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <div class="ml-[5px] flex w-[85%] items-center justify-center gap-[13px] md:ml-0">
+                <img
+                  src="public/images/img_ellipse_17_13.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start gap-0.5">
+                  <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                  <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_14.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_15.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-3.5 flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-[31px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_16.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_17.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="flex flex-1 items-start justify-between gap-5">
+                <div class="mt-3 flex flex-col items-start gap-0.5">
+                  <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                  <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+                </div>
+                <div
+                  class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_18.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-3.5 flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-[31px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_19.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_8.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_9.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-3.5 flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-[31px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full items-center justify-center rounded-[12px] border border-solid border-gray-300_01 bg-white-A700 p-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_10.png"
+                alt="image"
+                class="h-[75px] w-[75px] rounded-[37px] object-cover"
+              />
+              <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                <h6 class="size-lg heading ui !text-blue_gray-900_03">Coach name S</h6>
+                <p class="size-s text ui !text-blue_gray-900_03">coach name 1@11gmail.com</p>
+              </div>
+              <div
+                class="ml-8 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+              ></div>
+            </div>
+            <div
+              class="flex w-full flex-col items-start rounded-[5px] border border-solid border-gray-300_01 bg-white-A700 px-4 pt-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_1x75.png"
+                alt="image"
+                class="ml-[5px] h-px w-[22%] rounded-[-3px] object-cover md:ml-0"
+              />
+              <div class="mt-1.5 h-px w-[18px] self-end border border-solid border-indigo-A200 bg-indigo-50_03"></div>
+              <h6 class="size-lg heading ui ml-[93px] mt-[18px] !text-blue_gray-900_03 md:ml-0">Coach name S</h6>
+              <p class="size-s text ui mr-[52px] mt-11 self-end !text-blue_gray-900_03 md:mr-0">
+                coach name 1@11gmail.com
+              </p>
+            </div>
+            <div
+              class="flex w-full flex-col items-start rounded-[5px] border border-solid border-gray-300_01 bg-white-A700 px-4 pt-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_20.png"
+                alt="image"
+                class="ml-[5px] h-px w-[22%] rounded-[-3px] object-cover md:ml-0"
+              />
+              <div class="mt-1.5 h-px w-[18px] self-end border border-solid border-indigo-A200 bg-indigo-50_03"></div>
+              <h6 class="size-lg heading ui ml-[94px] mt-[18px] !text-blue_gray-900_03 md:ml-0">Coach name S</h6>
+              <p class="size-s text ui mr-[51px] mt-11 self-end !text-blue_gray-900_03 md:mr-0">
+                coach name 1@11gmail.com
+              </p>
+            </div>
+            <div
+              class="flex w-full flex-col items-start rounded-[5px] border border-solid border-gray-300_01 bg-white-A700 px-4 pt-4 shadow-2xl"
+            >
+              <img
+                src="public/images/img_ellipse_17_21.png"
+                alt="image"
+                class="ml-[5px] h-px w-[22%] rounded-[-3px] object-cover md:ml-0"
+              />
+              <div class="mt-1.5 h-px w-[18px] self-end border border-solid border-indigo-A200 bg-indigo-50_03"></div>
+              <h6 class="size-lg heading ui ml-[93px] mt-[18px] !text-blue_gray-900_03 md:ml-0">Coach name S</h6>
+              <p class="size-s text ui mr-[52px] mt-11 self-end !text-blue_gray-900_03 md:mr-0">
+                coach name 1@11gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- separator line section -->
+        <div class="mt-1.5 h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- action buttons section -->
+        <div class="mr-[54px] mt-[34px] flex gap-[11px] self-end md:mr-0">
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl white_a700 button ui min-w-[199px] rounded-lg border border-solid border-gray-200_01 font-semibold !text-gray-700_01 sm:px-5"
+            >
+              Cancel
+            </button>
+          </a>
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl indigo_a200_87 button ui min-w-[199px] rounded-lg font-semibold opacity-0.5 sm:px-5"
+            >
+              Save
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

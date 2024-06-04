@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Course Attendance - Track Your Cricket Training Sessions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Stay on top of your cricket training with our course attendance tracker. Monitor completed sessions, check your presence, and ensure you're on track to mastering the fundamentals of cricket."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+    <script>
+      /**
+       * Handles the tab change functionality in a tablist
+       */
+      function handleTabs(/** @type {HTMLElement} */ target) {
+        const tabs = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tab"]'));
+        const tabPanels = /** @type {HTMLElement[]} */ (target.querySelectorAll('[role="tabpanel"]'));
+        const activeClassList = target.dataset.activeClass.split(" ");
+
+        function changeTab(/** @type {HTMLElement}*/ target) {
+          target.focus();
+          const controls = /** @type {string} */ (target.getAttribute("aria-controls"));
+
+          for (const tab of tabs) {
+            const isActiveTab = tab.id === target.id;
+            const tabIndex = isActiveTab ? "0" : "-1";
+            const ariaSelected = isActiveTab ? "true" : "false";
+
+            tab.setAttribute("tabindex", tabIndex);
+            tab.setAttribute("aria-selected", ariaSelected);
+            isActiveTab ? tab.classList.add(...activeClassList) : tab.classList.remove(...activeClassList);
+          }
+
+          for (const panel of tabPanels) {
+            const shouldHidePanel = panel.id !== controls;
+            panel.hidden = shouldHidePanel;
+            panel.style.display = shouldHidePanel ? "none" : "";
+          }
+        }
+
+        function handleClickEvent(/** @type {MouseEvent} */ event) {
+          changeTab(event.target);
+        }
+
+        function handleKeyboardEvent(/** @type {KeyboardEvent} */ event) {
+          const key = event.key;
+          const target = event.target;
+          const index = [...tabs].findIndex((tab) => tab.id === target.id);
+
+          switch (key) {
+            case "ArrowLeft": {
+              const prevTab = tabs[index - 1];
+              if (prevTab) changeTab(prevTab);
+              break;
+            }
+
+            case "ArrowRight": {
+              const nextTab = tabs[index + 1];
+              if (nextTab) changeTab(nextTab);
+              break;
+            }
+
+            case "Home": {
+              const firstTab = tabs[0];
+              if (firstTab) changeTab(firstTab);
+              break;
+            }
+
+            case "End": {
+              const lastTab = tabs[tabs.length - 1];
+              if (lastTab) changeTab(lastTab);
+              break;
+            }
+          }
+        }
+
+        for (const tab of tabs) {
+          tab.style.cursor = "pointer";
+          tab.addEventListener("click", handleClickEvent);
+          tab.addEventListener("keydown", handleKeyboardEvent);
+        }
+      }
+      /**
+       * Hydrate tablist(s)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabLists = /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[role="tablist"]'));
+        for (const tabList of tabLists) handleTabs(tabList);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div>
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex items-start gap-6 md:flex-col">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:p-5 md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="video icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_12.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="suffix icon"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_5.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+          <div class="mt-[15px] flex-1 md:self-stretch md:p-5">
+            <!-- main content section -->
+            <div class="flex flex-col gap-[26px]">
+              <div class="container-5xl flex items-center justify-between gap-5 md:p-5 sm:flex-col">
+                <div class="flex flex-wrap items-center gap-[22px] sm:flex-col">
+                  <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                    <p class="size-3xl text ui !text-black-900_7f_02">Students</p>
+                  </a>
+                  <img
+                    src="public/images/img_arrow_1_black_900_02.svg"
+                    alt="navigationarrow"
+                    class="mb-3.5 h-[3px] self-end sm:w-full"
+                  />
+                  <h1 class="size-5xl heading ui !text-gray-900_03">Student name 1</h1>
+                </div>
+                <div class="flex items-start gap-2 self-end">
+                  <img src="public/images/img_thumbs_up_indigo_a200.svg" alt="thumbsupicon" class="h-[20px] w-[20px]" />
+                  <p class="size-lg text ui !text-black-900_cc_01">Delete profile</p>
+                </div>
+              </div>
+
+              <!-- student profile section -->
+              <div class="flex items-start gap-[15px] md:flex-col">
+                <div class="flex w-[26%] flex-col items-start md:w-full">
+                  <div class="relative h-[285px] self-stretch md:h-auto">
+                    <img
+                      src="public/images/img_rectangle_462_285x339.png"
+                      alt="profileimage"
+                      class="h-[285px] w-full rounded-tl-[10px] rounded-tr-[10px] object-cover"
+                    />
+                    <div class="absolute bottom-[9.77px] left-0 right-0 m-auto flex flex-col items-start">
+                      <h2 class="size-4xl heading ui tracking-[-0.48px] !text-white-A700">Student name 1</h2>
+                      <p class="size-xl text ui tracking-[-0.40px] !text-white-A700_bf">Studentname2@11gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="mt-[15px] flex items-center gap-1.5 self-stretch">
+                    <button
+                      class="fill size-4xl white_a700 button ui min-w-[136px] gap-2 rounded-[24px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+                    >
+                      <img src="public/images/img_thumbsup_blue_a700.svg" alt="thumbs_up" class="h-[18px] w-[18px]" />
+                      <span> Chat now</span>
+                    </button>
+                    <button
+                      class="fill size-2xl white_a700 button ui min-w-[197px] gap-1 rounded-[22px] border border-solid border-blue-A700 font-medium tracking-[-0.32px] !text-blue-A700"
+                    >
+                      <img src="public/images/img_user_blue_a700.svg" alt="user" class="h-[17px] w-[17px]" />
+                      <span> Schedule meeting</span>
+                    </button>
+                  </div>
+                  <h3 class="size-xl heading ui mt-[22px] tracking-[-0.36px] !text-black-900_01">About Me</h3>
+                  <p
+                    class="size-lg text ui mt-[5px] w-[88%] leading-[29px] tracking-[-0.36px] !text-gray-900_01 md:w-full"
+                  >
+                    Sed consectetur sem id porttitor tempor. Nunc sodales, neque nec hendrerit consequat, mauris elit
+                    euismod.
+                  </p>
+                  <div class="mt-3.5 self-stretch">
+                    <div>
+                      <div class="flex items-center justify-between gap-5">
+                        <h4 class="size-xl heading ui !text-gray-900_02">Profile details</h4>
+                        <img
+                          src="public/images/img_arrowdown_black_900_02.svg"
+                          alt="arrowicon"
+                          class="mb-[7px] h-[8px] self-end"
+                        />
+                      </div>
+                      <div class="h-px bg-black-900_02"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- tab group section -->
+                <div
+                  id="tabList"
+                  role="tablist"
+                  aria-label="Tab View"
+                  class="flex flex-1 flex-col gap-[17px] md:self-stretch"
+                  data-active-class="!text-gray-900_02 font-semibold text-lg"
+                >
+                  <div class="flex gap-[83px] bg-white-A700 p-[11px] md:flex-col">
+                    <a
+                      href="https://www.youtube.com/embed/bv8Fxk0sz7I"
+                      target="_blank"
+                      class="text-lg font-semibold !text-gray-900_02"
+                    >
+                      <span
+                        class="ml-5 flex items-center gap-1.5 md:ml-0"
+                        id="tab01"
+                        role="tab"
+                        aria-controls="tabpanel01"
+                        aria-selected="true"
+                        tabindex="0"
+                      >
+                      </span>
+                    </a>
+                    <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+                      <span
+                        class="flex flex-1 items-center gap-2 md:self-stretch"
+                        id="tab11"
+                        role="tab"
+                        aria-controls="tabpanel11"
+                        aria-selected="false"
+                        tabindex="-1"
+                      >
+                      </span>
+                    </a>
+                    <span
+                      class="mr-[429px] flex items-start gap-2 md:mr-0 sm:flex-col"
+                      id="tab21"
+                      role="tab"
+                      aria-controls="tabpanel21"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                    </span>
+                  </div>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="px-[30px] py-2.5 text-lg font-normal text-black-900_02 sm:px-5"> Payments</span>
+                    <span class="px-[30px] py-2.5 text-lg font-normal text-black-900_02 sm:px-5"> Attendance</span>
+                  </div>
+                  <div id="tabpanel01" role="tabpanel" aria-labelledby="tab01" hidden class="tabcontent">
+                    <!-- course details section -->
+                    <div class="flex flex-col items-start">
+                      <div class="flex self-stretch rounded-[5px] bg-indigo-50_02 p-[7px]">
+                        <div class="ml-8 flex w-[86%] justify-between gap-5 md:ml-0 md:w-full md:flex-col">
+                          <div class="flex flex-col items-start">
+                            <p class="size-md text ui !text-gray-900_8c">Selected courses</p>
+                            <p class="size-xl text ui !font-medium !text-gray-900_03">5</p>
+                          </div>
+                          <div class="flex w-[77%] justify-between gap-5 md:w-full sm:flex-col">
+                            <div class="flex w-[59%] items-center justify-between gap-5 sm:w-full">
+                              <div class="h-[26px] w-px bg-gray-900_33"></div>
+                              <div class="flex w-[58%] justify-center">
+                                <div class="flex w-full items-center justify-between gap-5">
+                                  <div class="flex flex-col items-start">
+                                    <p class="size-md text ui !text-gray-900_8c">Total sessions</p>
+                                    <p class="size-xl text ui !font-medium !text-gray-900_03">50</p>
+                                  </div>
+                                  <div class="h-[26px] w-px bg-gray-900_33"></div>
+                                </div>
+                              </div>
+                              <div class="flex flex-col items-start">
+                                <p class="size-md text ui !text-gray-900_8c">Present</p>
+                                <p class="size-xl text ui !font-medium !text-gray-900_03">40</p>
+                              </div>
+                            </div>
+                            <div class="flex w-[17%] items-center justify-between gap-5 sm:w-full">
+                              <div class="h-[26px] w-px bg-gray-900_33"></div>
+                              <div class="flex flex-col items-start">
+                                <p class="size-md text ui !text-gray-900_8c">Absent</p>
+                                <p class="size-xl text ui !font-medium !text-gray-900_03">10</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-[22px] flex w-[51%] flex-wrap justify-between gap-5 md:w-full">
+                        <p class="size-md text ui !text-gray-900_8c">Course</p>
+                        <p class="size-md text ui !text-gray-900_8c">Completed sessions (20)</p>
+                      </div>
+                      <div class="mt-[9px] flex items-start gap-4 self-stretch md:flex-col">
+                        <div
+                          class="flex w-[31%] flex-col items-start gap-[17px] rounded-[5px] bg-white-A700 pb-[17px] md:w-full"
+                        >
+                          <div
+                            class="flex self-stretch rounded-[5px] border border-solid border-indigo-A200 bg-indigo-A200_0a p-[15px]"
+                          >
+                            <p class="size-md text ui ml-3 !text-black-900 md:ml-0">Fundamentals of Cricket</p>
+                          </div>
+                          <div class="flex flex-col items-start gap-3 self-stretch">
+                            <p class="size-md text ui ml-7 !text-black-900 md:ml-0">Batting Techniques</p>
+                            <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                          </div>
+                          <p class="size-md text ui ml-7 !text-black-900 md:ml-0">Wicketkeeping</p>
+                        </div>
+                        <div class="flex-1 rounded-[5px] bg-white-A700 py-4 md:self-stretch">
+                          <div class="mb-[13px]">
+                            <div class="flex flex-wrap justify-between gap-5 px-4 pb-4 sm:flex-col">
+                              <p class="size-md text ui ml-[13px] w-[32%] leading-6 !text-black-900 md:ml-0 sm:w-full">
+                                <span class="font-semibold text-black-900"> Fundamentals of Cricket<br /></span>
+                                <span class="text-black-900_cc_02"> 10am-11am</span>
+                              </p>
+                              <h6 class="size-lg heading ui w-[24%] leading-6 !text-black-900 sm:w-full">
+                                <span class="text-black-900"> 20<br /></span>
+                                <span class="font-normal text-black-900_b2_01"> Completed session</span>
+                              </h6>
+                              <p class="size-md text ui w-[9%] leading-6 !text-black-900 sm:w-full">
+                                <span class="text-black-900"> &nbsp;</span>
+                                <span class="font-semibold text-black-900"> 17<br /></span>
+                                <span class="text-black-900_b2_01"> Present</span>
+                              </p>
+                              <p class="size-md text ui mr-[27px] w-[9%] leading-6 !text-black-900 md:mr-0 sm:w-full">
+                                <span class="font-semibold text-black-900"> 3<br /></span>
+                                <span class="text-black-900_b2_01"> Absent</span>
+                              </p>
+                            </div>
+                            <div class="flex flex-col items-start pt-2">
+                              <div class="flex flex-col items-start gap-[9px] self-stretch">
+                                <div class="ml-[29px] flex w-[52%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900_b2_01">Session dates</p>
+                                  <p class="size-md text ui !text-black-900_b2_01">Attendance</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <p class="size-md text ui ml-[29px] mt-3.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-green-600 md:ml-0">
+                                Present
+                              </p>
+                              <div class="mt-3.5 flex flex-col items-start gap-3 self-stretch">
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                                <div class="ml-[29px] flex w-[47%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900">20-06-2024</p>
+                                  <p class="size-md text ui !text-green-600">Present</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <div class="mt-2.5 flex flex-col items-start gap-3.5 self-stretch">
+                                <div class="ml-[29px] flex w-[46%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900">20-06-2024</p>
+                                  <p class="size-md text ui !text-red-500_02">Absent</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <div class="mt-2.5 flex flex-col items-start gap-3.5 self-stretch">
+                                <div class="ml-[29px] flex w-[46%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900">20-06-2024</p>
+                                  <p class="size-md text ui !text-red-500_02">Absent</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <p class="size-md text ui ml-[29px] mt-2.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-green-600 md:ml-0">
+                                Present
+                              </p>
+                              <div class="mt-3.5 h-px w-full self-stretch bg-black-900_19"></div>
+                              <p class="size-md text ui ml-[29px] mt-2.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-green-600 md:ml-0">
+                                Present
+                              </p>
+                              <p class="size-md text ui ml-[29px] mt-3.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-green-600 md:ml-0">
+                                Present
+                              </p>
+                              <div class="mt-3.5 flex flex-col items-start gap-2.5 self-stretch">
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                                <div class="ml-[29px] flex w-[47%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900">20-06-2024</p>
+                                  <p class="size-md text ui !text-green-600">Present</p>
+                                </div>
+                              </div>
+                              <p class="size-md text ui ml-[29px] mt-2.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-green-600 md:ml-0">
+                                Present
+                              </p>
+                              <div class="mt-3.5 flex flex-col items-start gap-3 self-stretch">
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                                <div class="ml-[29px] flex w-[47%] flex-wrap justify-between gap-5 md:ml-0 md:w-full">
+                                  <p class="size-md text ui !text-black-900">20-06-2024</p>
+                                  <p class="size-md text ui !text-green-600">Present</p>
+                                </div>
+                                <div class="h-px w-full self-stretch bg-black-900_19"></div>
+                              </div>
+                              <p class="size-md text ui ml-[29px] mt-2.5 !text-black-900 md:ml-0">20-06-2024</p>
+                              <p class="size-md text ui relative ml-[285px] mt-[-23px] !text-red-500_02 md:ml-0">
+                                Absent
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: none"
+                    id="tabpanel11"
+                    role="tabpanel"
+                    aria-labelledby="tab11"
+                    hidden
+                    class="tabcontent"
+                  >
+                    <span style="min-height: 792px"> Selected courses content</span>
+                  </div>
+                  <div
+                    style="display: none"
+                    id="tabpanel21"
+                    role="tabpanel"
+                    aria-labelledby="tab21"
+                    hidden
+                    class="tabcontent"
+                  >
+                    <span style="min-height: 792px"> Reports content</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

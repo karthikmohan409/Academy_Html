@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coach Payments Overview - Manage Financials & Assignments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Manage your coaching staff's payments and course assignments efficiently. View total payments, hourly rates, and join dates to optimize your financial planning."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <div class="w-full bg-gray-100_01">
+      <div class="flex flex-col">
+        <header class="flex items-end justify-center bg-white-A700">
+          <div class="mb-2 mt-4 flex w-[98%] items-start justify-between gap-5 md:w-full md:p-5 sm:flex-col">
+            <div class="flex w-[26%] items-center justify-center sm:w-full sm:flex-col">
+              <a href="#">
+                <img src="public/images/img_megaphone.svg" alt="megaphone image" class="h-[22px] sm:w-full" />
+              </a>
+              <img
+                src="public/images/img_header_logo.png"
+                alt="logo image"
+                class="ml-3 h-[64px] w-[171px] object-contain sm:ml-0"
+              />
+              <h3 class="size-6xl heading ui ml-[30px] !font-sansserifbookflf italic !text-gray-800_01 sm:ml-0">
+                Dreams into Reality
+              </h3>
+            </div>
+            <div class="mt-2.5 flex w-[8%] items-center justify-center gap-2 sm:w-full">
+              <a href="#">
+                <img src="public/images/img_lock.svg" alt="lock image" class="h-[33px] w-[34px]" />
+              </a>
+              <img src="public/images/img_forward.svg" alt="forward image" class="h-[32px] w-[74%]" />
+            </div>
+          </div>
+        </header>
+        <div class="flex w-[98%] items-start gap-6 md:w-full md:flex-col md:p-5">
+          <aside
+            class="!sticky top-0 flex h-screen w-[272px] flex-col gap-4 overflow-auto bg-white-A700 pt-14 md:hidden md:pt-5"
+          >
+            <div class="mr-[23px] flex w-[71%] md:mr-0 md:w-full md:p-5">
+              <div class="flex w-full items-center">
+                <div
+                  class="relative z-[1] flex-1 rounded-[75px] border border-solid border-blue_gray-600_01 bg-white-A700 p-[18px] shadow-xs"
+                >
+                  <img
+                    src="public/images/img_images_1_1.png"
+                    alt="primary image"
+                    class="h-[114px] w-[114px] rounded-[57px] object-cover"
+                  />
+                </div>
+                <img
+                  src="public/images/img_.svg"
+                  alt="secondary image"
+                  class="relative mb-[18px] ml-[-22px] h-[75px] w-[23%] self-end"
+                />
+              </div>
+            </div>
+            <ul class="mb-9 flex w-full flex-col gap-[0.00px] self-stretch px-0 pb-[15px] pt-0">
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <span> Actionzone- Receptionist</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2.svg" alt="dashboard icon" class="h-[31px] w-[31px]" />
+                  <span> Dashboard</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02.svg"
+                    alt="calendar icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Calendar</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img
+                    src="public/images/img_component_2_black_900_02_31x31.svg"
+                    alt="course icon"
+                    class="h-[31px] w-[31px]"
+                  />
+                  <span> Course</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_31x31.svg" alt="package icon" class="h-[31px] w-[31px]" />
+                  <span> Package</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_1.svg" alt="addons icon" class="h-[31px] w-[31px]" />
+                  <span> Add ons</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="coach icon" class="h-[31px] w-[31px]" />
+                  <span> Coach</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_2.svg" alt="analyzer icon" class="h-[31px] w-[31px]" />
+                  <span> Video analyzer</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_3.svg" alt="student icon" class="h-[31px] w-[31px]" />
+                  <span> Student</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_4.svg" alt="meetings icon" class="h-[31px] w-[31px]" />
+                  <span> Meetings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_15.svg" alt="report icon" class="h-[31px] w-[31px]" />
+                  <span> Report</span>
+                  <img
+                    src="public/images/defaultNoData.png"
+                    alt="suffix icon"
+                    class="h-[51px] w-[11px] rounded-bl-[5px] rounded-tl-[5px] bg-indigo-A200 object-cover"
+                  />
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_television.svg" alt="notification icon" class="h-[31px] w-[31px]" />
+                  <span> Notification settings</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_6.svg" alt="events icon" class="h-[31px] w-[31px]" />
+                  <span> Events & Transportation</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_7.svg" alt="billing icon" class="h-[31px] w-[31px]" />
+                  <span> Billing</span>
+                </a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex cursor-pointer items-center gap-2 border-b border-t border-solid border-transparent bg-white-A700 px-[17px] py-2.5 text-base font-normal text-black-900_e5 hover:border-black-900_1b hover:!bg-white-A700_6c"
+                >
+                  <img src="public/images/img_component_2_8.svg" alt="settings icon" class="h-[31px] w-[31px]" />
+                  <span> Settings</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+          <div class="flex flex-1 flex-col gap-[21px] md:self-stretch">
+            <!-- main content section -->
+            <div class="flex flex-col items-start gap-[25px]">
+              <div class="container-4xl flex flex-col items-start gap-2.5 self-stretch md:p-5">
+                <h1 class="size-5xl heading ui">Report</h1>
+                <h2 class="size-xl heading ui !font-inter !text-black-900_b2">Overview</h2>
+                <div class="flex gap-[9px] self-stretch md:flex-col">
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[7px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total revenue generated</p>
+                    <h3 class="size-6xl heading ui !font-inter !text-white-A700">$465000</h3>
+                  </div>
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of courses</p>
+                    <h4 class="size-6xl heading ui !font-inter !text-white-A700">53</h4>
+                  </div>
+                  <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of students</p>
+                    <h5 class="size-6xl heading ui !font-inter !text-white-A700">600</h5>
+                  </div>
+                  <div class="flex w-full flex-col items-start gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5">
+                    <p class="size-md text ui !font-inter !text-white-A700">Total number of coaches</p>
+                    <h6 class="size-6xl heading ui !font-inter !text-white-A700">120</h6>
+                  </div>
+                  <div
+                    class="flex w-full flex-col items-start justify-center gap-[9px] rounded-[10px] bg-gradient p-[26px] sm:p-5"
+                  >
+                    <p class="size-md text ui !font-inter !text-white-A700">Total calendar revenue</p>
+                    <h3 class="size-6xl heading ui !font-inter !text-white-A700">$18000</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="h-px self-stretch bg-black-900_1e"></div>
+              <div class="flex justify-between gap-5 self-stretch md:flex-col">
+                <select
+                  class="round fill size-2xl indigo_a200_07 selectbox ui w-[26%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat md:w-full sm:px-5"
+                  name="Coach Dropdown"
+                >
+                  <option value="option1">Option1</option>
+                  <option value="option2">Option2</option>
+                  <option value="option3">Option3</option>
+                </select>
+                <select
+                  class="round fill size-2xl indigo_a200_07 selectbox ui w-[19%] gap-px !rounded-md border border-solid border-indigo-A200 bg-[url(../public/images/img_arrowdown_black_900_02.svg)] bg-[length:8px] bg-no-repeat md:w-full sm:px-5"
+                  name="Month Dropdown"
+                >
+                  <option value="option1">Option1</option>
+                  <option value="option2">Option2</option>
+                  <option value="option3">Option3</option>
+                </select>
+              </div>
+              <div class="flex w-[58%] gap-[21px] md:w-full md:flex-col">
+                <div
+                  class="flex flex-1 flex-col items-start rounded-[5px] bg-white-A700 p-4 shadow-5xl md:self-stretch"
+                >
+                  <p class="size-md text ui !text-black-900_99">Total coaches joined</p>
+                  <h5 class="size-2xl heading ui">20</h5>
+                </div>
+                <div
+                  class="flex flex-1 flex-col items-start rounded-[5px] bg-white-A700 p-4 shadow-5xl md:self-stretch"
+                >
+                  <p class="size-md text ui ml-2 !text-black-900_99 md:ml-0">Courses assigned</p>
+                  <h5 class="size-2xl heading ui ml-2 md:ml-0">15</h5>
+                </div>
+                <div class="flex flex-col items-start justify-center rounded-[5px] bg-white-A700 p-4 shadow-5xl">
+                  <p class="size-md text ui self-center !text-black-900_99">Total payments made to coaches</p>
+                  <h5 class="size-2xl heading ui ml-2 md:ml-0">$6000</h5>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-[10px] bg-white-A700 shadow-6xl">
+              <!-- coaches table section -->
+              <table class="size-3xl ui table" cellpadding="0" cellspacing="0">
+                <thead class="flex-wrap rounded-tl-[10px] rounded-tr-[10px] bg-indigo-A200_11">
+                  <tr>
+                    <th width="307px">
+                      <p class="size-md text ui py-[11px] pl-[35px] !font-inter !text-black-900_99 sm:pl-5">
+                        Coach name
+                      </p>
+                    </th>
+                    <th width="272px">
+                      <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Courses assigned</p>
+                    </th>
+                    <th width="232px">
+                      <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Hourly rate</p>
+                    </th>
+                    <th width="302px">
+                      <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Joined date</p>
+                    </th>
+                    <th width="284px">
+                      <p class="size-md text ui py-[11px] !font-inter !text-black-900_99">Paid to coach</p>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-start gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_129.png"
+                          alt="williams image"
+                          class="ml-[34px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Williams</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">15</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$18</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">11-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1550</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_130.png"
+                          alt="rodriguez image"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Rodriguez</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">5</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$30</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1850</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_131.png"
+                          alt="johnson image"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Johnson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10</p>
+                    </td>
+                    <td>
+                      <div class="flex flex-wrap">
+                        <p class="size-md text ui !font-inter !text-black-900_02">$</p>
+                        <p class="size-md text ui !font-inter !text-black-900_02">$25</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$2650</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128.png"
+                          alt="imageeen"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Smith</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">5</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$30</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">26-01-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1850</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_2.png"
+                          alt="imageteen"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Martinez</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">6</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$30</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">26-01-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$2650</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_3.png"
+                          alt="image_twenty"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-end !font-inter !text-black-900_02">Taylor</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">9</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$25</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1550</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_4.png"
+                          alt="image_twentyone"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Anderson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">7</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$18</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">26-01-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$2650</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_5.png"
+                          alt="image_twentytwo"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Brown</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">9</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$25</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1850</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_6.png"
+                          alt="image"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Davis</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">3</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$18</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">26-01-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1550</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_7.png"
+                          alt="image"
+                          class="ml-[33px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui !font-inter !text-black-900_02">Thomas</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">6</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$30</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">26-01-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$2650</p>
+                    </td>
+                  </tr>
+                  <tr class="md:flex-col">
+                    <td>
+                      <div class="flex flex-1 items-center gap-2 md:self-stretch">
+                        <img
+                          src="public/images/img_ellipse_128_8.png"
+                          alt="anderson image"
+                          class="ml-[31px] h-[25px] w-[25px] rounded-[12px] object-cover"
+                        />
+                        <p class="size-md text ui self-start !font-inter !text-black-900_02">Anderson</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">8</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$18</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">10-02-2024</p>
+                    </td>
+                    <td>
+                      <p class="size-md text ui !font-inter !text-black-900_02">$1550</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

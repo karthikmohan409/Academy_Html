@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Batch Scheduling - Manage Student Timings | Actionzone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Efficiently add and manage batch timings for students, ensuring optimal class schedules and maximum engagement."
+    />
+    <img
+      alt="Logo"
+      src="https://appproject.dhiwise.com/dhiwise-logo.png?c=&v="
+      style="width: 0px; height: 0px; display: none"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/font.css" />
+  </head>
+  <body>
+    <!-- batch addition section -->
+    <div class="w-full bg-white-A700 pt-[18px]">
+      <!-- batch details section -->
+      <div class="flex flex-col items-center">
+        <h1 class="size-2xl heading ui ml-[42px] self-start !text-gray-900_03 md:ml-0">Add batch</h1>
+        <div class="mt-[18px] h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- batch time selection section -->
+        <div class="container-2xl mt-6 flex flex-col gap-12 md:p-5">
+          <div class="flex gap-[18px] md:flex-col">
+            <div class="flex w-full flex-col items-start gap-3.5">
+              <p class="size-s text ui !font-medium !text-black-900_02">Start time</p>
+              <div
+                class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_7f_02 bg-transparent px-5 py-3.5 text-sm text-black-900_7f_02"
+              >
+                <input name="Start Time Picker" type="time" placeholder="03:00 PM" />
+              </div>
+            </div>
+            <div class="flex w-full flex-col items-start gap-3.5">
+              <p class="size-s text ui !font-medium !text-black-900_02">End time</p>
+              <div
+                class="relative flex gap-[35px] self-stretch rounded-[5px] border border-solid border-black-900_7f_02 bg-transparent px-5 py-3.5 text-sm text-black-900_7f_02"
+              >
+                <input name="End Time Picker" type="time" placeholder="04:00 PM" />
+              </div>
+            </div>
+          </div>
+          <div class="flex w-[45%] flex-col items-start gap-[26px] md:w-full">
+            <div class="mt-9 flex w-[14%] gap-[7px] self-start md:w-full">
+              <img src="public/images/img_gg_repeat.svg" alt="ggrepeatimage" class="h-[32px] w-[32px]" />
+              <div class="flex flex-1 items-center gap-[11px]">
+                <p class="size-md text ui !text-black-900_02">Repeat</p>
+                <div class="square size-sm switch ui rotate-[180deg]">
+                  <input type="checkbox" name="switch" id="switch" />
+                  <label for="switch"> </label>
+                </div>
+              </div>
+            </div>
+            <div class="flex w-[93%] self-end md:w-full">
+              <div class="flex w-full flex-col gap-[18px]">
+                <div class="flex items-center gap-[22px] sm:flex-col">
+                  <p class="size-md text ui mb-[9px] self-end !text-black-900_02">Every</p>
+                  <select
+                    class="round fill size-lg white_a700 selectbox ui flex-grow gap-px border border-solid border-blue_gray-300 bg-[url(../public/images/img_arrow_down.svg)] bg-[length:13px] bg-no-repeat !text-blue_gray-600 sm:pr-5"
+                    name="Frequency Dropdown"
+                  >
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                </div>
+                <div class="flex w-[82%] items-center md:w-full sm:flex-col">
+                  <p class="size-md text ui h-[24px] w-[23px] !text-black-900_02">On</p>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[42px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    S
+                  </button>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    M
+                  </button>
+                  <button
+                    class="fill size-4xl indigo_a200_d3 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    T
+                  </button>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    W
+                  </button>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    T
+                  </button>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    F
+                  </button>
+                  <button
+                    class="fill size-4xl blue_50_01 button ui ml-[9px] w-full flex-1 rounded-[20px] sm:ml-0 sm:self-stretch"
+                  >
+                    S
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- student section heading -->
+        <div class="container-2xl mt-[51px] flex flex-col items-start gap-[3px] md:p-5">
+          <h2 class="size-lg heading ui">
+            <span class="text-black-900_02"> Students&nbsp;</span>
+            <span class="font-normal text-black-900_7f_02"> (Optional)</span>
+          </h2>
+          <div class="h-px w-full self-stretch bg-gray-900_19"></div>
+        </div>
+
+        <!-- student search section -->
+        <div class="container-2xl mt-[23px] flex items-center justify-between gap-5 md:flex-col md:p-5">
+          <label
+            class="fill size-xs white_a700 input ui w-[31%] gap-2.5 rounded-lg border border-solid border-gray-900_72 !text-gray-900_7f md:w-full sm:px-5"
+          >
+            <div class="flex h-[15px] w-[15px] items-center justify-center">
+              <img
+                src="public/images/img_search_black_900_02_15x15.svg"
+                alt="search"
+                class="h-[15px] w-[15px] cursor-pointer"
+              />
+            </div>
+            <input name="Search Input" placeholder="Search students" type="text" />
+          </label>
+          <div class="flex w-[24%] flex-wrap justify-between gap-5 self-end md:w-full">
+            <p class="size-md text ui">
+              <span class="text-black-900_99"> Selected :</span>
+              <span class="text-black-900_b2"> &nbsp;</span>
+              <span class="font-semibold text-black-900_e5"> 0</span>
+            </p>
+            <p class="size-md text ui">
+              <span class="text-black-900_99"> Total students :</span>
+              <span class="text-black-900_e5"> &nbsp;</span>
+              <span class="font-semibold text-black-900_e5"> 150&nbsp;</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- student list section -->
+        <div class="container-2xl mt-[17px] pb-[17px] md:p-5">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex flex-1 gap-[17px] md:flex-col">
+              <div class="flex flex-1 gap-[17px] md:flex-col md:self-stretch">
+                <div
+                  class="flex w-full items-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17.png"
+                    alt="profile image"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                    <h2 class="size-lg heading ui !text-black-900_e5">Student name 1</h2>
+                    <p class="size-s text ui">Student name 1@11gmail.com</p>
+                  </div>
+                  <div
+                    class="ml-[21px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                  ></div>
+                </div>
+                <div
+                  class="flex w-full items-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_75x75.png"
+                    alt="profile image alt"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="ml-3.5 flex flex-1 flex-col items-start gap-0.5">
+                    <h3 class="size-lg heading ui !text-black-900_e5">Student name 1</h3>
+                    <p class="size-s text ui">Student name 1@11gmail.com</p>
+                  </div>
+                  <div
+                    class="ml-5 h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="flex w-[33%] items-center justify-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4 md:w-full"
+              >
+                <img
+                  src="public/images/img_ellipse_17_1.png"
+                  alt="profile image alt2"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                  <h4 class="size-lg heading ui !text-black-900_e5">Student name 1</h4>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+                <div
+                  class="ml-[21px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-[17px] md:flex-col">
+              <div class="flex flex-1 gap-[17px] md:flex-col md:self-stretch">
+                <div
+                  class="flex w-full items-start gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_2.png"
+                    alt="profile image alt3"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="flex flex-1 items-start gap-[21px]">
+                    <div class="mt-3 flex flex-1 flex-col items-start gap-0.5">
+                      <h5 class="size-lg heading ui !text-black-900_e5">Student name 1</h5>
+                      <p class="size-s text ui">Student name 1@11gmail.com</p>
+                    </div>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full items-start gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_3.png"
+                    alt="profile image alt4"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="flex flex-1 items-start gap-5">
+                    <div class="mt-3 flex flex-1 flex-col items-start gap-0.5">
+                      <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                      <p class="size-s text ui">Student name 1@11gmail.com</p>
+                    </div>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex w-[33%] items-center justify-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4 md:w-full"
+              >
+                <img
+                  src="public/images/img_ellipse_17_4.png"
+                  alt="profile image alt5"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                  <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+                <div
+                  class="ml-[21px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-[17px] md:flex-col">
+              <div class="flex flex-1 gap-[17px] md:flex-col md:self-stretch">
+                <div
+                  class="flex w-full items-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_5.png"
+                    alt="image"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                    <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                    <p class="size-s text ui">Student name 1@11gmail.com</p>
+                  </div>
+                  <div
+                    class="ml-[21px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                  ></div>
+                </div>
+                <div
+                  class="flex w-full items-start gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_6.png"
+                    alt="image"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="flex flex-1 items-start gap-5">
+                    <div class="mt-3 flex flex-1 flex-col items-start gap-0.5">
+                      <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                      <p class="size-s text ui">Student name 1@11gmail.com</p>
+                    </div>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex w-[33%] items-center justify-center rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4 md:w-full"
+              >
+                <img
+                  src="public/images/img_ellipse_17_7.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="ml-[13px] flex flex-1 flex-col items-start gap-0.5">
+                  <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+                <div
+                  class="ml-[21px] h-[18px] w-[18px] self-start rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-[17px] md:flex-col">
+              <div class="flex flex-1 gap-[17px] md:flex-col md:self-stretch">
+                <div
+                  class="flex w-full items-start gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17.png"
+                    alt="image"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="flex flex-1 items-start gap-[21px]">
+                    <div class="mt-3 flex flex-1 flex-col items-start">
+                      <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                      <p class="size-s text ui">Student name 1@11gmail.com</p>
+                    </div>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="flex w-full items-start gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+                >
+                  <img
+                    src="public/images/img_ellipse_17_75x75.png"
+                    alt="image"
+                    class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                  />
+                  <div class="flex-1">
+                    <div class="flex flex-col items-start">
+                      <div class="flex items-start justify-between gap-5 self-stretch">
+                        <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                        <div
+                          class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                        ></div>
+                      </div>
+                      <p class="size-s text ui">Student name 1@11gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex w-[33%] items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4 md:w-full"
+              >
+                <img
+                  src="public/images/img_ellipse_17_1.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 items-start gap-[21px]">
+                  <div class="mt-3 flex flex-1 flex-col items-start">
+                    <h6 class="size-lg heading ui !text-black-900_e5">Student name 1</h6>
+                    <p class="size-s text ui">Student name 1@11gmail.com</p>
+                  </div>
+                  <div
+                    class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="grid flex-1 grid-cols-3 justify-center gap-[17px] md:grid-cols-2 sm:grid-cols-1">
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_2.png"
+                  alt="studentimage"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_3.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_4.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_5.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_6.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-A200"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_7.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_75x75.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_1.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_2.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_3.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_4.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_5.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_6.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_7.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_75x75.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_1.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_2.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_3.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_4.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_5.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-3.5 rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_6.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex w-full items-start justify-center gap-[13px] rounded-[12px] border border-solid border-black-900_7f_02 bg-white-A700 p-4"
+              >
+                <img
+                  src="public/images/img_ellipse_17_7.png"
+                  alt="image"
+                  class="h-[75px] w-[75px] rounded-[37px] object-cover"
+                />
+                <div class="flex flex-1 flex-col items-start">
+                  <div class="flex items-start justify-between gap-5 self-stretch">
+                    <h6 class="size-lg heading ui mt-3 !text-black-900_e5">Student name 1</h6>
+                    <div
+                      class="h-[18px] w-[18px] rounded-[3px] border border-solid border-indigo-A200 bg-indigo-50_03"
+                    ></div>
+                  </div>
+                  <p class="size-s text ui">Student name 1@11gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-[31px] h-px w-full self-stretch bg-black-900_35"></div>
+
+        <!-- action buttons section -->
+        <div class="mr-[54px] mt-[27px] flex gap-[11px] self-end md:mr-0">
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl white_a700 button ui min-w-[199px] rounded-lg border border-solid border-gray-200_01 font-semibold !text-gray-700_01 sm:px-5"
+            >
+              Cancel
+            </button>
+          </a>
+          <a href="https://www.youtube.com/embed/bv8Fxk0sz7I" target="_blank">
+            <button
+              class="fill size-4xl indigo_a200_87 button ui min-w-[199px] rounded-lg font-semibold opacity-0.5 sm:px-5"
+            >
+              Save
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
